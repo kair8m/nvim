@@ -4,6 +4,8 @@ local bufferline = require('bufferline')
 
 vim.api.nvim_set_keymap('n', '<A-,>', '<CMD>BufferLineCyclePrev<CR>', { silent = true })
 vim.api.nvim_set_keymap('n', '<A-.>', '<CMD>BufferLineCycleNext<CR>', { silent = true })
+vim.api.nvim_set_keymap('n', '<A-c>', '<CMD>bd<CR>', { silent = true })
+vim.api.nvim_set_keymap('n', '<A-t>', '<CMD>BufferLineCloseLeft<CR><CMD>BufferLineCloseRight<CR>', { silent = true })
 
 bufferline.setup({
     highlights = {
