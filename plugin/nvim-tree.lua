@@ -29,7 +29,7 @@ require('nvim-tree').setup({
                 symlink = "",
                 bookmark = "",
                 folder = {
-                    arrow_closed = "",
+                    arrow_closed = "➤",
                     arrow_open = "",
                     default = "",
                     open = "",
@@ -63,7 +63,7 @@ require('nvim-tree').setup({
     },
 })
 
-nvim_tree_api = require('nvim-tree.api')
+local nvim_tree_api = require('nvim-tree.api')
 
 vim.keymap.set({'n', 'i'}, '<C-n>', function()
     -- proj_root = vim.fn.system('git rev-parse --show-toplevel 2> /dev/null')

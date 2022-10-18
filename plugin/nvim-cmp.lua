@@ -18,6 +18,7 @@ cmp.setup({
         {name = 'nvim_lsp', keyword_length = 3},
         {name = 'buffer', keyword_length = 3},
         {name = 'luasnip', keyword_length = 2},
+        {name = 'nvim_lua'}
     },
     window = {
         completion = cmp.config.window.bordered(),

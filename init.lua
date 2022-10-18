@@ -10,4 +10,6 @@ vim.opt.swapfile = false
 
 vim.opt.completeopt = {'menu', 'menuone', 'noselect'}
 
+vim.api.nvim_set_keymap('n', '<ESC>', '<CMD>noh<CR>', {silent = true})
+
 require('packer-init')
