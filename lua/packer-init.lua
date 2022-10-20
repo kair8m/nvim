@@ -75,4 +75,12 @@ return require('packer').startup(function(use)
     use 'karb94/neoscroll.nvim'
 
     use 'terrortylor/nvim-comment'
+
+    use 'windwp/nvim-autopairs'
+
+    use 'j-hui/fidget.nvim'
+
+    use 'williamboman/mason.nvim'
+
+    use 'WhoIsSethDaniel/mason-tool-installer.nvim'
 end)
