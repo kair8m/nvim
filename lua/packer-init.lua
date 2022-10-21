@@ -26,6 +26,7 @@ return require('packer').startup(function(use)
 
     use {
         'nvim-treesitter/nvim-treesitter', -- Syntax highlighting
+        'nvim-treesitter/nvim-treesitter-textobjects',
         run = ':TSUpdate'
     }
 
@@ -83,4 +84,9 @@ return require('packer').startup(function(use)
     use 'williamboman/mason.nvim'
 
     use 'WhoIsSethDaniel/mason-tool-installer.nvim'
+
+    use {
+        'kylechui/nvim-surround',
+        rag = '*'
+    }
 end)
