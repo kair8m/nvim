@@ -103,6 +103,8 @@ return require('packer').startup(function(use)
         rag = '*'
     }
 
+    use 'ojroques/nvim-bufdel'
+
     if packer_bootstrap then
         require('packer').sync()
     end
