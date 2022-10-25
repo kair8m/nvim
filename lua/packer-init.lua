@@ -15,6 +15,7 @@ return require('packer').startup(function(use)
     -- Packer can manage itself
     use 'wbthomason/packer.nvim' -- Packagemanager
     use 'Mofiqul/dracula.nvim' -- Colorscheme
+    use 'EdenEast/nightfox.nvim' -- Packer
 
     use 'neovim/nvim-lspconfig' -- Configurations for Nvim LSP
     use 'hrsh7th/cmp-nvim-lsp'
@@ -23,6 +24,7 @@ return require('packer').startup(function(use)
     use 'hrsh7th/cmp-cmdline'
     use 'hrsh7th/nvim-cmp'
     use 'hrsh7th/cmp-nvim-lua'
+    use 'folke/lsp-colors.nvim'
     use {
         'L3MON4D3/LuaSnip',
         tag = 'v<CurrentMajor>.*'
