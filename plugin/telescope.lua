@@ -4,6 +4,12 @@ telescope.load_extension('fzf')
 telescope.load_extension('lsp_handlers')
 
 telescope.setup({
+    defaults = {
+        -- use fd to "find files" and return absolute paths
+        find_command = { "fd", "-t=f", "-a" },
+        path_display = { "absolute" },
+        wrap_results = true
+    },
     extensions = {
         fzf = {
             fuzzy = true, -- false will only do exact matching
@@ -28,11 +34,10 @@ telescope.setup({
             },
             code_action = {
                 telescope = require('telescope.themes').get_dropdown({}),
-                no_results_message = 'No code actions available',
-                prefix = '',
             },
         },
     }
+
 })
 
 local telescope_api = require('telescope.builtin')
