@@ -7,7 +7,7 @@ telescope.setup({
     defaults = {
         -- use fd to "find files" and return absolute paths
         find_command = { "fd", "-t=f", "-a" },
-        path_display = { "absolute" },
+        path_display = { "relative" },
         wrap_results = true
     },
     extensions = {
