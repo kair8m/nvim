@@ -1,4 +1,8 @@
-require('nvim-tree').setup({
+local status_ok, nvim_tree = pcall(require, 'nvim-tree')
+if not status_ok then
+    return
+end
+nvim_tree.setup({
     update_cwd = true,
     sync_root_with_cwd = true,
     update_focused_file = {
@@ -63,7 +67,10 @@ require('nvim-tree').setup({
     },
 })
 
-local nvim_tree_api = require('nvim-tree.api')
+local status_ok2, nvim_tree_api = pcall(require, 'nvim-tree.api')
+if not status_ok2 then
+    return
+end
 
 vim.keymap.set({ 'n', 'i' }, '<C-n>', function()
     -- proj_root = vim.fn.system('git rev-parse --show-toplevel 2> /dev/null')
