@@ -107,6 +107,8 @@ return require('packer').startup(function(use)
 
     use 'ojroques/nvim-bufdel'
 
+    use 'xiyaowong/nvim-transparent'
+
     if packer_bootstrap then
         require('packer').sync()
     end
