@@ -1,5 +1,3 @@
-vim.g.mapleader = ' '
-
 vim.opt.number = true
 vim.opt.expandtab = true
 vim.opt.swapfile = false
@@ -18,6 +16,7 @@ vim.api.nvim_set_keymap('n', '<ESC>', '<CMD>noh<CR>', {silent = true})
 
 require('packer-init')
 
+require('core.keybindings')
 require('core.colorscheme')
 require('core.cursor')
 require('core.spacing')
