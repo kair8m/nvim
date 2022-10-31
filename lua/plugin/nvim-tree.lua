@@ -1,3 +1,5 @@
+vim.g.loaded_netrw = 1
+vim.g.loaded_netrwPlugin = 1
 local status_ok, nvim_tree = pcall(require, 'nvim-tree')
 if not status_ok then
     return
@@ -73,12 +75,10 @@ if not status_ok2 then
 end
 
 vim.keymap.set({ 'n', 'i' }, '<C-n>', function()
-    -- proj_root = vim.fn.system('git rev-parse --show-toplevel 2> /dev/null')
-    --if not (proj_root == nil or proj_root == '') then
-    --    nvim_tree_api.tree.change_root(proj_root)
-    --end
     nvim_tree_api.tree.toggle()
 end)
+
+vim.keymap.set({ 'n', 'i' }, '<C-]>','<CMD>NvimTreeFindFile<CR>')
 
 -- nvim-tree is also there in modified buffers so this function filter it out
 local modifiedBufs = function(bufs)
