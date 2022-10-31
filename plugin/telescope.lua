@@ -1,4 +1,7 @@
-local telescope = require('telescope')
+local status_ok, telescope = pcall(require,'telescope')
+if not status_ok then
+    return
+end
 
 telescope.load_extension('fzf')
 telescope.load_extension('lsp_handlers')
@@ -7,7 +10,7 @@ telescope.setup({
     defaults = {
         -- use fd to "find files" and return absolute paths
         find_command = { "fd", "-t=f", "-a" },
-        path_display = { "relative" },
+        path_display = { "smart" },
         wrap_results = true
     },
     extensions = {
