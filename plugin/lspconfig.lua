@@ -1,14 +1,24 @@
+local status_ok, lspconfig = pcall(require, 'lspconfig')
+if not status_ok then
+    return
+end
+
+local status_ok2, cmp_nvim_lsp = pcall(require, 'cmp_nvim_lsp')
+if not status_ok2 then
+    return
+end
+
+local capabilities = cmp_nvim_lsp.default_capabilities()
+
 local lsp_defaults = {
     flags = {
         debounce_text_changes = 150,
     },
-    capabilities = require('cmp_nvim_lsp').default_capabilities(),
+    capabilities = capabilities,
     on_attach = function(client, bufnr)
         vim.api.nvim_exec_autocmds('User', { pattern = 'LspAttached' })
     end
 }
-
-local lspconfig = require('lspconfig')
 
 lspconfig.util.default_config = vim.tbl_deep_extend(
     'force',
@@ -17,8 +27,6 @@ lspconfig.util.default_config = vim.tbl_deep_extend(
 )
 
 -- Set up lspconfig.
-local capabilities = require('cmp_nvim_lsp').default_capabilities()
-
 lspconfig['pyright'].setup { capabilities = capabilities }
 lspconfig['clangd'].setup {
     init_options = {
@@ -43,7 +51,13 @@ lspconfig.sumneko_lua.setup({
         }
     }
 })
-require('luasnip.loaders.from_vscode').lazy_load()
+
+local status_ok3, from_vscode = pcall(require, 'luasnip.loaders.from_vscode')
+if not status_ok3 then
+    return
+end
+
+from_vscode.lazy_load()
 
 vim.api.nvim_create_autocmd('User', {
     pattern = 'LspAttached',
