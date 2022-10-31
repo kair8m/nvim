@@ -29,12 +29,12 @@ vim.cmd[[set cursorline]]
 vim.api.nvim_set_keymap('n', '<ESC>', '<CMD>noh<CR>', {silent = true})
 
 require('packer-init')
+require('core.colorscheme')
 require('plugin.autopairs')
 require('plugin.bufferline')
 require('plugin.cursorline')
 require('plugin.diagnostics')
 require('plugin.fidget')
-require('plugin.fox')
 require('plugin.gitsigns')
 require('plugin.indent-blankline')
 require('plugin.lsp-colors')
