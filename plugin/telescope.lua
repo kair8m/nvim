@@ -8,18 +8,28 @@ telescope.load_extension('lsp_handlers')
 
 telescope.setup({
     defaults = {
-        -- use fd to "find files" and return absolute paths
-        find_command = { "fd", "-t=f", "-a" },
-        path_display = { "smart" },
-        wrap_results = true
+        -- use fd to 'find files' and return absolute paths
+        find_command = { 'fd', '-t=f', '-a', '-i' },
+        path_display = { 'smart' },
+        wrap_results = true,
+        prompt_prefix='🔍 ',
+        vimgrep_arguments = {
+            'rg',
+            '--color=never',
+            '--no-heading',
+            '--with-filename',
+            '--line-number',
+            '--column',
+            '--smart-case'
+        }
     },
     extensions = {
         fzf = {
             fuzzy = true, -- false will only do exact matching
             override_generic_sorter = true, -- override the generic sorter
             override_file_sorter = true, -- override the file sorter
-            case_mode = "smart_case", -- or "ignore_case" or "respect_case"
-            -- the default case_mode is "smart_case"
+            case_mode = 'smart_case', -- or 'ignore_case' or 'respect_case'
+            -- the default case_mode is 'smart_case'
         },
         lsp_handlers = {
             disable = {},
@@ -45,5 +55,12 @@ telescope.setup({
 
 local telescope_api = require('telescope.builtin')
 
-vim.keymap.set('n', '<C-p>', telescope_api.find_files, {})
-vim.keymap.set('n', '<C-f>', telescope_api.live_grep, {})
+vim.keymap.set('n', '<C-p>', function ()
+    telescope_api.find_files({
+        find_command = { 'fd', '-t=f', '-i' },
+    })
+end)
+vim.keymap.set('n', '<C-f>', function ()
+    telescope_api.live_grep()
+end)
+
