@@ -1,6 +1,8 @@
+local status_ok, bufferline = pcall(require, 'bufferline')
+if not status_ok then
+    return
+end
 vim.opt.termguicolors = true
-
-local bufferline = require('bufferline')
 
 vim.api.nvim_set_keymap('n', '<A-,>', '<CMD>BufferLineCyclePrev<CR>', { silent = true })
 vim.api.nvim_set_keymap('n', '<A-.>', '<CMD>BufferLineCycleNext<CR>', { silent = true })
@@ -31,3 +33,4 @@ bufferline.setup({
         }
     },
 })
+
