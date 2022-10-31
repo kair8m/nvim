@@ -34,7 +34,11 @@ lspconfig['clangd'].setup {
     },
     capabilities = capabilities
 }
-lspconfig['tsserver'].setup { capabilities = capabilities }
+lspconfig['tsserver'].setup {
+    capabilities = capabilities,
+    filetypes = { 'typescript', 'typescriptreact', 'typescript.tsx' }
+}
+
 lspconfig.sumneko_lua.setup({
     { capabilities = capabilities },
     settings = {
@@ -51,13 +55,6 @@ lspconfig.sumneko_lua.setup({
         }
     }
 })
-
-local status_ok3, from_vscode = pcall(require, 'luasnip.loaders.from_vscode')
-if not status_ok3 then
-    return
-end
-
-from_vscode.lazy_load()
 
 vim.api.nvim_create_autocmd('User', {
     pattern = 'LspAttached',

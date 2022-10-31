@@ -9,5 +9,13 @@ mason.setup({
             package_pending = "➜",
             package_uninstalled = "✗"
         }
+    },
+    ensure_installed = {
+        'clangd',
+        'pyright',
+        'tsserver',
+        'html',
+        'cssls',
+        'eslint'
     }
 })
