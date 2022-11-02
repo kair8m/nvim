@@ -50,7 +50,6 @@ return require('packer').startup(function(use)
 
     use { 'nvim-telescope/telescope-fzf-native.nvim', run = 'make' }
 
-
     use {
         'nvim-telescope/telescope.nvim', tag = '0.1.0',
         -- or                            , branch = '0.1.x',
@@ -120,6 +119,12 @@ return require('packer').startup(function(use)
     use 'jayp0521/mason-null-ls.nvim'
 
     use 'windwp/nvim-ts-autotag'
+
+    use {
+        'SmiteshP/nvim-navic',
+        requires = 'neovim/nvim-lspconfig'
+    }
+
 
     if packer_bootstrap then
         require('packer').sync()

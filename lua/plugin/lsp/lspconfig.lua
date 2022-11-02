@@ -13,6 +13,11 @@ if not typescript_setup then
     return
 end
 
+local navic_staus, navic = pcall(require, 'nvim-navic')
+if not navic_staus then
+    return
+end
+
 local on_attach = function(client, bufnr)
     local opts = { noremap = true, silent = true, buffer = bufnr }
     local bufmap = function(mode, lhs, rhs)
@@ -44,6 +49,10 @@ local on_attach = function(client, bufnr)
     -- Move to the next diagnostic
     bufmap('n', ']d', '<cmd>Lspsaga diagnostic_jump_next<cr>')
 
+    if client.server_capabilities.documentSymbolProvider then
+        navic.attach(client, bufnr)
+    end
+
     if client.name == 'tsserver' then
         bufmap('n', '<leader>rf', '<CMD>TypescriptRenameFile<CR>')
     end
@@ -73,7 +82,7 @@ lspconfig['tailwindcss'].setup({
     on_attach = on_attach
 })
 
-lspconfig[ 'sumneko_lua' ].setup({
+lspconfig['sumneko_lua'].setup({
     capabilities = capabilities,
     on_attach = on_attach,
     settings = {
@@ -104,3 +113,34 @@ lspconfig['clangd'].setup {
     on_attach = on_attach
 }
 
+navic.setup({
+    icons = {
+        File = ' ',
+        Module = ' ',
+        Namespace = ' ',
+        Package = ' ',
+        Class = ' ',
+        Method = ' ',
+        Property = ' ',
+        Field = ' ',
+        Constructor = ' ',
+        Enum = ' ',
+        Interface = ' ',
+        Function = ' ',
+        Variable = ' ',
+        Constant = ' ',
+        String = ' ',
+        Number = ' ',
+        Boolean = ' ',
+        Array = ' ',
+        Object = ' ',
+        Key = ' ',
+        Null = ' ',
+        EnumMember = ' ',
+        Struct = ' ',
+        Event = ' ',
+        Operator = ' ',
+        TypeParameter = ' '
+    }
+
+})
