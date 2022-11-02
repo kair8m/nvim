@@ -40,9 +40,9 @@ local on_attach = function(client, bufnr)
     -- Show diagnostics in a floating window
     bufmap('n', 'gl', '<cmd>lua vim.diagnostic.open_float()<cr>')
     -- Move to the previous diagnostic
-    bufmap('n', '[d', '<cmd>lua vim.diagnostic.goto_prev()<cr>')
+    bufmap('n', '[d', '<cmd>Lspsaga diagnostic_jump_prev<cr>')
     -- Move to the next diagnostic
-    bufmap('n', ']d', '<cmd>lua vim.diagnostic.goto_next()<cr>')
+    bufmap('n', ']d', '<cmd>Lspsaga diagnostic_jump_next<cr>')
 
     if client.name == 'tsserver' then
         bufmap('n', '<leader>rf', '<CMD>TypescriptRenameFile<CR>')
