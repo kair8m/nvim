@@ -25,4 +25,7 @@ configs.setup({
         enable = true,
         disable = { 'yaml' },
     },
+    autotag = {
+        enable = true
+    },
 })
