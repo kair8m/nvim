@@ -19,9 +19,9 @@ local on_attach = function(client, bufnr)
         vim.keymap.set(mode, lhs, rhs, opts)
     end
     -- Displays hover information about the symbol under the cursor
-    bufmap('n', 'K', '<cmd>lua vim.lsp.buf.hover()<cr>')
+    bufmap('n', 'K', '<cmd>Lspsaga hover_doc<cr>')
     -- Jump to the definition
-    bufmap('n', 'gd', '<cmd>lua vim.lsp.buf.definition()<cr>')
+    bufmap('n', 'gd', '<cmd>Lspsaga peek_definition<cr>')
     -- Jump to declaration
     bufmap('n', 'gD', '<cmd>lua vim.lsp.buf.declaration()<cr>')
     -- Lists all the implementations for the symbol under the cursor
@@ -29,13 +29,13 @@ local on_attach = function(client, bufnr)
     -- Jumps to the definition of the type symbol
     bufmap('n', 'gy', '<cmd>lua vim.lsp.buf.type_definition()<cr>')
     -- Lists all the references
-    bufmap('n', 'gr', '<cmd>lua vim.lsp.buf.references()<cr>')
+    bufmap('n', 'gr', '<cmd>Lspsaga lsp_finder<cr>')
     -- Displays a function's signature information
     bufmap('n', '<C-k>', '<cmd>lua vim.lsp.buf.signature_help()<cr>')
     -- Renames all references to the symbol under the cursor
-    bufmap('n', '<C-r>', '<cmd>lua vim.lsp.buf.rename()<cr>')
+    bufmap('n', 'rn', '<cmd>Lspsaga rename<cr>')
     -- Selects a code action available at the current cursor position
-    bufmap('n', '<C-a>', '<cmd>lua vim.lsp.buf.code_action()<cr>')
+    bufmap('n', '<C-a>', '<cmd>Lspsaga code_action<cr>')
     bufmap('x', '<C-s>', '<cmd>lua vim.lsp.buf.range_code_action()<cr>')
     -- Show diagnostics in a floating window
     bufmap('n', 'gl', '<cmd>lua vim.diagnostic.open_float()<cr>')
