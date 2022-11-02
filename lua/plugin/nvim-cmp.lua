@@ -18,7 +18,7 @@ if not status_ok2 then
 end
 
 local status_ok3, lspkind = pcall(require, 'lspkind')
-if not status_ok then
+if not status_ok3 then
     return
 end
 
@@ -47,17 +47,6 @@ cmp.setup({
             mode = 'symbol', -- show only symbol annotations
             maxwidth = 50, -- prevent the popup from showing more than provided characters (e.g 50 will not show more than 50 characters)
             ellipsis_char = '...', -- when popup menu exceed maxwidth, the truncated part would show ellipsis_char instead (must define maxwidth first)
-
-            before = function(entry, item)
-                local menu_icon = {
-                    nvim_lsp = 'λ',
-                    luasnip = '⋗',
-                    buffer = 'Ω',
-                    path = '🖫',
-                }
-                item.menu = menu_icon[entry.source.name]
-                return item
-            end
         })
     },
 
