@@ -74,12 +74,6 @@ if not status_ok2 then
     return
 end
 
-vim.keymap.set({ 'n', 'i' }, '<C-n>', function()
-    nvim_tree_api.tree.toggle()
-end)
-
-vim.keymap.set({ 'n', 'i' }, '<C-]>','<CMD>NvimTreeFindFile<CR>')
-
 -- nvim-tree is also there in modified buffers so this function filter it out
 local modifiedBufs = function(bufs)
     local t = 0

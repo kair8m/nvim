@@ -12,8 +12,6 @@ vim.opt.signcolumn = 'yes'
 vim.opt.backspace = 'indent,eol,start'
 vim.opt.iskeyword:append('-')
 
-vim.api.nvim_set_keymap('n', '<ESC>', '<CMD>noh<CR>', {silent = true})
-
 require('packer-init')
 
 require('core.keybindings')

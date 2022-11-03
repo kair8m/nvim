@@ -1,4 +1,4 @@
-local status_ok, telescope = pcall(require,'telescope')
+local status_ok, telescope = pcall(require, 'telescope')
 if not status_ok then
     return
 end
@@ -12,7 +12,7 @@ telescope.setup({
         find_command = { 'fd', '-t=f', '-a', '-i' },
         path_display = { 'smart' },
         wrap_results = true,
-        prompt_prefix='🔍 ',
+        prompt_prefix = '🔍 ',
         vimgrep_arguments = {
             'rg',
             '--color=never',
@@ -52,15 +52,4 @@ telescope.setup({
     }
 
 })
-
-local telescope_api = require('telescope.builtin')
-
-vim.keymap.set('n', '<C-p>', function ()
-    telescope_api.find_files({
-        find_command = { 'fd', '-t=f', '-i' },
-    })
-end)
-vim.keymap.set('n', '<C-f>', function ()
-    telescope_api.live_grep()
-end)
 
