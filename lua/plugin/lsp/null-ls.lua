@@ -12,7 +12,7 @@ null_ls.setup({
     sources = {
         formatting.prettier,
         formatting.stylua,
-        formatting.clang_format,
+        -- formatting.clang_format,
         formatting.cmake_format,
         formatting.autopep8,
         diagnostics.eslint_d,
