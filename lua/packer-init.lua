@@ -101,7 +101,7 @@ return require('packer').startup(function(use)
     use 'jose-elias-alvarez/typescript.nvim'
     use 'onsails/lspkind.nvim'
 
-    use{  'glepnir/lspsaga.nvim', branch ='main' }
+    use { 'glepnir/lspsaga.nvim', branch = 'main' }
 
     use 'WhoIsSethDaniel/mason-tool-installer.nvim'
 
@@ -126,6 +126,8 @@ return require('packer').startup(function(use)
     }
 
     use 'folke/which-key.nvim'
+
+    use { 'krivahtoo/silicon.nvim', run = './install.sh' }
 
     if packer_bootstrap then
         require('packer').sync()
