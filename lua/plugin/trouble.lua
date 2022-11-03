@@ -7,7 +7,7 @@ trouble.setup {
     -- or leave it empty to use the default settings
     -- refer to the configuration section below
     position = 'right',
-    auto_open = true,
+    auto_open = false,
     use_diagnostics_signs = true,
     icons = true,
     signs = {
