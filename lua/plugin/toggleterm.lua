@@ -38,6 +38,6 @@ local lazygit  = Terminal:new({
     end,
 })
 
-function _lazygit_toggle()
+function LAZYGIT_TOGGLE()
     lazygit:toggle()
 end

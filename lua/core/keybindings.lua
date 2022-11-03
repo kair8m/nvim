@@ -13,5 +13,5 @@ mapset({ 'n' }, '<leader>p',
 mapset({ 'n' }, '<leader>f', '<CMD>Telescope live_grep<CR>')
 mapset({ 'n' }, '<leader>e', '<CMD>NvimTreeToggle<CR>')
 mapset({ 'n' }, '<leader>o', '<CMD>NvimTreeFindFile<CR>')
-map('n', '<leader>g', '<cmd>lua _lazygit_toggle()<CR>', { noremap = true, silent = true })
+map('n', '<leader>g', '<cmd>lua LAZYGIT_TOGGLE()<CR>', { noremap = true, silent = true })
 
