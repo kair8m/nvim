@@ -125,6 +125,7 @@ return require('packer').startup(function(use)
         requires = 'neovim/nvim-lspconfig'
     }
 
+    use 'folke/which-key.nvim'
 
     if packer_bootstrap then
         require('packer').sync()
