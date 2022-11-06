@@ -24,7 +24,8 @@ mason_lspconfig.setup({
         'cssls',
         'eslint',
         'sumneko_lua',
-        'tailwindcss'
+        'tailwindcss',
+        'bashls'
     }
 })
 
@@ -44,7 +45,9 @@ mason_null_ls.setup({
         'jsonlint',
         'markdownlint',
         'quick-lint-js',
-        'shellcheck'
+        'shellcheck',
+        'shfmt',
+        'beautysh'
     }
 })
 

@@ -15,6 +15,8 @@ null_ls.setup({
         -- formatting.clang_format,
         formatting.cmake_format,
         formatting.autopep8,
+        formatting.shfmt,
+        formatting.beautysh,
         diagnostics.eslint_d,
     },
 
