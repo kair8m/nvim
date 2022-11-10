@@ -15,7 +15,7 @@ end
 local mappings = {
     e = { '<CMD>NvimTreeToggle<CR>', 'File Explorer' },
     o = { '<CMD>NvimTreeFindFile<CR>', 'Open file in explorer' },
-    p = { '<CMD>lua require("telescope.builtin").find_files({find_command = { "fd", "-t=f", "-i" }})<CR>', 'Search files' },
+    p = { '<CMD>lua require("telescope.builtin").find_files({find_command = { "fd", "-t=f", "-H" }})<CR>', 'Search files' },
     f = { '<CMD>Telescope live_grep<CR>', 'Search in files' },
     g = { '<cmd>lua LAZYGIT_TOGGLE()<CR>', 'Toggle lazygit' },
     S = { '<cmd>Silicon<CR>', 'Take screenshot' }
