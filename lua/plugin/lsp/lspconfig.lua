@@ -23,6 +23,10 @@ local on_attach = function(client, bufnr)
     local bufmap = function(mode, lhs, rhs)
         vim.keymap.set(mode, lhs, rhs, opts)
     end
+    -- Use LSP as the handler for formatexpr.
+    -- See `:help formatexpr` for more information.
+    vim.api.nvim_buf_set_option(0, "formatexpr", "v:lua.vim.lsp.formatexpr()")
+
     -- Displays hover information about the symbol under the cursor
     bufmap('n', 'K', '<cmd>Lspsaga hover_doc<cr>')
     -- Jump to the definition

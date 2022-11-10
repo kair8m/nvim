@@ -48,7 +48,7 @@ mason_null_ls.setup({
         'quick-lint-js',
         'shellcheck',
         'shfmt',
-        'beautysh'
+        'beautysh',
+        'rustfmt'
     }
 })
-

@@ -17,8 +17,8 @@ null_ls.setup({
         formatting.autopep8,
         formatting.shfmt,
         formatting.beautysh,
+        formatting.rustfmt,
         diagnostics.eslint_d,
     },
 
 })
-
