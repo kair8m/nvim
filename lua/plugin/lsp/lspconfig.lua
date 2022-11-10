@@ -118,6 +118,11 @@ lspconfig['bashls'].setup {
     on_attach = on_attach
 }
 
+-- lspconfig['rust_analyzer'].setup {
+--     capabilities = capabilities,
+--     on_attach = on_attach
+-- }
+
 navic.setup({
     icons = {
         File = ' ',
@@ -148,4 +153,23 @@ navic.setup({
         TypeParameter = ' '
     }
 
+})
+
+local rust_tools_status, rust_tools = pcall(require, 'rust-tools')
+if not rust_tools_status then
+    return
+end
+rust_tools.setup({
+    server = {
+        on_attach = on_attach,
+    },
+    tools = {
+        runnables = {
+            use_telescope = true
+        },
+        inlay_hints = {
+            auto = true,
+            show_parameter_hints = true
+        }
+    }
 })

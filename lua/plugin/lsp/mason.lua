@@ -25,7 +25,8 @@ mason_lspconfig.setup({
         'eslint',
         'sumneko_lua',
         'tailwindcss',
-        'bashls'
+        'bashls',
+        'rust_analyzer'
     }
 })
 

@@ -129,6 +129,8 @@ return require('packer').startup(function(use)
 
     use { 'krivahtoo/silicon.nvim', run = './install.sh' }
 
+    use 'simrat39/rust-tools.nvim'
+
     if packer_bootstrap then
         require('packer').sync()
     end
