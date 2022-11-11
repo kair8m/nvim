@@ -45,7 +45,6 @@ local on_attach = function(client, bufnr)
     bufmap('n', 'rn', '<cmd>Lspsaga rename<cr>')
     -- Selects a code action available at the current cursor position
     bufmap('n', '<C-a>', '<cmd>Lspsaga code_action<cr>')
-    bufmap('x', '<C-s>', '<cmd>lua vim.lsp.buf.range_code_action()<cr>')
     -- Show diagnostics in a floating window
     bufmap('n', 'gl', '<cmd>lua vim.diagnostic.open_float()<cr>')
     -- Move to the previous diagnostic
