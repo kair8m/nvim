@@ -133,6 +133,8 @@ return require('packer').startup(function(use)
 
     use 'rust-lang/rust.vim'
 
+    use 'christoomey/vim-tmux-navigator'
+
     if packer_bootstrap then
         require('packer').sync()
     end

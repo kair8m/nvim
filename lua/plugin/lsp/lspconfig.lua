@@ -40,7 +40,7 @@ local on_attach = function(client, bufnr)
     -- Lists all the references
     bufmap('n', 'gr', '<cmd>Lspsaga lsp_finder<cr>')
     -- Displays a function's signature information
-    bufmap('n', '<C-k>', '<cmd>lua vim.lsp.buf.signature_help()<cr>')
+    -- bufmap('n', '<C-k>', '<cmd>lua vim.lsp.buf.signature_help()<cr>')
     -- Renames all references to the symbol under the cursor
     bufmap('n', 'rn', '<cmd>Lspsaga rename<cr>')
     -- Selects a code action available at the current cursor position
