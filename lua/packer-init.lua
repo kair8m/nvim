@@ -43,7 +43,6 @@ return require('packer').startup(function(use)
     use {
         'nvim-treesitter/nvim-treesitter', -- Syntax highlighting
         'nvim-treesitter/nvim-treesitter-textobjects',
-        run = ':TSUpdate'
     }
 
     use 'nvim-lua/plenary.nvim' -- Collection of usefull lua libraries
