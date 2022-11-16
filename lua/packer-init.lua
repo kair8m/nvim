@@ -40,10 +40,18 @@ return require('packer').startup(function(use)
         tag = 'nightly' -- optional, updated every week. (see issue #1193)
     }
 
+    use 'nvim-treesitter/nvim-treesitter' -- Syntax highlighting
     use {
-        'nvim-treesitter/nvim-treesitter', -- Syntax highlighting
         'nvim-treesitter/nvim-treesitter-textobjects',
+        opt = true,
+        requires = { 'nvim-treesitter/nvim-treesitter' },
     }
+    use {
+        'windwp/nvim-ts-autotag',
+        opt = true,
+        requires = {'nvim-treesitter/nvim-treesitter'},
+    }
+
 
     use 'nvim-lua/plenary.nvim' -- Collection of usefull lua libraries
 
@@ -116,12 +124,6 @@ return require('packer').startup(function(use)
     use 'jose-elias-alvarez/null-ls.nvim'
 
     use 'jayp0521/mason-null-ls.nvim'
-
-    use {
-        'windwp/nvim-ts-autotag',
-        opt = true,
-        requires = {'nvim-treesitter/nvim-treesitter'},
-    }
 
     use {
         'SmiteshP/nvim-navic',
