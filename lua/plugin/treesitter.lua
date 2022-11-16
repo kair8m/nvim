@@ -2,6 +2,10 @@ local configs_status, configs = pcall(require, 'nvim-treesitter.configs')
 if not configs_status then
     return
 end
+local ts_autotag_status, _ = pcall(require, 'nvim-ts-autotag')
+if not ts_autotag_status then
+    return
+end
 
 configs.setup({
     ensure_installed = 'all',
