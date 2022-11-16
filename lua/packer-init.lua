@@ -117,7 +117,11 @@ return require('packer').startup(function(use)
 
     use 'jayp0521/mason-null-ls.nvim'
 
-    use 'windwp/nvim-ts-autotag'
+    use {
+        'windwp/nvim-ts-autotag',
+        opt = true,
+        requires = {'nvim-treesitter/nvim-treesitter'},
+    }
 
     use {
         'SmiteshP/nvim-navic',
