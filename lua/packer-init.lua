@@ -132,8 +132,6 @@ return require('packer').startup(function(use)
 
     use 'folke/which-key.nvim'
 
-    use { 'krivahtoo/silicon.nvim', run = './install.sh' }
-
     use 'simrat39/rust-tools.nvim'
 
     use 'rust-lang/rust.vim'
@@ -145,6 +143,8 @@ return require('packer').startup(function(use)
     use 'mbbill/undotree'
 
     use 'ThePrimeagen/harpoon'
+
+    use 'segeljakt/vim-silicon'
     if packer_bootstrap then
         require('packer').sync()
     end
