@@ -5,6 +5,7 @@ end
 
 telescope.load_extension('fzf')
 telescope.load_extension('lsp_handlers')
+telescope.load_extension('harpoon')
 
 telescope.setup({
     defaults = {
