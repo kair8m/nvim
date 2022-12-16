@@ -49,7 +49,7 @@ return require('packer').startup(function(use)
     use {
         'windwp/nvim-ts-autotag',
         opt = true,
-        requires = {'nvim-treesitter/nvim-treesitter'},
+        requires = { 'nvim-treesitter/nvim-treesitter' },
     }
 
 
@@ -141,6 +141,8 @@ return require('packer').startup(function(use)
     use 'christoomey/vim-tmux-navigator'
 
     use 'simrat39/symbols-outline.nvim'
+
+    use 'mbbill/undotree'
 
     if packer_bootstrap then
         require('packer').sync()
