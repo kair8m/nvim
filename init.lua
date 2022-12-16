@@ -27,6 +27,7 @@ require('core.cursor')
 require('core.spacing')
 
 
+require('plugin.undotree')
 require('plugin.autopairs')
 require('plugin.bufferline')
 require('plugin.cursorline')
