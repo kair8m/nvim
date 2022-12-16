@@ -15,6 +15,10 @@ vim.opt.signcolumn = 'yes'
 vim.opt.backspace = 'indent,eol,start'
 vim.opt.iskeyword:append('-')
 
+vim.opt.scrolloff = 8
+vim.opt.updatetime = 50
+vim.opt.colorcolumn = "90"
+
 require('packer-init')
 
 require('core.keybindings')
