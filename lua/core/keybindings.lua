@@ -11,6 +11,10 @@ map('n', '<A-,>', cycle_next, { silent = true })
 map('n', '<A-.>', cycle_prev, { silent = true })
 map('n', '<A-t>', close_other_buffers, { silent = true })
 map('n', '<A-c>', close_current_buffer, { silent = true })
+map('v', 'J', ":m '>+1<CR>gv=gv", { silent = true })
+map('v', 'K', ":m '<-2<CR>gv=gv", { silent = true })
+map('n', 'n', 'nzzzv', { silent = true })
+map('n', 'N', 'Nzzzv', { silent = true })
 
 local whichkey_status, whichkey = pcall(require, 'which-key')
 if not whichkey_status then
