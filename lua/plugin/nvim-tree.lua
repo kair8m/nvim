@@ -11,6 +11,9 @@ nvim_tree.setup({
         enable = true,
         update_cwd = true,
     },
+    view = {
+        adaptive_size = true
+    },
     renderer = {
         highlight_git = true,
         highlight_opened_files = 'all',
