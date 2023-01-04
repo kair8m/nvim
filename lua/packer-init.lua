@@ -132,7 +132,7 @@ return require('packer').startup(function(use)
 
     use 'folke/which-key.nvim'
 
-    use 'simrat39/rust-tools.nvim'
+    use 'kair8m/rust-tools.nvim'
 
     use 'rust-lang/rust.vim'
 
