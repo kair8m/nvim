@@ -145,6 +145,9 @@ return require('packer').startup(function(use)
     use 'ThePrimeagen/harpoon'
 
     use 'segeljakt/vim-silicon'
+
+    use 'ThePrimeagen/git-worktree.nvim'
+
     if packer_bootstrap then
         require('packer').sync()
     end
