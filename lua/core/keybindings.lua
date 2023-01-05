@@ -26,7 +26,15 @@ local mappings = {
     o = { '<CMD>NvimTreeFindFile<CR>', 'Open file in explorer' },
     p = { '<CMD>lua require("telescope.builtin").find_files({find_command = { "fd", "-t=f", "-H" }})<CR>', 'Search files' },
     f = { '<CMD>Telescope live_grep<CR>', 'Search in files' },
-    g = { '<cmd>lua LAZYGIT_TOGGLE()<CR>', 'Toggle lazygit' },
+    g = {
+        name = 'Git',
+        l = { '<cmd>lua LAZYGIT_TOGGLE()<CR>', 'Toggle lazygit' },
+        w = {
+            name = 'Git Worktree',
+            c = { '<CMD>lua require("telescope").extensions.git_worktree.create_git_worktree()<CR>', 'Create a worktree' },
+            s = { '<CMD>lua require("telescope").extensions.git_worktree.git_worktrees()<CR>', 'Swith and delete a worktrees' }
+        }
+    },
     S = { '<cmd>Silicon<CR>', 'Take screenshot' },
     [','] = { cycle_next, 'Cycle to next buffer' },
     ['.'] = { cycle_prev, 'Cycle to previous buffer' },
@@ -35,9 +43,9 @@ local mappings = {
     s = { '<CMD>SymbolsOutline<CR>', 'Toggle Symbol outline' },
     h = {
         name = 'Harpoon',
-        a = {'<CMD>lua require("harpoon.mark").add_file()<CR>', 'Add mark'},
-        m = {'<CMD>Telescope harpoon marks<CR>', 'Show marks'},
-        e = {'<CMD>lua require("harpoon.ui").toggle_quick_menu()<CR>', 'Show menu'}
+        a = { '<CMD>lua require("harpoon.mark").add_file()<CR>', 'Add mark' },
+        m = { '<CMD>Telescope harpoon marks<CR>', 'Show marks' },
+        e = { '<CMD>lua require("harpoon.ui").toggle_quick_menu()<CR>', 'Show menu' }
     }
 }
 
