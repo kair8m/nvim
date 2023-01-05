@@ -17,7 +17,7 @@ local navic_staus, navic = pcall(require, 'nvim-navic')
 if not navic_staus then
     return
 end
-local show_references_command = '<cmd>Lspsaga lsp_finder<cr>';
+local show_references_command = '<cmd>Lspsaga lsp_finder<cr>'
 local peek_definition_command = '<cmd>Lspsaga peek_definition<cr>'
 local show_declaration_command = '<cmd>lua vim.lsp.buf.declaration()<cr>'
 local show_implementation_command = '<cmd>lua vim.lsp.buf.implementation()<cr>'
@@ -213,16 +213,25 @@ if not rust_tools_status then
     return
 end
 rust_tools.setup({
-    server = {
-        on_attach = on_attach,
-    },
-    tools = {
-        runnables = {
-            use_telescope = true
-        },
-        inlay_hints = {
-            auto = true,
-            show_parameter_hints = true
-        }
-    }
+	server = {
+		on_attach = function(client, bufnr)
+			on_attach(client, bufnr)
+			if client.name == "rust_analyzer" then
+				vim.keymap.set("n", "gq", "<CMD>RustFmt<CR>", { buffer = bufnr })
+				-- Displays hover information about the symbol under the cursor
+				vim.keymap.set("n", "K", rust_tools.hover_actions.hover_actions, { buffer = bufnr })
+				-- Selects a code action available at the current cursor position
+				vim.keymap.set("n", "<leader>la", rust_tools.code_action_group.code_action_group, { buffer = bufnr })
+			end
+		end,
+	},
+	tools = {
+		runnables = {
+			use_telescope = true,
+		},
+		inlay_hints = {
+			auto = true,
+			show_parameter_hints = true,
+		},
+	},
 })
