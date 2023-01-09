@@ -148,6 +148,8 @@ return require('packer').startup(function(use)
 
     use 'ThePrimeagen/git-worktree.nvim'
 
+    use({ 'toppair/peek.nvim', run = 'deno task --quiet build:fast' })
+
     if packer_bootstrap then
         require('packer').sync()
     end
