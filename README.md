@@ -1,23 +1,28 @@
-# Setup Instructions
+# Awesome neovim configuration
 
-## Install packer for neovim
-```bash
-git clone --depth 1 https://github.com/wbthomason/packer.nvim\
- ~/.local/share/nvim/site/pack/packer/start/packer.nvim
-```
+## Purpose
+the idea of this repo is to store my personal preferences of neovim configuration
 
-## Install lua-language-server
-```bash
-git clone  --depth=1 https://github.com/sumneko/lua-language-server
-cd lua-language-server
-git submodule update --depth 1 --init --recursive
-cd 3rd/luamake
-./compile/install.sh
-cd ../..
-./3rd/luamake/luamake rebuild
-```
+## Dependencies
+neovim nightly build (0.9+)
 
-## Open init.vim file and call packer main function
-```bash
-:PackerSync
-```
+node (18.12+)
+
+python (3.9+)
+
+deno (1.29+)
+
+fd (fd-find)
+
+bat (batcat)
+
+fzf
+
+cargo
+
+rustup
+
+make
+
+## How to install
+just clone this repo in `~/.config/` directory
