@@ -28,7 +28,7 @@ return require('packer').startup(function(use)
     use 'folke/lsp-colors.nvim'
     use {
         'L3MON4D3/LuaSnip',
-        tag = 'v<CurrentMajor>.*'
+        tag = 'v1.1.0'
     }
     use 'rafamadriz/friendly-snippets'
 
