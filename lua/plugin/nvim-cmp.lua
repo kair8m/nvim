@@ -1,4 +1,4 @@
-vim.opt.completeopt = {'menu', 'menuone', 'noselect'}
+vim.opt.completeopt = { 'menu', 'menuone', 'noselect' }
 
 local status_ok, from_vscode = pcall(require, 'luasnip.loaders.from_vscode')
 if not status_ok then
@@ -22,7 +22,7 @@ if not status_ok3 then
     return
 end
 
-local select_opts = {behavior = cmp.SelectBehavior.Select}
+local select_opts = { behavior = cmp.SelectBehavior.Select }
 
 cmp.setup({
     snippet = {
@@ -31,12 +31,12 @@ cmp.setup({
         end
     },
     sources = {
-        {name = 'path'},
-        {name = 'nvim_lsp', keyword_length = 3},
-        {name = 'buffer', keyword_length = 3},
-        {name = 'luasnip', keyword_length = 2},
-        {name = 'nvim_lua'},
-        {name = 'nvim_lsp_signature_help'}
+        { name = 'path' },
+        { name = 'nvim_lsp', keyword_length = 3 },
+        { name = 'buffer', keyword_length = 3 },
+        { name = 'luasnip', keyword_length = 2 },
+        { name = 'nvim_lua' },
+        { name = 'nvim_lsp_signature_help' }
     },
     window = {
         completion = cmp.config.window.bordered(),
@@ -57,11 +57,14 @@ cmp.setup({
         ['<C-p>'] = cmp.mapping.select_prev_item(select_opts),
         ['<C-n>'] = cmp.mapping.select_next_item(select_opts),
 
+        ['<C-k>'] = cmp.mapping.select_prev_item(select_opts),
+        ['<C-j>'] = cmp.mapping.select_next_item(select_opts),
+
         ['<C-u>'] = cmp.mapping.scroll_docs(-4),
         ['<C-f>'] = cmp.mapping.scroll_docs(4),
 
         ['<C-e>'] = cmp.mapping.abort(),
-        ['<CR>'] = cmp.mapping.confirm({select = true}),
+        ['<CR>'] = cmp.mapping.confirm({ select = true }),
 
         ['<C-d>'] = cmp.mapping(function(fallback)
             if luasnip.jumpable(1) then
@@ -69,7 +72,7 @@ cmp.setup({
             else
                 fallback()
             end
-        end, {'i', 's'}),
+        end, { 'i', 's' }),
 
         ['<C-b>'] = cmp.mapping(function(fallback)
             if luasnip.jumpable(-1) then
@@ -77,7 +80,7 @@ cmp.setup({
             else
                 fallback()
             end
-        end, {'i', 's'}),
+        end, { 'i', 's' }),
 
         ['<Tab>'] = cmp.mapping(function(fallback)
             local col = vim.fn.col('.') - 1
@@ -89,7 +92,7 @@ cmp.setup({
             else
                 cmp.complete()
             end
-        end, {'i', 's'}),
+        end, { 'i', 's' }),
 
         ['<S-Tab>'] = cmp.mapping(function(fallback)
             if cmp.visible() then
@@ -97,6 +100,6 @@ cmp.setup({
             else
                 fallback()
             end
-        end, {'i', 's'}),
+        end, { 'i', 's' }),
     },
 })
