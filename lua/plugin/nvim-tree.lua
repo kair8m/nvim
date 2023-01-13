@@ -12,7 +12,8 @@ nvim_tree.setup({
         update_cwd = true,
     },
     view = {
-        adaptive_size = true
+        adaptive_size = true,
+        number = true,
     },
     renderer = {
         highlight_git = true,
