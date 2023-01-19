@@ -13,6 +13,9 @@ lspsaga.setup({
     request_timeout = 5000, -- for really large projects
     rename = {
         quit = '<Esc>'
+    },
+    ui = {
+        border = 'double',
     }
 })
 
