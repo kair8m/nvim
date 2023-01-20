@@ -45,6 +45,7 @@ require('plugin.surround')
 require('plugin.telescope')
 require('plugin.toggleterm')
 require('plugin.treesitter')
+require('plugin.treesitter-context')
 require('plugin.trouble')
 
 require('plugin.lsp.mason')

@@ -41,6 +41,7 @@ return require('packer').startup(function(use)
     }
 
     use 'nvim-treesitter/nvim-treesitter' -- Syntax highlighting
+    use 'nvim-treesitter/nvim-treesitter-context'
     use {
         'nvim-treesitter/nvim-treesitter-textobjects',
         opt = true,
