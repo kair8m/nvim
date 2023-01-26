@@ -43,8 +43,20 @@ telescope.setup({
                     actions.preview_scrolling_down,
                     type = 'action'
                 },
+                ["<PageDown>"] = {
+                    actions.cycle_history_next,
+                    type = 'action'
+                },
+                ["<PageUp>"] = {
+                    actions.cycle_history_prev,
+                    type = 'action'
+                }
             },
         },
+        history = {
+            path = '~/.local/share/nvim/databases/telescope_history.sqlite3',
+            limit = 100,
+        }
 
     },
     extensions = {
@@ -75,4 +87,5 @@ telescope.setup({
         },
     }
 })
+telescope.load_extension('smart_history')
 vim.cmd "autocmd User TelescopePreviewerLoaded setlocal number"
