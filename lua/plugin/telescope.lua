@@ -7,6 +7,8 @@ telescope.load_extension('fzf')
 telescope.load_extension('lsp_handlers')
 telescope.load_extension('harpoon')
 
+local actions = require('telescope.actions')
+
 telescope.setup({
     defaults = {
         -- use fd to 'find files' and return absolute paths
@@ -22,7 +24,28 @@ telescope.setup({
             '--line-number',
             '--column',
             '--smart-case'
-        }
+        },
+        mappings = {
+            i = {
+                ["<C-j>"] = {
+                    actions.move_selection_next,
+                    type = 'action'
+                },
+                ["<C-k>"] = {
+                    actions.move_selection_previous,
+                    type = 'action'
+                },
+                ["<C-h>"] = {
+                    actions.preview_scrolling_up,
+                    type = 'action'
+                },
+                ["<C-l>"] = {
+                    actions.preview_scrolling_down,
+                    type = 'action'
+                },
+            },
+        },
+
     },
     extensions = {
         fzf = {
@@ -51,6 +74,5 @@ telescope.setup({
             },
         },
     }
-
 })
-
+vim.cmd "autocmd User TelescopePreviewerLoaded setlocal number"
