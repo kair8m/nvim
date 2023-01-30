@@ -142,7 +142,9 @@ navic.setup({
 
 local neodev_status, neodev = pcall(require, 'neodev')
 if neodev_status then
-    neodev.setup({})
+    neodev.setup({
+        library = { plugins = { "nvim-dap-ui" }, types = true },
+    })
 end
 
 require('plugin.lsp.languages.html-lsp').setup(lspconfig, capabilities, on_attach)
