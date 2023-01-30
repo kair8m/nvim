@@ -1,5 +1,7 @@
 local M = {}
 
+local codelldp_path = vim.fn.stdpath('data') .. "/mason/bin/codelldb"
+
 M.setup = function(lspconfig, capabilities, on_attach)
     local rust_tools_status, rust_tools = pcall(require, 'rust-tools')
     if not rust_tools_status then
@@ -27,6 +29,11 @@ M.setup = function(lspconfig, capabilities, on_attach)
                 show_parameter_hints = true,
             },
         },
+        dap = {
+            type = "executable",
+            name = "rt_lldb",
+            command = codelldp_path
+        }
     })
 end
 

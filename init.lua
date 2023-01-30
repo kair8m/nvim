@@ -54,3 +54,5 @@ require('plugin.lsp.lspconfig')
 require('plugin.lsp.null-ls')
 require('plugin.symbols-outline')
 require('plugin.peek-nvim')
+
+require('plugin.dap.init')

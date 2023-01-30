@@ -16,6 +16,10 @@ map('v', 'J', ":m '>+1<CR>gv=gv", { silent = true })
 map('v', 'K', ":m '<-2<CR>gv=gv", { silent = true })
 map('n', 'n', 'nzzzv', { silent = true })
 map('n', 'N', 'Nzzzv', { silent = true })
+vim.keymap.set('n', '<F1>', '<CMD>lua require("dap").step_into()<CR>')
+vim.keymap.set('n', '<F2>', '<CMD>lua require("dap").continue()<CR>')
+vim.keymap.set('n', '<F3>', '<CMD>lua require("dap").step_over()<CR>')
+vim.keymap.set('n', '<F4>', '<CMD>lua require("dap").step_out()<CR>')
 
 local whichkey_status, whichkey = pcall(require, 'which-key')
 if not whichkey_status then
@@ -32,7 +36,8 @@ local mappings = {
         w = {
             name = 'Git Worktree',
             c = { '<CMD>lua require("telescope").extensions.git_worktree.create_git_worktree()<CR>', 'Create a worktree' },
-            s = { '<CMD>lua require("telescope").extensions.git_worktree.git_worktrees()<CR>', 'Swith and delete a worktrees' }
+            s = { '<CMD>lua require("telescope").extensions.git_worktree.git_worktrees()<CR>',
+                'Swith and delete a worktrees' }
         }
     },
     S = { '<cmd>Silicon<CR>', 'Take screenshot' },
@@ -46,6 +51,14 @@ local mappings = {
         a = { '<CMD>lua require("harpoon.mark").add_file()<CR>', 'Add mark' },
         m = { '<CMD>Telescope harpoon marks<CR>', 'Show marks' },
         e = { '<CMD>lua require("harpoon.ui").toggle_quick_menu()<CR>', 'Show menu' }
+    },
+    D = {
+        name = 'Debugging',
+        b = { '<CMD>lua require("dap").toggle_breakpoint()<CR>', 'Set breakpoint' },
+        B = { '<CMD>lua require("dap").set_breakpoint(vim.fn.input("Breakpoint condition: "))<CR>',
+            'Set conditional breakpoint' },
+        lp = { '<CMD>lua require("dap").set_breakpoint(nil, nil, vim.fn.input("Log point message: "))',
+            'Set log point conditional breakpoint' }
     }
 }
 
