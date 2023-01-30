@@ -8,13 +8,8 @@ if not nvim_cmp_lsp_status then
     return
 end
 
-local typescript_setup, typescript = pcall(require, 'typescript')
-if not typescript_setup then
-    return
-end
-
-local navic_staus, navic = pcall(require, 'nvim-navic')
-if not navic_staus then
+local navic_status, navic = pcall(require, 'nvim-navic')
+if not navic_status then
     return
 end
 local show_references_command = '<cmd>Lspsaga lsp_finder<cr>'
@@ -113,69 +108,6 @@ end
 
 local capabilities = cmp_nvim_lsp.default_capabilities()
 
-lspconfig['html'].setup({
-    capabilities = capabilities,
-    on_attach = on_attach
-})
-
-typescript.setup({
-    server = {
-        capabilities = capabilities,
-        on_attach = on_attach
-    }
-})
-
-lspconfig['cssls'].setup({
-    capabilities = capabilities,
-    on_attach = on_attach
-})
-
-lspconfig['tailwindcss'].setup({
-    capabilities = capabilities,
-    on_attach = on_attach
-})
-
-lspconfig['sumneko_lua'].setup({
-    capabilities = capabilities,
-    on_attach = on_attach,
-    settings = {
-        Lua = {
-            diagnostics = {
-                globals = { 'vim' }
-            },
-            workspace = {
-                library = {
-                    [vim.fn.expand('$VIMRUNTIME/lua')] = true,
-                    [vim.fn.expand('$VIMRUNTIME/lua/vim/lsp')] = true
-                }
-            }
-        }
-    }
-
-})
-
-lspconfig['pyright'].setup {
-    capabilities = capabilities,
-    on_attach = on_attach
-}
-lspconfig['clangd'].setup {
-    init_options = {
-        clangdFileStatus = true,
-    },
-    capabilities = capabilities,
-    on_attach = on_attach
-}
-
-lspconfig['bashls'].setup {
-    capabilities = capabilities,
-    on_attach = on_attach
-}
-
--- lspconfig['rust_analyzer'].setup {
---     capabilities = capabilities,
---     on_attach = on_attach
--- }
-
 navic.setup({
     icons = {
         File = ' ',
@@ -208,30 +140,18 @@ navic.setup({
 
 })
 
-local rust_tools_status, rust_tools = pcall(require, 'rust-tools')
-if not rust_tools_status then
-    return
-end
-rust_tools.setup({
-	server = {
-		on_attach = function(client, bufnr)
-			on_attach(client, bufnr)
-			if client.name == "rust_analyzer" then
-				vim.keymap.set("n", "gq", "<CMD>RustFmt<CR>", { buffer = bufnr })
-				-- Displays hover information about the symbol under the cursor
-				vim.keymap.set("n", "K", rust_tools.hover_actions.hover_actions, { buffer = bufnr })
-				-- Selects a code action available at the current cursor position
-				vim.keymap.set("n", "<leader>la", rust_tools.code_action_group.code_action_group, { buffer = bufnr })
-			end
-		end,
-	},
-	tools = {
-		runnables = {
-			use_telescope = true,
-		},
-		inlay_hints = {
-			auto = true,
-			show_parameter_hints = true,
-		},
-	},
-})
+require('plugin.lsp.languages.html-lsp').setup(lspconfig, capabilities, on_attach)
+
+require('plugin.lsp.languages.js-lsp').setup(lspconfig, capabilities, on_attach)
+
+require('plugin.lsp.languages.css-lsp').setup(lspconfig, capabilities, on_attach)
+
+require('plugin.lsp.languages.lua-lsp').setup(lspconfig, capabilities, on_attach)
+
+require('plugin.lsp.languages.python-lsp').setup(lspconfig, capabilities, on_attach)
+
+require('plugin.lsp.languages.cpp-lsp').setup(lspconfig, capabilities, on_attach)
+
+require('plugin.lsp.languages.bash-lsp').setup(lspconfig, capabilities, on_attach)
+
+require('plugin.lsp.languages.rust-lsp').setup(lspconfig, capabilities, on_attach)
