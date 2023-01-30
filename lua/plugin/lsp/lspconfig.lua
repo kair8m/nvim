@@ -26,12 +26,12 @@ local show_line_diagnostics = '<cmd>Lspsaga show_line_diagnostics<cr>'
 local show_cursor_diagnostics = '<cmd>Lspsaga show_cursor_diagnostics<cr>'
 local jump_to_next_diagnostics_finding = '<cmd>Lspsaga diagnostic_jump_next<cr>'
 local jump_to_prev_diagnostics_finding = '<cmd>Lspsaga diagnostic_jump_prev<cr>'
-local jump_to_next_error = function ()
+local jump_to_next_error = function()
     require('lspsaga.diagnostic').goto_next({
         severity = vim.diagnostic.severity.ERROR
     })
 end
-local jump_to_prev_error = function ()
+local jump_to_prev_error = function()
     require('lspsaga.diagnostic').goto_prev({
         severity = vim.diagnostic.severity.ERROR
     })
@@ -76,7 +76,7 @@ local on_attach = function(client, bufnr)
     -- Jump to the definition
     bufmap('n', 'gd', peek_definition_command)
     -- Jump to declaration
-    bufmap('n', 'gD',show_declaration_command)
+    bufmap('n', 'gD', show_declaration_command)
     -- Lists all the implementations for the symbol under the cursor
     bufmap('n', 'gi', show_implementation_command)
     -- Jumps to the definition of the type symbol
