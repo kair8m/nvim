@@ -18,7 +18,7 @@ null_ls.setup({
         formatting.shfmt,
         formatting.beautysh,
         formatting.rustfmt,
-        diagnostics.eslint_d,
+        diagnostics.eslint,
     },
 
 })
