@@ -23,7 +23,7 @@ mason_lspconfig.setup({
         'html',
         'cssls',
         'eslint',
-        'sumneko_lua',
+        'lua_ls',
         'tailwindcss',
         'bashls',
         'rust_analyzer'
