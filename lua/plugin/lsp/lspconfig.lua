@@ -158,6 +158,8 @@ require("plugin.lsp.languages.python-lsp").setup(lspconfig, capabilities, on_att
 
 require("plugin.lsp.languages.cpp-lsp").setup(lspconfig, capabilities, on_attach)
 
+require("plugin.lsp.languages.cmake-lsp").setup(lspconfig, capabilities, on_attach)
+
 require("plugin.lsp.languages.bash-lsp").setup(lspconfig, capabilities, on_attach)
 
 require("plugin.lsp.languages.rust-lsp").setup(lspconfig, capabilities, on_attach)
