@@ -42,7 +42,6 @@ mason_null_ls.setup({
         'autopep8',
         'shellcheck',
         'cmakelang',
-        'eslint_d',
         'jsonlint',
         'markdownlint',
         'quick-lint-js',
