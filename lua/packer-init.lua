@@ -117,6 +117,8 @@ return require("packer").startup(function(use)
 	use("folke/neodev.nvim")
 	use({ "rcarriga/nvim-dap-ui", requires = { "mfussenegger/nvim-dap" } })
 
+    use("nvim-telescope/telescope-dap.nvim")
+
 	use("ldelossa/nvim-dap-projects")
 
 	use("williamboman/mason.nvim")
