@@ -57,3 +57,9 @@ dap.configurations.cpp = {
 
 dap.configurations.c = dap.configurations.cpp
 dap.configurations.rust = dap.configurations.cpp
+
+local dap_project_status, dap_project = pcall(require, "nvim-dap-projects")
+if not dap_project_status then
+	return
+end
+dap_project.search_project_config()
