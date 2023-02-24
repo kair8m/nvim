@@ -1,6 +1,6 @@
-local nightfox_status, _ = pcall(require, 'nightfox')
+local nightfox_status, _ = pcall(require, "nightfox")
 if not nightfox_status then
-    return
+	return
 end
 
-vim.cmd('colorscheme duskfox')
+vim.cmd("colorscheme duskfox")

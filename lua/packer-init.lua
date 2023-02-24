@@ -1,171 +1,171 @@
 local ensure_packer = function()
-    local fn = vim.fn
-    local install_path = fn.stdpath('data') .. '/site/pack/packer/start/packer.nvim'
-    if fn.empty(fn.glob(install_path)) > 0 then
-        fn.system({ 'git', 'clone', '--depth', '1', 'https://github.com/wbthomason/packer.nvim', install_path })
-        vim.cmd [[packadd packer.nvim]]
-        return true
-    end
-    return false
+	local fn = vim.fn
+	local install_path = fn.stdpath("data") .. "/site/pack/packer/start/packer.nvim"
+	if fn.empty(fn.glob(install_path)) > 0 then
+		fn.system({ "git", "clone", "--depth", "1", "https://github.com/wbthomason/packer.nvim", install_path })
+		vim.cmd([[packadd packer.nvim]])
+		return true
+	end
+	return false
 end
 
 local packer_bootstrap = ensure_packer()
 
-return require('packer').startup(function(use)
-    -- Packer can manage itself
-    use 'wbthomason/packer.nvim' -- Packagemanager
-    use 'Mofiqul/dracula.nvim' -- Colorscheme
-    use 'EdenEast/nightfox.nvim' -- Packer
+return require("packer").startup(function(use)
+	-- Packer can manage itself
+	use("wbthomason/packer.nvim") -- Packagemanager
+	use("Mofiqul/dracula.nvim") -- Colorscheme
+	use("EdenEast/nightfox.nvim") -- Packer
 
-    use 'neovim/nvim-lspconfig' -- Configurations for Nvim LSP
-    use 'hrsh7th/cmp-nvim-lsp'
-    use 'hrsh7th/cmp-buffer'
-    use 'hrsh7th/cmp-path'
-    use 'hrsh7th/cmp-cmdline'
-    use 'hrsh7th/nvim-cmp'
-    use 'hrsh7th/cmp-nvim-lua'
-    use 'hrsh7th/cmp-nvim-lsp-signature-help'
-    use 'folke/lsp-colors.nvim'
-    use {
-        'L3MON4D3/LuaSnip',
-        tag = 'v1.1.0'
-    }
-    use 'rafamadriz/friendly-snippets'
+	use("neovim/nvim-lspconfig") -- Configurations for Nvim LSP
+	use("hrsh7th/cmp-nvim-lsp")
+	use("hrsh7th/cmp-buffer")
+	use("hrsh7th/cmp-path")
+	use("hrsh7th/cmp-cmdline")
+	use("hrsh7th/nvim-cmp")
+	use("hrsh7th/cmp-nvim-lua")
+	use("hrsh7th/cmp-nvim-lsp-signature-help")
+	use("folke/lsp-colors.nvim")
+	use({
+		"L3MON4D3/LuaSnip",
+		tag = "v1.1.0",
+	})
+	use("rafamadriz/friendly-snippets")
 
-    use {
-        'nvim-tree/nvim-tree.lua', -- NERD Tree analog
-        requires = {
-            'nvim-tree/nvim-web-devicons', -- optional, for file icons
-        },
-        tag = 'nightly' -- optional, updated every week. (see issue #1193)
-    }
+	use({
+		"nvim-tree/nvim-tree.lua", -- NERD Tree analog
+		requires = {
+			"nvim-tree/nvim-web-devicons", -- optional, for file icons
+		},
+		tag = "nightly", -- optional, updated every week. (see issue #1193)
+	})
 
-    use 'nvim-treesitter/nvim-treesitter' -- Syntax highlighting
-    use 'nvim-treesitter/nvim-treesitter-context'
-    use {
-        'nvim-treesitter/nvim-treesitter-textobjects',
-        opt = true,
-        requires = { 'nvim-treesitter/nvim-treesitter' },
-    }
-    use {
-        'windwp/nvim-ts-autotag',
-        opt = true,
-        requires = { 'nvim-treesitter/nvim-treesitter' },
-    }
+	use("nvim-treesitter/nvim-treesitter") -- Syntax highlighting
+	use("nvim-treesitter/nvim-treesitter-context")
+	use({
+		"nvim-treesitter/nvim-treesitter-textobjects",
+		opt = true,
+		requires = { "nvim-treesitter/nvim-treesitter" },
+	})
+	use({
+		"windwp/nvim-ts-autotag",
+		opt = true,
+		requires = { "nvim-treesitter/nvim-treesitter" },
+	})
 
+	use("nvim-lua/plenary.nvim") -- Collection of usefull lua libraries
 
-    use 'nvim-lua/plenary.nvim' -- Collection of usefull lua libraries
+	use({ "nvim-telescope/telescope-fzf-native.nvim", run = "make" })
 
-    use { 'nvim-telescope/telescope-fzf-native.nvim', run = 'make' }
+	use({
+		"nvim-telescope/telescope.nvim",
+		tag = "0.1.0",
+		-- or                            , branch = '0.1.x',
+		requires = { { "nvim-lua/plenary.nvim" } },
+	})
 
-    use {
-        'nvim-telescope/telescope.nvim', tag = '0.1.0',
-        -- or                            , branch = '0.1.x',
-        requires = { { 'nvim-lua/plenary.nvim' } }
-    }
+	use("yamatsum/nvim-cursorline")
 
-    use 'yamatsum/nvim-cursorline'
+	-- using packer.nvim
+	use({ "akinsho/bufferline.nvim", tag = "v3.*", requires = "kyazdani42/nvim-web-devicons" })
 
-    -- using packer.nvim
-    use { 'akinsho/bufferline.nvim', tag = 'v3.*', requires = 'kyazdani42/nvim-web-devicons' }
+	-- Lua
+	use({
+		"folke/trouble.nvim",
+		requires = "kyazdani42/nvim-web-devicons",
+	})
 
-    -- Lua
-    use {
-        'folke/trouble.nvim',
-        requires = 'kyazdani42/nvim-web-devicons',
-    }
+	use({
+		"gbrlsnchs/telescope-lsp-handlers.nvim",
+		requires = {
+			"nvim-telescope/telescope.nvim",
+		},
+	})
 
-    use {
-        'gbrlsnchs/telescope-lsp-handlers.nvim',
-        requires = {
-            'nvim-telescope/telescope.nvim'
-        }
-    }
+	use("kkharji/sqlite.lua")
 
-    use 'kkharji/sqlite.lua'
+	use({
+		"nvim-telescope/telescope-smart-history.nvim",
+		requires = {
+			"kkharji/sqlite.lua",
+		},
+	})
 
-    use {
-        'nvim-telescope/telescope-smart-history.nvim',
-        requires = {
-            'kkharji/sqlite.lua'
-        }
-    }
+	use({
+		"lewis6991/gitsigns.nvim",
+		-- tag = 'release' -- To use the latest release (do not use this if you run Neovim nightly or dev builds!)
+	})
 
-    use {
-        'lewis6991/gitsigns.nvim',
-        -- tag = 'release' -- To use the latest release (do not use this if you run Neovim nightly or dev builds!)
-    }
+	use({
+		"nvim-lualine/lualine.nvim",
+		requires = { "kyazdani42/nvim-web-devicons", opt = true },
+	})
 
-    use {
-        'nvim-lualine/lualine.nvim',
-        requires = { 'kyazdani42/nvim-web-devicons', opt = true }
-    }
+	use("lukas-reineke/indent-blankline.nvim")
 
-    use 'lukas-reineke/indent-blankline.nvim'
+	use("akinsho/toggleterm.nvim")
 
-    use 'akinsho/toggleterm.nvim'
+	use("karb94/neoscroll.nvim")
 
-    use 'karb94/neoscroll.nvim'
+	use("terrortylor/nvim-comment")
 
-    use 'terrortylor/nvim-comment'
+	use("windwp/nvim-autopairs")
 
-    use 'windwp/nvim-autopairs'
+	use("j-hui/fidget.nvim")
 
-    use 'j-hui/fidget.nvim'
+	use("mfussenegger/nvim-dap")
+	use("folke/neodev.nvim")
+	use({ "rcarriga/nvim-dap-ui", requires = { "mfussenegger/nvim-dap" } })
 
-    use 'mfussenegger/nvim-dap'
-    use 'folke/neodev.nvim'
-    use { 'rcarriga/nvim-dap-ui', requires = { 'mfussenegger/nvim-dap' } }
+	use("williamboman/mason.nvim")
+	use("williamboman/mason-lspconfig.nvim")
+	use("jayp0521/mason-nvim-dap.nvim")
+	use("jose-elias-alvarez/typescript.nvim")
+	use("onsails/lspkind.nvim")
 
-    use 'williamboman/mason.nvim'
-    use 'williamboman/mason-lspconfig.nvim'
-    use 'jayp0521/mason-nvim-dap.nvim'
-    use 'jose-elias-alvarez/typescript.nvim'
-    use 'onsails/lspkind.nvim'
+	use({ "glepnir/lspsaga.nvim", branch = "main" })
 
-    use { 'glepnir/lspsaga.nvim', branch = 'main' }
+	use("WhoIsSethDaniel/mason-tool-installer.nvim")
 
-    use 'WhoIsSethDaniel/mason-tool-installer.nvim'
+	use({
+		"kylechui/nvim-surround",
+		rag = "*",
+	})
 
-    use {
-        'kylechui/nvim-surround',
-        rag = '*'
-    }
+	use("ojroques/nvim-bufdel")
 
-    use 'ojroques/nvim-bufdel'
+	use("xiyaowong/nvim-transparent")
 
-    use 'xiyaowong/nvim-transparent'
+	use("jose-elias-alvarez/null-ls.nvim")
 
-    use 'jose-elias-alvarez/null-ls.nvim'
+	use("jayp0521/mason-null-ls.nvim")
 
-    use 'jayp0521/mason-null-ls.nvim'
+	use({
+		"SmiteshP/nvim-navic",
+		requires = "neovim/nvim-lspconfig",
+	})
 
-    use {
-        'SmiteshP/nvim-navic',
-        requires = 'neovim/nvim-lspconfig'
-    }
+	use("folke/which-key.nvim")
 
-    use 'folke/which-key.nvim'
+	use("simrat39/rust-tools.nvim")
 
-    use 'simrat39/rust-tools.nvim'
+	use("rust-lang/rust.vim")
 
-    use 'rust-lang/rust.vim'
+	use("christoomey/vim-tmux-navigator")
 
-    use 'christoomey/vim-tmux-navigator'
+	use("simrat39/symbols-outline.nvim")
 
-    use 'simrat39/symbols-outline.nvim'
+	use("mbbill/undotree")
 
-    use 'mbbill/undotree'
+	use("ThePrimeagen/harpoon")
 
-    use 'ThePrimeagen/harpoon'
+	use("segeljakt/vim-silicon")
 
-    use 'segeljakt/vim-silicon'
+	use("ThePrimeagen/git-worktree.nvim")
 
-    use 'ThePrimeagen/git-worktree.nvim'
+	use({ "toppair/peek.nvim", run = "deno task --quiet build:fast" })
 
-    use({ 'toppair/peek.nvim', run = 'deno task --quiet build:fast' })
-
-    if packer_bootstrap then
-        require('packer').sync()
-    end
+	if packer_bootstrap then
+		require("packer").sync()
+	end
 end)

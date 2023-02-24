@@ -5,55 +5,55 @@ vim.opt.swapfile = false
 vim.opt.backup = false
 vim.opt.undodir = os.getenv("HOME") .. "/.vim/undodir"
 vim.opt.undofile = true
-vim.opt.clipboard:append('unnamedplus')
+vim.opt.clipboard:append("unnamedplus")
 
-vim.opt.completeopt = {'menu', 'menuone', 'noselect'}
+vim.opt.completeopt = { "menu", "menuone", "noselect" }
 vim.opt.wrap = false
 vim.opt.ignorecase = true
 vim.opt.smartcase = true
 vim.opt.cursorline = true
-vim.opt.signcolumn = 'yes'
-vim.opt.backspace = 'indent,eol,start'
-vim.opt.iskeyword:append('-')
+vim.opt.signcolumn = "yes"
+vim.opt.backspace = "indent,eol,start"
+vim.opt.iskeyword:append("-")
 
 vim.opt.scrolloff = 8
 vim.opt.updatetime = 50
 vim.opt.colorcolumn = "90"
 
-require('packer-init')
+require("packer-init")
 
-require('core.keybindings')
-require('core.colorscheme')
-require('core.cursor')
-require('core.spacing')
+require("core.keybindings")
+require("core.colorscheme")
+require("core.cursor")
+require("core.spacing")
 
-require('plugin.undotree')
-require('plugin.autopairs')
-require('plugin.bufferline')
-require('plugin.cursorline')
-require('plugin.diagnostics')
-require('plugin.fidget')
-require('plugin.gitsigns')
-require('plugin.indent-blankline')
-require('plugin.lsp-colors')
-require('plugin.lualine')
-require('plugin.nvim-bufdel')
-require('plugin.nvim-cmp')
-require('plugin.nvim-comment')
-require('plugin.nvim-transparent')
-require('plugin.nvim-tree')
-require('plugin.surround')
-require('plugin.telescope')
-require('plugin.toggleterm')
-require('plugin.treesitter')
-require('plugin.treesitter-context')
-require('plugin.trouble')
+require("plugin.undotree")
+require("plugin.autopairs")
+require("plugin.bufferline")
+require("plugin.cursorline")
+require("plugin.diagnostics")
+require("plugin.fidget")
+require("plugin.gitsigns")
+require("plugin.indent-blankline")
+require("plugin.lsp-colors")
+require("plugin.lualine")
+require("plugin.nvim-bufdel")
+require("plugin.nvim-cmp")
+require("plugin.nvim-comment")
+require("plugin.nvim-transparent")
+require("plugin.nvim-tree")
+require("plugin.surround")
+require("plugin.telescope")
+require("plugin.toggleterm")
+require("plugin.treesitter")
+require("plugin.treesitter-context")
+require("plugin.trouble")
 
-require('plugin.lsp.mason')
-require('plugin.lsp.lspsaga')
-require('plugin.lsp.lspconfig')
-require('plugin.lsp.null-ls')
-require('plugin.symbols-outline')
-require('plugin.peek-nvim')
+require("plugin.lsp.mason")
+require("plugin.lsp.lspsaga")
+require("plugin.lsp.lspconfig")
+require("plugin.lsp.null-ls")
+require("plugin.symbols-outline")
+require("plugin.peek-nvim")
 
-require('plugin.dap.init')
+require("plugin.dap.init")
