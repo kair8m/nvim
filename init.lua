@@ -57,3 +57,5 @@ require("plugin.symbols-outline")
 require("plugin.peek-nvim")
 
 require("plugin.dap.init")
+
+require("plugin.startup")

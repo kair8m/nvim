@@ -117,7 +117,7 @@ return require("packer").startup(function(use)
 	use("folke/neodev.nvim")
 	use({ "rcarriga/nvim-dap-ui", requires = { "mfussenegger/nvim-dap" } })
 
-    use("nvim-telescope/telescope-dap.nvim")
+	use("nvim-telescope/telescope-dap.nvim")
 
 	use("ldelossa/nvim-dap-projects")
 
@@ -168,6 +168,11 @@ return require("packer").startup(function(use)
 	use("ThePrimeagen/git-worktree.nvim")
 
 	use({ "toppair/peek.nvim", run = "deno task --quiet build:fast" })
+
+	use({
+		"startup-nvim/startup.nvim",
+		requires = { "nvim-telescope/telescope.nvim", "nvim-lua/plenary.nvim" },
+	})
 
 	if packer_bootstrap then
 		require("packer").sync()
