@@ -14,7 +14,7 @@ telescope.setup({
 	defaults = {
 		-- use fd to 'find files' and return absolute paths
 		find_command = { "fd", "-t=f", "-a", "-i" },
-		path_display = { "smart" },
+		path_display = { "truncate" },
 		wrap_results = true,
 		prompt_prefix = "🔍 ",
 		vimgrep_arguments = {
