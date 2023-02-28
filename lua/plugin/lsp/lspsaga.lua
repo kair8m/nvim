@@ -5,10 +5,10 @@ end
 
 lspsaga.setup({
 	definition = {
-		tabe = "<CR>",
+		edit = "<CR>",
 	},
 	finder = {
-		tabe = "<CR>",
+		edit = "<CR>",
 	},
 	request_timeout = 5000, -- for really large projects
 	rename = {
