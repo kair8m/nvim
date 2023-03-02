@@ -48,23 +48,18 @@ cmp.setup({
 			ellipsis_char = "...",
 		}),
 	},
-	mapping = {
+	mapping = cmp.mapping.preset.insert({
 		["<C-Space>"] = cmp.mapping.complete(),
 		["<Up>"] = cmp.mapping.select_prev_item(select_opts),
 		["<Down>"] = cmp.mapping.select_next_item(select_opts),
-
 		["<C-p>"] = cmp.mapping.select_prev_item(select_opts),
 		["<C-n>"] = cmp.mapping.select_next_item(select_opts),
-
 		["<C-k>"] = cmp.mapping.select_prev_item(select_opts),
 		["<C-j>"] = cmp.mapping.select_next_item(select_opts),
-
 		["<C-u>"] = cmp.mapping.scroll_docs(-4),
 		["<C-f>"] = cmp.mapping.scroll_docs(4),
-
 		["<C-e>"] = cmp.mapping.abort(),
 		["<CR>"] = cmp.mapping.confirm({ select = true }),
-
 		["<C-d>"] = cmp.mapping(function(fallback)
 			if luasnip.jumpable(1) then
 				luasnip.jump(1)
@@ -72,7 +67,6 @@ cmp.setup({
 				fallback()
 			end
 		end, { "i", "s" }),
-
 		["<C-b>"] = cmp.mapping(function(fallback)
 			if luasnip.jumpable(-1) then
 				luasnip.jump(-1)
@@ -80,7 +74,6 @@ cmp.setup({
 				fallback()
 			end
 		end, { "i", "s" }),
-
 		["<Tab>"] = cmp.mapping(function(fallback)
 			local col = vim.fn.col(".") - 1
 
@@ -92,7 +85,6 @@ cmp.setup({
 				cmp.complete()
 			end
 		end, { "i", "s" }),
-
 		["<S-Tab>"] = cmp.mapping(function(fallback)
 			if cmp.visible() then
 				cmp.select_prev_item(select_opts)
@@ -100,5 +92,43 @@ cmp.setup({
 				fallback()
 			end
 		end, { "i", "s" }),
-	},
+	}),
+})
+
+local cmdline_mappings = {
+	["<Up>"] = cmp.mapping(cmp.mapping.select_prev_item(), { "i", "c" }),
+	["<Down>"] = cmp.mapping(cmp.mapping.select_next_item(), { "i", "c" }),
+	["<C-p>"] = cmp.mapping(cmp.mapping.select_prev_item(), { "i", "c" }),
+	["<C-n>"] = cmp.mapping(cmp.mapping.select_next_item(), { "i", "c" }),
+	["<C-k>"] = cmp.mapping(cmp.mapping.select_prev_item(), { "i", "c" }),
+	["<C-j>"] = cmp.mapping(cmp.mapping.select_next_item(), { "i", "c" }),
+}
+table.insert({
+	cmp.mapping.preset.cmdline(),
+}, cmdline_mappings)
+
+local tokens = { "?", "/" }
+for idx = 1, #tokens do
+	cmp.setup.cmdline(tokens[idx], {
+		mapping = cmdline_mappings,
+		sources = cmp.config.sources({
+			{ name = "nvim_lsp_document_symbol" },
+		}, {
+			{ name = "buffer" },
+		}),
+	})
+end
+
+cmp.setup.cmdline(":", {
+	mapping = cmdline_mappings,
+	sources = cmp.config.sources({
+		{ name = "path" },
+	}, {
+		{
+			name = "cmdline",
+			option = {
+				ignore_cmds = { "Man", "!" },
+			},
+		},
+	}),
 })
