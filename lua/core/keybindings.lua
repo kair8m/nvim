@@ -33,6 +33,7 @@ local mappings = {
 		"Search files",
 	},
 	f = { "<CMD>Telescope live_grep<CR>", "Search in files" },
+    r = { "<CMD>Telescope oldfiles<CR>", "Recent files" },
 	g = {
 		name = "Git",
 		l = { "<cmd>lua LAZYGIT_TOGGLE()<CR>", "Toggle lazygit" },
