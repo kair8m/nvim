@@ -32,31 +32,13 @@ dap_mason.setup({
 		"bash",
 		"stylua",
 	},
+	automatic_installation = true,
+	automatic_setup = true,
 })
 
-dap.adapters.lldb = {
-	type = "executable",
-	command = vim.fn.stdpath("data") .. "/mason/bin/codelldb",
-	name = "lldb",
-	args = { "--port", "0" },
-}
+dapui.setup()
 
-dap.configurations.cpp = {
-	{
-		name = "Launch",
-		type = "lldb",
-		request = "launch",
-		program = function()
-			return vim.fn.input("Path to executable: ", vim.fn.getcwd() .. "/", "file")
-		end,
-		cwd = "${workspaceFolder}",
-		stopOnEntry = false,
-		args = {},
-	},
-}
-
-dap.configurations.c = dap.configurations.cpp
-dap.configurations.rust = dap.configurations.cpp
+dap_mason.setup_handlers()
 
 local dap_project_status, dap_project = pcall(require, "nvim-dap-projects")
 if not dap_project_status then
