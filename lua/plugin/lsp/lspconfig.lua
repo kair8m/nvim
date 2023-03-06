@@ -104,6 +104,9 @@ local on_attach = function(client, bufnr)
 
 	local whichkey = require("which-key")
 	whichkey.register(lsp_mappings_whichkey, { prefix = "<leader>" })
+
+	local inlay_hints = require("inlay-hints")
+	inlay_hints.on_attach(client, bufnr)
 end
 
 local capabilities = cmp_nvim_lsp.default_capabilities()
@@ -144,6 +147,11 @@ if neodev_status then
 	neodev.setup({
 		library = { plugins = { "nvim-dap-ui" }, types = true },
 	})
+end
+
+local ih_status, ih = pcall(require, "inlay-hints")
+if ih_status then
+	ih.setup()
 end
 
 require("plugin.lsp.languages.html-lsp").setup(lspconfig, capabilities, on_attach)

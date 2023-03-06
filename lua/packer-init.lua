@@ -155,6 +155,7 @@ return require("packer").startup(function(use)
 	use("folke/which-key.nvim")
 
 	use("simrat39/rust-tools.nvim")
+	use("simrat39/inlay-hints.nvim")
 
 	use("rust-lang/rust.vim")
 
