@@ -15,7 +15,12 @@ end
 
 local dap_vtext_status, dap_vtext = pcall(require, "nvim-dap-virtual-text")
 if dap_vtext_status then
-    dap_vtext.setup()
+	dap_vtext.setup()
+end
+
+local persistent_breakpoints_status, persistent_breakpoints = pcall(require, "persistent-breakpoints")
+if persistent_breakpoints_status then
+	persistent_breakpoints.setup({})
 end
 
 dap.listeners.after.event_initialized["dapui_config"] = function()
