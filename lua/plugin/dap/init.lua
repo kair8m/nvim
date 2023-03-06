@@ -13,6 +13,11 @@ if not dapui_status then
 	return
 end
 
+local dap_vtext_status, dap_vtext = pcall(require, "nvim-dap-virtual-text")
+if dap_vtext_status then
+    dap_vtext.setup()
+end
+
 dap.listeners.after.event_initialized["dapui_config"] = function()
 	dapui.open()
 end
