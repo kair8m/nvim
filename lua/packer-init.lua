@@ -65,8 +65,6 @@ return require("packer").startup(function(use)
 		requires = { { "nvim-lua/plenary.nvim" } },
 	})
 
-	use("yamatsum/nvim-cursorline")
-
 	-- using packer.nvim
 	use({ "akinsho/bufferline.nvim", tag = "v3.*", requires = "kyazdani42/nvim-web-devicons" })
 
