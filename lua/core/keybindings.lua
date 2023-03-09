@@ -16,10 +16,10 @@ map("v", "J", ":m '>+1<CR>gv=gv", { silent = true })
 map("v", "K", ":m '<-2<CR>gv=gv", { silent = true })
 map("n", "n", "nzzzv", { silent = true })
 map("n", "N", "Nzzzv", { silent = true })
-vim.keymap.set("n", "<F1>", '<CMD>lua require("dap").step_into()<CR>')
-vim.keymap.set("n", "<F2>", '<CMD>lua require("dap").continue()<CR>')
-vim.keymap.set("n", "<F3>", '<CMD>lua require("dap").step_over()<CR>')
-vim.keymap.set("n", "<F4>", '<CMD>lua require("dap").step_out()<CR>')
+vim.keymap.set("n", "<F5>", '<CMD>lua require("dap").continue()<CR>')
+vim.keymap.set("n", "<F6>", '<CMD>lua require("dap").step_into()<CR>')
+vim.keymap.set("n", "<F7>", '<CMD>lua require("dap").step_over()<CR>')
+vim.keymap.set("n", "<F8>", '<CMD>lua require("dap").step_out()<CR>')
 
 local whichkey_status, whichkey = pcall(require, "which-key")
 if not whichkey_status then
@@ -33,7 +33,7 @@ local mappings = {
 		"Search files",
 	},
 	f = { "<CMD>Telescope live_grep<CR>", "Search in files" },
-    r = { "<CMD>Telescope oldfiles<CR>", "Recent files" },
+	r = { "<CMD>Telescope oldfiles<CR>", "Recent files" },
 	g = {
 		name = "Git",
 		l = { "<cmd>lua LAZYGIT_TOGGLE()<CR>", "Toggle lazygit" },
@@ -63,15 +63,18 @@ local mappings = {
 	},
 	D = {
 		name = "Debugging",
-		b = { '<CMD>lua require("dap").toggle_breakpoint()<CR>', "Set breakpoint" },
+		b = { "<CMD>PBToggleBreakpoint<CR>", "Toggle breakpoint" },
 		B = {
-			'<CMD>lua require("dap").set_breakpoint(vim.fn.input("Breakpoint condition: "))<CR>',
+			"<CMD>PBSetConditionalBreakpoint<CR>",
 			"Set conditional breakpoint",
 		},
 		lp = {
 			'<CMD>lua require("dap").set_breakpoint(nil, nil, vim.fn.input("Log point message: "))',
 			"Set log point conditional breakpoint",
 		},
+        o = {
+            "<CMD>lua require('dapui').toggle()<CR>", "Toggle DAP ui"
+        }
 	},
 }
 
