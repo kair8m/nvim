@@ -134,7 +134,7 @@ return require("packer").startup(function(use)
 
 	use({
 		"kylechui/nvim-surround",
-		rag = "*",
+		tag = "*",
 	})
 
 	use("ojroques/nvim-bufdel")
