@@ -181,6 +181,17 @@ return require("packer").startup(function(use)
 		requires = { "nvim-telescope/telescope.nvim", "nvim-lua/plenary.nvim" },
 	})
 
+	use({ "m00qek/baleia.nvim", tag = "v1.2.0" })
+
+	use({
+		"samodostal/image.nvim",
+		requires = {
+			"nvim-lua/plenary.nvim",
+		},
+	})
+
+    use("peterhoeg/vim-qml")
+
 	if packer_bootstrap then
 		require("packer").sync()
 	end
