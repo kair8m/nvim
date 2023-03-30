@@ -30,6 +30,7 @@ require("core.colorscheme")
 require("core.cursor")
 require("core.spacing")
 
+require("plugin.flatten")
 require("plugin.undotree")
 require("plugin.autopairs")
 require("plugin.bufferline")
