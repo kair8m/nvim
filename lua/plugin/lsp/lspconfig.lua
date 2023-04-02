@@ -151,7 +151,12 @@ end
 
 local ih_status, ih = pcall(require, "inlay-hints")
 if ih_status then
-	ih.setup()
+	ih.setup({
+		only_current_line = true,
+		eol = {
+			right_align = true,
+		},
+	})
 end
 
 require("plugin.lsp.languages.html-lsp").setup(lspconfig, capabilities, on_attach)
