@@ -193,6 +193,9 @@ return require("packer").startup(function(use)
 	use("peterhoeg/vim-qml")
 
 	use("willothy/flatten.nvim")
+
+	use("f-person/git-blame.nvim")
+
 	if packer_bootstrap then
 		require("packer").sync()
 	end
