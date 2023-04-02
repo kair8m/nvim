@@ -18,6 +18,7 @@ null_ls.setup({
 		formatting.rustfmt,
 		diagnostics.eslint,
 		diagnostics.cmake_lint,
+		diagnostics.codespell,
 		-- diagnostics.cpplint,
 	},
 })

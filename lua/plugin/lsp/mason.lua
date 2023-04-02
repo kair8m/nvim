@@ -50,6 +50,7 @@ mason_null_ls.setup({
 		"shfmt",
 		"beautysh",
 		"rustfmt",
-        "cpplint"
+        "cpplint",
+        "codespell"
 	},
 })
