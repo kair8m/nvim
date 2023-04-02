@@ -196,6 +196,8 @@ return require("packer").startup(function(use)
 
 	use("f-person/git-blame.nvim")
 
+	use({ "chrisgrieser/nvim-spider" })
+
 	if packer_bootstrap then
 		require("packer").sync()
 	end
