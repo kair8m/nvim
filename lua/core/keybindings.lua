@@ -54,7 +54,6 @@ local mappings = {
 	["."] = { cycle_prev, "Cycle to previous buffer" },
 	t = { close_other_buffers, "Close other buffers" },
 	c = { close_current_buffer, "Close current buffer" },
-	s = { "<CMD>SymbolsOutline<CR>", "Toggle Symbol outline" },
 	h = {
 		name = "Harpoon",
 		a = { '<CMD>lua require("harpoon.mark").add_file()<CR>', "Add mark" },
