@@ -198,6 +198,8 @@ return require("packer").startup(function(use)
 
 	use({ "chrisgrieser/nvim-spider" })
 
+	use("bennypowers/splitjoin.nvim")
+
 	if packer_bootstrap then
 		require("packer").sync()
 	end

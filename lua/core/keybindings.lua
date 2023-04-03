@@ -49,6 +49,8 @@ local mappings = {
 			},
 		},
 	},
+    s = { "<cmd>lua require('splitjoin').split()<CR>", "Join the object under cursor" },
+    j = { "<cmd>lua require('splitjoin').join()<CR>", "Split the object under cursor" },
 	S = { "<cmd>Silicon<CR>", "Take screenshot" },
 	[","] = { cycle_next, "Cycle to next buffer" },
 	["."] = { cycle_prev, "Cycle to previous buffer" },
