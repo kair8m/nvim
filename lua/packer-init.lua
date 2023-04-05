@@ -43,6 +43,7 @@ return require("packer").startup(function(use)
 
 	use("nvim-treesitter/nvim-treesitter") -- Syntax highlighting
 	use("nvim-treesitter/nvim-treesitter-context")
+	use("nvim-treesitter/playground")
 	use({
 		"nvim-treesitter/nvim-treesitter-textobjects",
 		opt = true,
@@ -199,6 +200,8 @@ return require("packer").startup(function(use)
 	use({ "chrisgrieser/nvim-spider" })
 
 	use("bennypowers/splitjoin.nvim")
+
+	use("koenverburg/peepsight.nvim")
 
 	if packer_bootstrap then
 		require("packer").sync()
