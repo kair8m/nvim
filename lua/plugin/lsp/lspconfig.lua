@@ -105,8 +105,8 @@ local on_attach = function(client, bufnr)
 	local whichkey = require("which-key")
 	whichkey.register(lsp_mappings_whichkey, { prefix = "<leader>" })
 
-	local inlay_hints = require("inlay-hints")
-	inlay_hints.on_attach(client, bufnr)
+	-- local inlay_hints = require("inlay-hints")
+	-- inlay_hints.on_attach(client, bufnr)
 end
 
 local capabilities = cmp_nvim_lsp.default_capabilities()
