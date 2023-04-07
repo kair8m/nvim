@@ -7,6 +7,7 @@ telescope.load_extension("fzf")
 telescope.load_extension("lsp_handlers")
 telescope.load_extension("harpoon")
 telescope.load_extension("dap")
+telescope.load_extension("media_files")
 
 local actions = require("telescope.actions")
 
@@ -88,6 +89,13 @@ telescope.setup({
 				theme = "ivy",
 				hijack_netrw = true,
 			},
+		},
+		media_files = {
+			-- filetypes whitelist
+			-- defaults to {"png", "jpg", "mp4", "webm", "pdf"}
+			filetypes = { "png", "jpg", "mp4", "webm", "pdf", "svg" },
+			-- find command (defaults to `fd`)
+			find_cmd = "rg",
 		},
 	},
 })

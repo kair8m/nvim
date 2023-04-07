@@ -120,6 +120,7 @@ return require("packer").startup(function(use)
 	use({ "Weissle/persistent-breakpoints.nvim" })
 
 	use("nvim-telescope/telescope-dap.nvim")
+	use({ "nvim-telescope/telescope-media-files.nvim", requires = { "nvim-telescope/telescope.nvim" } })
 
 	use("ldelossa/nvim-dap-projects")
 
