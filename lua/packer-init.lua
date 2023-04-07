@@ -55,7 +55,7 @@ return require("packer").startup(function(use)
 		requires = { "nvim-treesitter/nvim-treesitter" },
 	})
 
-	use("nvim-lua/plenary.nvim") -- Collection of usefull lua libraries
+	use("nvim-lua/plenary.nvim") -- Collection of useful lua libraries
 
 	use({ "nvim-telescope/telescope-fzf-native.nvim", run = "make" })
 
