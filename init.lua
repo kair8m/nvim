@@ -23,6 +23,7 @@ vim.opt.colorcolumn = "90"
 vim.g.editorconfig = true
 vim.g.editorconfig_root = true
 vim.g.gitblame_enabled = true
+vim.cmd([[xnoremap p P]])
 
 require("packer-init")
 
