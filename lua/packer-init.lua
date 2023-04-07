@@ -140,8 +140,6 @@ return require("packer").startup(function(use)
 
 	use("ojroques/nvim-bufdel")
 
-	use("xiyaowong/nvim-transparent")
-
 	use("jose-elias-alvarez/null-ls.nvim")
 
 	use("jayp0521/mason-null-ls.nvim")
