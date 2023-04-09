@@ -44,11 +44,27 @@ dap_mason.setup({
 	},
 	automatic_installation = true,
 	automatic_setup = true,
+	handlers = {
+		function(config)
+			-- all sources with no handler get passed here
+			-- Keep original functionality
+			require("mason-nvim-dap").default_setup(config)
+		end,
+		python = function(config)
+			config.adapters = {
+				type = "executable",
+				command = "python",
+				args = {
+					"-m",
+					"debugpy.adapter",
+				},
+			}
+			require("mason-nvim-dap").default_setup(config)
+		end,
+	},
 })
 
 dapui.setup()
-
-dap_mason.setup_handlers()
 
 local dap_project_status, dap_project = pcall(require, "nvim-dap-projects")
 if not dap_project_status then
