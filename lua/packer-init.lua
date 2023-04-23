@@ -111,8 +111,6 @@ return require("packer").startup(function(use)
 
 	use("windwp/nvim-autopairs")
 
-	use("j-hui/fidget.nvim")
-
 	use("mfussenegger/nvim-dap")
 	use("folke/neodev.nvim")
 	use({ "rcarriga/nvim-dap-ui", requires = { "mfussenegger/nvim-dap" } })
