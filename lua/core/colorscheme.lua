@@ -3,4 +3,4 @@ if not nightfox_status then
 	return
 end
 
-vim.cmd("colorscheme duskfox")
+vim.cmd("colorscheme dracula-soft")
