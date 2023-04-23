@@ -26,7 +26,6 @@ return require("packer").startup(function(use)
 	use("hrsh7th/cmp-nvim-lua")
 	use("hrsh7th/cmp-nvim-lsp-signature-help")
 	use("hrsh7th/cmp-nvim-lsp-document-symbol")
-	use("folke/lsp-colors.nvim")
 	use({
 		"L3MON4D3/LuaSnip",
 		tag = "v1.1.0",
