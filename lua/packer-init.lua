@@ -126,7 +126,7 @@ return require("packer").startup(function(use)
 
 	use("williamboman/mason.nvim")
 	use("williamboman/mason-lspconfig.nvim")
-	use("jayp0521/mason-nvim-dap.nvim")
+	use("jay-babu/mason-nvim-dap.nvim")
 	use("jose-elias-alvarez/typescript.nvim")
 	use("onsails/lspkind.nvim")
 
