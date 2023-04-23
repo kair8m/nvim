@@ -102,8 +102,6 @@ return require("packer").startup(function(use)
 
 	use("akinsho/toggleterm.nvim")
 
-	use("karb94/neoscroll.nvim")
-
 	use("terrortylor/nvim-comment")
 
 	use("windwp/nvim-autopairs")
