@@ -100,8 +100,6 @@ return require("packer").startup(function(use)
 		requires = { "kyazdani42/nvim-web-devicons", opt = true },
 	})
 
-	use("lukas-reineke/indent-blankline.nvim")
-
 	use("akinsho/toggleterm.nvim")
 
 	use("karb94/neoscroll.nvim")
