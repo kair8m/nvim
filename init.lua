@@ -15,6 +15,7 @@ vim.opt.cursorline = true
 vim.opt.signcolumn = "yes"
 vim.opt.backspace = "indent,eol,start"
 vim.opt.iskeyword:append("-")
+vim.opt.termguicolors = true
 
 vim.opt.scrolloff = 8
 vim.opt.updatetime = 50
@@ -24,6 +25,12 @@ vim.g.editorconfig = true
 vim.g.editorconfig_root = true
 vim.g.gitblame_enabled = false
 vim.cmd([[xnoremap p P]])
+vim.cmd([[
+if !has('gui_running') && &term =~ '^\%(screen\|tmux\)'
+  let &t_8f = "\<Esc>[38;2;%lu;%lu;%lum"
+  let &t_8b = "\<Esc>[48;2;%lu;%lu;%lum"
+endif
+]])
 
 require("packer-init")
 
