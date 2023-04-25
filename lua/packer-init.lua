@@ -215,6 +215,8 @@ return require("packer").startup(function(use)
 
 	use("ray-x/starry.nvim")
 
+	use("ahmedkhalf/project.nvim")
+
 	if packer_bootstrap then
 		require("packer").sync()
 	end

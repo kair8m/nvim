@@ -8,6 +8,7 @@ telescope.load_extension("lsp_handlers")
 telescope.load_extension("harpoon")
 telescope.load_extension("dap")
 telescope.load_extension("media_files")
+telescope.load_extension("projects")
 
 local actions = require("telescope.actions")
 
