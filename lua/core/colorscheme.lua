@@ -1,6 +1,1 @@
-local nightfox_status, _ = pcall(require, "nightfox")
-if not nightfox_status then
-	return
-end
-
-vim.cmd("colorscheme dracula-soft")
+vim.cmd("colorscheme nightfox")
