@@ -219,6 +219,9 @@ return require("packer").startup(function(use)
 	use("ahmedkhalf/project.nvim")
 
 	use({ "catppuccin/nvim", as = "catppuccin" })
+
+	use("luukvbaal/statuscol.nvim")
+
 	if packer_bootstrap then
 		require("packer").sync()
 	end
