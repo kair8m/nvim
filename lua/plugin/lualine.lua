@@ -6,17 +6,17 @@ end
 -- Color table for highlights
 -- stylua: ignore
 local colors = {
-    bg       = '#202328',
-    fg       = '#bbc2cf',
-    yellow   = '#ECBE7B',
-    cyan     = '#008080',
-    darkblue = '#081633',
-    green    = '#98be65',
-    orange   = '#FF8800',
-    violet   = '#a9a1e1',
-    magenta  = '#c678dd',
-    blue     = '#51afef',
-    red      = '#ec5f67',
+    bg       = "#493E66",
+    fg       = "#bbc2cf",
+    yellow   = "#ECBE7B",
+    cyan     = "#008080",
+    darkblue = "#081633",
+    green    = "#98be65",
+    orange   = "#FF8800",
+    violet   = "#a9a1e1",
+    magenta  = "#c678dd",
+    blue     = "#51afef",
+    red      = "#ec5f67",
 }
 
 local conditions = {
@@ -32,6 +32,15 @@ local conditions = {
 		return gitdir and #gitdir > 0 and #gitdir < #filepath
 	end,
 }
+
+local function show_macro_recording()
+	local recording_register = vim.fn.reg_recording()
+	if recording_register == "" then
+		return ""
+	else
+		return "-- Recording @" .. recording_register .. " --"
+	end
+end
 
 -- Config
 local config = {
@@ -68,6 +77,33 @@ local config = {
 	},
 }
 
+local function change_mode_color()
+	-- auto change color according to neovims mode
+	local mode_color = {
+		n = colors.fg,
+		i = colors.green,
+		v = colors.blue,
+		[""] = colors.blue,
+		V = colors.blue,
+		c = colors.magenta,
+		no = colors.red,
+		s = colors.orange,
+		S = colors.orange,
+		[""] = colors.orange,
+		ic = colors.yellow,
+		R = colors.violet,
+		Rv = colors.violet,
+		cv = colors.red,
+		ce = colors.red,
+		r = colors.cyan,
+		rm = colors.cyan,
+		["r?"] = colors.cyan,
+		["!"] = colors.red,
+		t = colors.red,
+	}
+	return { fg = mode_color[vim.fn.mode()] }
+end
+
 -- Inserts a component in lualine_c at left section
 local function ins_left(component)
 	table.insert(config.sections.lualine_c, component)
@@ -79,49 +115,28 @@ local function ins_right(component)
 end
 
 ins_left({
-	function()
-		return "▊"
-	end,
-	color = { fg = colors.blue }, -- Sets highlighting of component
-	padding = { left = 0, right = 1 }, -- We don't need space before this
-})
-
-ins_left({
 	-- mode component
 	function()
-		return ""
+		return "🪐"
 	end,
-	color = function()
-		-- auto change color according to neovims mode
-		local mode_color = {
-			n = colors.red,
-			i = colors.green,
-			v = colors.blue,
-			[""] = colors.blue,
-			V = colors.blue,
-			c = colors.magenta,
-			no = colors.red,
-			s = colors.orange,
-			S = colors.orange,
-			[""] = colors.orange,
-			ic = colors.yellow,
-			R = colors.violet,
-			Rv = colors.violet,
-			cv = colors.red,
-			ce = colors.red,
-			r = colors.cyan,
-			rm = colors.cyan,
-			["r?"] = colors.cyan,
-			["!"] = colors.red,
-			t = colors.red,
-		}
-		return { fg = mode_color[vim.fn.mode()] }
-	end,
-	padding = { right = 1 },
+	padding = { right = 1, left = 1 },
 })
 
 ins_left({
-	-- filesize component
+	"mode",
+	fmt = function(str)
+		return str:sub(1, 6)
+	end,
+	color = change_mode_color,
+})
+
+ins_left({
+	"macro-recording",
+	fmt = show_macro_recording,
+	color = change_mode_color,
+})
+
+ins_left({
 	"filesize",
 	cond = conditions.buffer_not_empty,
 })
@@ -129,7 +144,22 @@ ins_left({
 ins_left({
 	"filename",
 	cond = conditions.buffer_not_empty,
-	color = { fg = colors.magenta, gui = "bold" },
+	file_status = true, -- Displays file status (readonly status, modified status)
+	newfile_status = true, -- Display new file status (new file means no write after created)
+	-- 0: Just the filename
+	-- 1: Relative path
+	-- 2: Absolute path
+	-- 3: Absolute path, with tilde as the home directory
+	-- 4: Filename and parent dir, with tilde as the home directory
+	path = 1,
+	shorting_target = 40, -- Shortens path to leave 40 spaces in the window
+	symbols = {
+		modified = "[+]", -- Text to show when the file is modified.
+		readonly = "[-]", -- Text to show when the file is non-modifiable or readonly.
+		unnamed = "[No Name]", -- Text to show for unnamed buffers.
+		newfile = "[New]", -- Text to show for newly created file before first write
+	},
+	color = { fg = colors.green, gui = "bold" },
 })
 
 ins_left({ "location" })
@@ -172,7 +202,7 @@ ins_left({
 		end
 		return msg
 	end,
-	icon = " LSP:",
+	icon = "  LSP:",
 	color = { fg = "#ffffff", gui = "bold" },
 })
 
@@ -193,7 +223,7 @@ ins_right({
 
 ins_right({
 	"branch",
-	icon = "",
+	icon = "",
 	color = { fg = colors.violet, gui = "bold" },
 })
 
@@ -211,7 +241,7 @@ ins_right({
 
 ins_right({
 	function()
-		return "▊"
+		return "  "
 	end,
 	color = { fg = colors.blue },
 	padding = { left = 1 },
@@ -219,3 +249,32 @@ ins_right({
 
 -- Now don't forget to initialize lualine
 lualine.setup(config)
+
+vim.api.nvim_create_autocmd("RecordingEnter", {
+	callback = function()
+		lualine.refresh({
+			place = { "statusline" },
+		})
+	end,
+})
+
+vim.api.nvim_create_autocmd("RecordingLeave", {
+	callback = function()
+		-- This is going to seem really weird!
+		-- Instead of just calling refresh we need to wait a moment because of the nature of
+		-- `vim.fn.reg_recording`. If we tell lualine to refresh right now it actually will
+		-- still show a recording occuring because `vim.fn.reg_recording` hasn't emptied yet.
+		-- So what we need to do is wait a tiny amount of time (in this instance 50 ms) to
+		-- ensure `vim.fn.reg_recording` is purged before asking lualine to refresh.
+		local timer = vim.loop.new_timer()
+		timer:start(
+			50,
+			0,
+			vim.schedule_wrap(function()
+				lualine.refresh({
+					place = { "statusline" },
+				})
+			end)
+		)
+	end,
+})
