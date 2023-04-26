@@ -5,7 +5,7 @@ end
 
 configs.setup({
 	ensure_installed = "all",
-	sync_install = true,
+	sync_install = false,
 	ignore_instal = { "" },
 	autoinstall = true,
 	highlight = {
