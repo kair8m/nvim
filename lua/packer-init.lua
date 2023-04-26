@@ -192,6 +192,7 @@ return require("packer").startup(function(use)
 
 	use({ "chrisgrieser/nvim-spider" })
 
+	use("Wansmer/treesj")
 
 	use("koenverburg/peepsight.nvim")
 
@@ -214,8 +215,6 @@ return require("packer").startup(function(use)
 	})
 
 	use("ray-x/starry.nvim")
-
-	use("ahmedkhalf/project.nvim")
 
 	use({ "catppuccin/nvim", as = "catppuccin" })
 

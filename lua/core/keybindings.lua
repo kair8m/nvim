@@ -49,8 +49,8 @@ local mappings = {
 			},
 		},
 	},
-    s = { "<cmd>lua require('splitjoin').split()<CR>", "Join the object under cursor" },
-    j = { "<cmd>lua require('splitjoin').join()<CR>", "Split the object under cursor" },
+	s = { "<cmd>lua require('treesj').split()<CR>", "Join the object under cursor" },
+	j = { "<cmd>lua require('treesj').join()<CR>", "Split the object under cursor" },
 	S = { "<cmd>Silicon<CR>", "Take screenshot" },
 	[","] = { cycle_next, "Cycle to next buffer" },
 	["."] = { cycle_prev, "Cycle to previous buffer" },
@@ -73,9 +73,10 @@ local mappings = {
 			'<CMD>lua require("dap").set_breakpoint(nil, nil, vim.fn.input("Log point message: "))',
 			"Set log point conditional breakpoint",
 		},
-        o = {
-            "<CMD>lua require('dapui').toggle()<CR>", "Toggle DAP ui"
-        }
+		o = {
+			"<CMD>lua require('dapui').toggle()<CR>",
+			"Toggle DAP ui",
+		},
 	},
 }
 
@@ -84,7 +85,7 @@ local opts = {
 }
 
 whichkey.register(mappings, opts)
-vim.keymap.set({"n", "o", "x"}, "w", "<cmd>lua require('spider').motion('w')<CR>", { desc = "Spider-w" })
-vim.keymap.set({"n", "o", "x"}, "e", "<cmd>lua require('spider').motion('e')<CR>", { desc = "Spider-w" })
-vim.keymap.set({"n", "o", "x"}, "b", "<cmd>lua require('spider').motion('b')<CR>", { desc = "Spider-w" })
-vim.keymap.set({"n", "o", "x"}, "ge", "<cmd>lua require('spider').motion('ge')<CR>", { desc = "Spider-w" })
+vim.keymap.set({ "n", "o", "x" }, "w", "<cmd>lua require('spider').motion('w')<CR>", { desc = "Spider-w" })
+vim.keymap.set({ "n", "o", "x" }, "e", "<cmd>lua require('spider').motion('e')<CR>", { desc = "Spider-w" })
+vim.keymap.set({ "n", "o", "x" }, "b", "<cmd>lua require('spider').motion('b')<CR>", { desc = "Spider-w" })
+vim.keymap.set({ "n", "o", "x" }, "ge", "<cmd>lua require('spider').motion('ge')<CR>", { desc = "Spider-w" })
