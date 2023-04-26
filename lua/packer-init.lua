@@ -220,6 +220,8 @@ return require("packer").startup(function(use)
 
 	use("luukvbaal/statuscol.nvim")
 
+	use("norcalli/nvim-colorizer.lua")
+
 	if packer_bootstrap then
 		require("packer").sync()
 	end
