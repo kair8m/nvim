@@ -192,7 +192,6 @@ return require("packer").startup(function(use)
 
 	use({ "chrisgrieser/nvim-spider" })
 
-	use("bennypowers/splitjoin.nvim")
 
 	use("koenverburg/peepsight.nvim")
 
