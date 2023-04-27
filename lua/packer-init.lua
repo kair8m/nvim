@@ -124,7 +124,7 @@ return require("packer").startup(function(use)
 	use("jose-elias-alvarez/typescript.nvim")
 	use("onsails/lspkind.nvim")
 
-	use({ "glepnir/lspsaga.nvim", branch = "main" })
+	use({ "glepnir/lspsaga.nvim", tag = "v0.2.9" })
 
 	use("WhoIsSethDaniel/mason-tool-installer.nvim")
 
