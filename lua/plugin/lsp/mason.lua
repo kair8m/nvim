@@ -13,7 +13,11 @@ if not mason_null_ls_status then
 	return
 end
 
-mason.setup()
+mason.setup({
+    ui = {
+        border = "rounded"
+    }
+})
 
 mason_lspconfig.setup({
 	ensure_installed = {
