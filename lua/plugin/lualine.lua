@@ -269,6 +269,9 @@ vim.api.nvim_create_autocmd("RecordingLeave", {
 		-- So what we need to do is wait a tiny amount of time (in this instance 50 ms) to
 		-- ensure `vim.fn.reg_recording` is purged before asking lualine to refresh.
 		local timer = vim.loop.new_timer()
+		if not timer then
+			return
+		end
 		timer:start(
 			50,
 			0,
