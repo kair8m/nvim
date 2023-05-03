@@ -222,6 +222,17 @@ return require("packer").startup(function(use)
 
 	use("andrewferrier/wrapping.nvim")
 
+	-- integrated testing plugins
+	use({
+		"nvim-neotest/neotest",
+		requires = {
+			"nvim-lua/plenary.nvim",
+			"nvim-treesitter/nvim-treesitter",
+			"antoinemadec/FixCursorHold.nvim",
+		},
+	})
+	use({ "alfaix/neotest-gtest" })
+
 	if packer_bootstrap then
 		require("packer").sync()
 	end
