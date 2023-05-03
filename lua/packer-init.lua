@@ -233,6 +233,8 @@ return require("packer").startup(function(use)
 	})
 	use({ "alfaix/neotest-gtest" })
 
+	use({ "phaazon/hop.nvim", branch = "v2" })
+
 	if packer_bootstrap then
 		require("packer").sync()
 	end
