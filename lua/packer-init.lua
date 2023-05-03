@@ -116,8 +116,6 @@ return require("packer").startup(function(use)
 	use("nvim-telescope/telescope-dap.nvim")
 	use({ "nvim-telescope/telescope-media-files.nvim", requires = { "nvim-telescope/telescope.nvim" } })
 
-	use("ldelossa/nvim-dap-projects")
-
 	use("williamboman/mason.nvim")
 	use("williamboman/mason-lspconfig.nvim")
 	use("jay-babu/mason-nvim-dap.nvim")
