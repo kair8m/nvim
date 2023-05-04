@@ -235,6 +235,8 @@ return require("packer").startup(function(use)
 
 	use({ "phaazon/hop.nvim", branch = "v2" })
 
+	use("tpope/vim-fugitive")
+
 	if packer_bootstrap then
 		require("packer").sync()
 	end
