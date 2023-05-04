@@ -31,6 +31,13 @@ if !has('gui_running') && &term =~ '^\%(screen\|tmux\)'
   let &t_8b = "\<Esc>[48;2;%lu;%lu;%lum"
 endif
 ]])
+-- auto-reload files when modified externally
+-- https://unix.stackexchange.com/a/383044
+vim.o.autoread = true
+vim.api.nvim_create_autocmd({ "BufEnter", "CursorHold", "CursorHoldI", "FocusGained" }, {
+	command = "if mode() != 'c' | checktime | endif",
+	pattern = { "*" },
+})
 
 require("packer-init")
 
