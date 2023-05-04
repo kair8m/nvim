@@ -48,6 +48,21 @@ local mappings = {
 				"Swith and delete a worktrees",
 			},
 		},
+		h = {
+			name = "Hunk",
+			n = {
+				"<CMD>Gitsigns next_hunk<CR>",
+				"Next hunk",
+			},
+			p = {
+				"<CMD>Gitsigns prev_hunk<CR>",
+				"Previous hunk",
+			},
+			P = {
+				"<CMD>Gitsigns preview_hunk<CR>",
+				"Preview hunk",
+			},
+		},
 	},
 	s = { "<cmd>lua require('treesj').split()<CR>", "Join the object under cursor" },
 	j = { "<cmd>lua require('treesj').join()<CR>", "Split the object under cursor" },
