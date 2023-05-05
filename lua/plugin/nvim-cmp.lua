@@ -5,7 +5,7 @@ if not status_ok then
 	return
 end
 
-from_vscode.lazy_load()
+from_vscode.load()
 
 local status_ok1, cmp = pcall(require, "cmp")
 if not status_ok1 then
@@ -30,6 +30,8 @@ cmp.setup({
 			luasnip.lsp_expand(args.body)
 		end,
 	},
+	completion = { completeopt = "menu,menuone,noinsert" },
+	experimental = { ghost_text = true },
 	sources = {
 		{ name = "path" },
 		{ name = "nvim_lsp", keyword_length = 3 },
