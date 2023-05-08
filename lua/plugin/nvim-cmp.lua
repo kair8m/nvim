@@ -5,7 +5,7 @@ if not status_ok then
 	return
 end
 
-from_vscode.load()
+from_vscode.lazy_load()
 
 local status_ok1, cmp = pcall(require, "cmp")
 if not status_ok1 then
