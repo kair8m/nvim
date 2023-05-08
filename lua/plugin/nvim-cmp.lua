@@ -48,6 +48,8 @@ cmp.setup({
 		format = lspkind.cmp_format({
 			maxwidth = 50,
 			ellipsis_char = "...",
+			mode = "symbol_text",
+			preset = "codicons",
 		}),
 	},
 	mapping = cmp.mapping.preset.insert({
