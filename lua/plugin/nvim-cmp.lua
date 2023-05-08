@@ -31,7 +31,7 @@ cmp.setup({
 		end,
 	},
 	completion = { completeopt = "menu,menuone,noinsert" },
-	experimental = { ghost_text = true },
+	-- experimental = { ghost_text = true },
 	sources = {
 		{ name = "path" },
 		{ name = "nvim_lsp", keyword_length = 3 },
