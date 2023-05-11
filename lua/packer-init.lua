@@ -147,11 +147,7 @@ return require("packer").startup(function(use)
 	use("simrat39/rust-tools.nvim")
 	use("simrat39/inlay-hints.nvim")
 
-	use("rust-lang/rust.vim")
-
 	use("christoomey/vim-tmux-navigator")
-
-	use("simrat39/symbols-outline.nvim")
 
 	use("mbbill/undotree")
 
