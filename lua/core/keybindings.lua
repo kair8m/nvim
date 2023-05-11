@@ -45,7 +45,7 @@ local mappings = {
 			},
 			s = {
 				'<CMD>lua require("telescope").extensions.git_worktree.git_worktrees()<CR>',
-				"Swith and delete a worktrees",
+				"Switch and delete a worktrees",
 			},
 		},
 		h = {
@@ -85,7 +85,7 @@ local mappings = {
 			"Set conditional breakpoint",
 		},
 		lp = {
-			'<CMD>lua require("dap").set_breakpoint(nil, nil, vim.fn.input("Log point message: "))',
+			'<CMD>lua require("dap").set_breakpoint(nil, nil, vim.fn.input("Log point message: "))<CR>',
 			"Set log point conditional breakpoint",
 		},
 		o = {
