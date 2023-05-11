@@ -153,7 +153,10 @@ return require("packer").startup(function(use)
 
 	use("ThePrimeagen/harpoon")
 
-	use("segeljakt/vim-silicon")
+	use({
+		"krivahtoo/silicon.nvim",
+		run = "./install.sh build"
+	})
 
 	use("ThePrimeagen/git-worktree.nvim")
 
