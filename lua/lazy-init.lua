@@ -50,7 +50,7 @@ require("lazy").setup({
 	},
 	{ "nvim-lua/plenary.nvim" }, -- Collection of useful lua libraries
 
-	{ { "nvim-telescope/telescope-fzf-native.nvim", build = "make" } },
+	{ "nvim-telescope/telescope-fzf-native.nvim", build = "make" },
 
 	{
 		"nvim-telescope/telescope.nvim",
@@ -95,12 +95,12 @@ require("lazy").setup({
 
 	{ "mfussenegger/nvim-dap" },
 	{ "folke/neodev.nvim" },
-	{ { "rcarriga/nvim-dap-ui", dependencies = { "mfussenegger/nvim-dap" } } },
-	{ { "theHamsta/nvim-dap-virtual-text" } },
-	{ { "Weissle/persistent-breakpoints.nvim" } },
+	{ "rcarriga/nvim-dap-ui", dependencies = { "mfussenegger/nvim-dap" } },
+	{ "theHamsta/nvim-dap-virtual-text" },
+	{ "Weissle/persistent-breakpoints.nvim" },
 
 	{ "nvim-telescope/telescope-dap.nvim" },
-	{ { "nvim-telescope/telescope-media-files.nvim", dependencies = { "nvim-telescope/telescope.nvim" } } },
+	{ "nvim-telescope/telescope-media-files.nvim", dependencies = { "nvim-telescope/telescope.nvim" } },
 	{ "williamboman/mason.nvim" },
 	{ "williamboman/mason-lspconfig.nvim" },
 	{ "jay-babu/mason-nvim-dap.nvim" },
@@ -145,7 +145,7 @@ require("lazy").setup({
 
 	{ "ThePrimeagen/git-worktree.nvim" },
 
-	{ { "toppair/peek.nvim", build = "deno task --quiet build:fast" } },
+	{ "toppair/peek.nvim", build = "deno task --quiet build:fast" },
 
 	{
 		"startup-nvim/startup.nvim",
@@ -191,7 +191,7 @@ require("lazy").setup({
 
 	{ "ray-x/starry.nvim" },
 
-	{ { "catppuccin/nvim", name = "catppuccin" } },
+	{ "catppuccin/nvim", name = "catppuccin" },
 
 	{ "luukvbaal/statuscol.nvim" },
 
@@ -208,9 +208,9 @@ require("lazy").setup({
 			"antoinemadec/FixCursorHold.nvim",
 		},
 	},
-	{ { "alfaix/neotest-gtest" } },
+	{ "alfaix/neotest-gtest" },
 
-	{ { "phaazon/hop.nvim", branch = "v2" } },
+	{ "phaazon/hop.nvim", branch = "v2" },
 
 	{ "tpope/vim-fugitive" },
 
