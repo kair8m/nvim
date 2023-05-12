@@ -107,7 +107,7 @@ require("lazy").setup({
 	{ "jose-elias-alvarez/typescript.nvim" },
 	{ "onsails/lspkind.nvim" },
 
-	{ { "glepnir/lspsaga.nvim", version = "v0.2.9" } },
+	{ { "glepnir/lspsaga.nvim" } },
 
 	{ "WhoIsSethDaniel/mason-tool-installer.nvim" },
 
