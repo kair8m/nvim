@@ -39,7 +39,7 @@ vim.api.nvim_create_autocmd({ "BufEnter", "CursorHold", "CursorHoldI", "FocusGai
 	pattern = { "*" },
 })
 
-require("packer-init")
+require("lazy-init")
 
 require("core.keybindings")
 require("core.colorscheme")
