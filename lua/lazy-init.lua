@@ -215,4 +215,8 @@ require("lazy").setup({
 	{ "tpope/vim-fugitive" },
 
 	{ "RRethy/vim-illuminate" },
+}, {
+	ui = {
+		border = "double",
+	},
 })
