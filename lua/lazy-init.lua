@@ -13,10 +13,6 @@ vim.opt.rtp:prepend(lazypath)
 
 require("lazy").setup({
 	-- Packer can manage itself
-	{ "wbthomason/packer.nvim" }, -- Packagemanager
-	{ "Mofiqul/dracula.nvim" }, -- Colorscheme
-	{ "EdenEast/nightfox.nvim" }, -- Packer
-
 	{ "neovim/nvim-lspconfig" }, -- Configurations for Nvim LSP
 	{ "hrsh7th/cmp-nvim-lsp" },
 	{ "hrsh7th/cmp-buffer" },
@@ -31,7 +27,6 @@ require("lazy").setup({
 		"L3MON4D3/LuaSnip",
 		version = "v1.2.1",
 	},
-	{ "rafamadriz/friendly-snippets" },
 
 	{
 		"nvim-tree/nvim-tree.lua", -- NERD Tree analog
@@ -43,7 +38,6 @@ require("lazy").setup({
 
 	{ "nvim-treesitter/nvim-treesitter" }, -- Syntax highlighting
 	{ "nvim-treesitter/nvim-treesitter-context" },
-	{ "nvim-treesitter/playground" },
 	{
 		"nvim-treesitter/nvim-treesitter-textobjects",
 		dependencies = { "nvim-treesitter/nvim-treesitter" },
@@ -60,15 +54,13 @@ require("lazy").setup({
 	},
 
 	-- using packer.nvim
-	{ { "akinsho/bufferline.nvim", version = "*", dependencies = "nvim-tree/nvim-web-devicons" } },
-
 	{
-		"gbrlsnchs/telescope-lsp-handlers.nvim",
-		dependencies = {
-			"nvim-telescope/telescope.nvim",
-		},
+		"akinsho/bufferline.nvim",
+		version = "*",
+		dependencies = "nvim-tree/nvim-web-devicons",
 	},
 
+	{ "gbrlsnchs/telescope-lsp-handlers.nvim", dependencies = { "nvim-telescope/telescope.nvim" } },
 	{ "kkharji/sqlite.lua" },
 
 	{
@@ -78,15 +70,9 @@ require("lazy").setup({
 		},
 	},
 
-	{
-		"lewis6991/gitsigns.nvim",
-	},
+	{ "lewis6991/gitsigns.nvim" },
 
-	{
-		"nvim-lualine/lualine.nvim",
-		dependencies = { "nvim-tree/nvim-web-devicons" },
-	},
-
+	{ "nvim-lualine/lualine.nvim", dependencies = { "nvim-tree/nvim-web-devicons" } },
 	{ "akinsho/toggleterm.nvim" },
 
 	{ "terrortylor/nvim-comment" },
@@ -107,7 +93,7 @@ require("lazy").setup({
 	{ "jose-elias-alvarez/typescript.nvim" },
 	{ "onsails/lspkind.nvim" },
 
-	{ { "glepnir/lspsaga.nvim" } },
+	{ "glepnir/lspsaga.nvim" },
 
 	{ "WhoIsSethDaniel/mason-tool-installer.nvim" },
 
@@ -170,7 +156,7 @@ require("lazy").setup({
 
 	{ "f-person/git-blame.nvim" },
 
-	{ { "chrisgrieser/nvim-spider" } },
+	{ "chrisgrieser/nvim-spider" },
 
 	{ "Wansmer/treesj" },
 
