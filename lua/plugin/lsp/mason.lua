@@ -31,7 +31,7 @@ mason_lspconfig.setup({
 		"tailwindcss",
 		"bashls",
 		"rust_analyzer",
-        "cmake",
+        "neocmake",
 	},
 })
 
