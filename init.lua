@@ -65,8 +65,8 @@ require("plugin.treesitter-context")
 require("plugin.trouble")
 
 require("plugin.lsp.mason")
-require("plugin.lsp.lspsaga")
 require("plugin.lsp.lspconfig")
+require("plugin.lsp.lspsaga")
 require("plugin.lsp.null-ls")
 require("plugin.peek-nvim")
 
