@@ -8,6 +8,7 @@ telescope.load_extension("lsp_handlers")
 telescope.load_extension("harpoon")
 telescope.load_extension("dap")
 telescope.load_extension("media_files")
+telescope.load_extension("recent_files")
 
 local actions = require("telescope.actions")
 
@@ -96,6 +97,9 @@ telescope.setup({
 			filetypes = { "png", "jpg", "mp4", "webm", "pdf", "svg" },
 			-- find command (defaults to `fd`)
 			find_cmd = "rg",
+		},
+		recent_files = {
+			only_cwd = true,
 		},
 	},
 })

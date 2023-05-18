@@ -12,7 +12,6 @@ end
 vim.opt.rtp:prepend(lazypath)
 
 require("lazy").setup({
-	-- Packer can manage itself
 	{ "neovim/nvim-lspconfig" }, -- Configurations for Nvim LSP
 	{ "hrsh7th/cmp-nvim-lsp" },
 	{ "hrsh7th/cmp-buffer" },
@@ -53,7 +52,6 @@ require("lazy").setup({
 		dependencies = { { "nvim-lua/plenary.nvim" } },
 	},
 
-	-- using packer.nvim
 	{
 		"akinsho/bufferline.nvim",
 		version = "*",
@@ -61,6 +59,7 @@ require("lazy").setup({
 	},
 
 	{ "gbrlsnchs/telescope-lsp-handlers.nvim", dependencies = { "nvim-telescope/telescope.nvim" } },
+	{ "smartpde/telescope-recent-files", dependencies = { "nvim-telescope/telescope.nvim" } },
 	{ "kkharji/sqlite.lua" },
 
 	{
@@ -162,7 +161,6 @@ require("lazy").setup({
 
 	{ "koenverburg/peepsight.nvim" },
 
-	-- Packer
 	{
 		"folke/noice.nvim",
 		dependencies = {
