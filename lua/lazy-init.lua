@@ -199,6 +199,10 @@ require("lazy").setup({
 	{ "tpope/vim-fugitive" },
 
 	{ "RRethy/vim-illuminate" },
+	{
+		"m4xshen/smartcolumn.nvim",
+		opts = {},
+	},
 }, {
 	ui = {
 		border = "double",
