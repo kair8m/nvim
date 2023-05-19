@@ -220,6 +220,9 @@ require("lazy").setup({
 		version = "*",
 		opts = {},
 	},
+	{
+		"windwp/nvim-ts-autotag",
+	},
 }, {
 	ui = {
 		border = "double",
