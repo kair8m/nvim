@@ -215,6 +215,11 @@ require("lazy").setup({
 			lastplace_open_folds = true,
 		},
 	},
+	{
+		"utilyre/sentiment.nvim",
+		version = "*",
+		opts = {},
+	},
 }, {
 	ui = {
 		border = "double",
