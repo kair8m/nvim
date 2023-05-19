@@ -74,8 +74,6 @@ require("lazy").setup({
 	{ "nvim-lualine/lualine.nvim", dependencies = { "nvim-tree/nvim-web-devicons" } },
 	{ "akinsho/toggleterm.nvim" },
 
-	{ "terrortylor/nvim-comment" },
-
 	{ "windwp/nvim-autopairs" },
 
 	{ "mfussenegger/nvim-dap" },
@@ -201,6 +199,11 @@ require("lazy").setup({
 	{ "RRethy/vim-illuminate" },
 	{
 		"m4xshen/smartcolumn.nvim",
+		opts = {},
+	},
+
+	{
+		"numToStr/Comment.nvim",
 		opts = {},
 	},
 }, {
