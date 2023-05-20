@@ -33,6 +33,13 @@ lspsaga.setup({
 	ui = {
 		border = "double",
 	},
+	outline = {
+		auto_resize = true,
+		keys = {
+			expand_or_jump = "<CR>",
+			quit = "q",
+		},
+	},
 })
 
 vim.wo.winbar = require("lspsaga.symbolwinbar"):get_winbar()
