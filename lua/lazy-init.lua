@@ -223,6 +223,10 @@ require("lazy").setup({
 	{
 		"windwp/nvim-ts-autotag",
 	},
+	{
+		"nacro90/numb.nvim",
+		opts = {},
+	},
 }, {
 	ui = {
 		border = "double",
