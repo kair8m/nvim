@@ -119,6 +119,8 @@ for idx = 1, #tokens do
 			{ name = "nvim_lsp_document_symbol" },
 		}, {
 			{ name = "buffer" },
+		}, {
+			{ name = "nvim_lua" },
 		}),
 	})
 end
