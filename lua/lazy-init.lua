@@ -224,6 +224,10 @@ require("lazy").setup({
 		"windwp/nvim-ts-autotag",
 	},
 	{
+		"haringsrob/nvim_context_vt",
+		dependencies = { "nvim-treesitter/nvim-treesitter" },
+	},
+	{
 		"nacro90/numb.nvim",
 		opts = {},
 	},
