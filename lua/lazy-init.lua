@@ -28,11 +28,11 @@ require("lazy").setup({
 	},
 
 	{
-		"nvim-tree/nvim-tree.lua", -- NERD Tree analog
+		"nvim-tree/nvim-tree.lua",
 		dependencies = {
-			"nvim-tree/nvim-web-devicons", -- optional, for file icons
+			"nvim-tree/nvim-web-devicons",
 		},
-		version = "nightly", -- optional, updated every week. (see issue #1193)
+		version = "*",
 	},
 
 	{ "nvim-treesitter/nvim-treesitter" }, -- Syntax highlighting
@@ -70,7 +70,6 @@ require("lazy").setup({
 	},
 
 	{ "lewis6991/gitsigns.nvim" },
-
 	{ "nvim-lualine/lualine.nvim", dependencies = { "nvim-tree/nvim-web-devicons" } },
 	{ "akinsho/toggleterm.nvim" },
 
