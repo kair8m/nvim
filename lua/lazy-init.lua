@@ -125,7 +125,7 @@ require("lazy").setup({
 		build = "./install.sh build",
 	},
 
-	{ "ThePrimeagen/git-worktree.nvim" },
+	{ "kair8m/git-worktree.nvim" },
 
 	{ "toppair/peek.nvim", build = "deno task --quiet build:fast" },
 
