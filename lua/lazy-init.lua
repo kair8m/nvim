@@ -21,10 +21,10 @@ require("lazy").setup({
 	{ "hrsh7th/cmp-nvim-lua" },
 	{ "hrsh7th/cmp-nvim-lsp-signature-help" },
 	{ "hrsh7th/cmp-nvim-lsp-document-symbol" },
-	{ { "saadparwaiz1/cmp_luasnip" } },
+	{ "saadparwaiz1/cmp_luasnip" },
 	{
 		"L3MON4D3/LuaSnip",
-		version = "v1.2.1",
+		dependencies = { "rafamadriz/friendly-snippets" },
 	},
 
 	{

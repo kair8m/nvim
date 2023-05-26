@@ -30,15 +30,40 @@ cmp.setup({
 			luasnip.lsp_expand(args.body)
 		end,
 	},
-	completion = { completeopt = "menu,menuone,noinsert" },
+	preselect = require("cmp").PreselectMode.None,
+	completion = { completeopt = "menu,menuone,noinsert,noselect" },
 	-- experimental = { ghost_text = true },
 	sources = {
-		{ name = "path" },
-		{ name = "nvim_lsp", keyword_length = 3 },
-		{ name = "buffer", keyword_length = 3 },
-		{ name = "luasnip", option = { use_show_condition = false } },
-		{ name = "nvim_lua" },
-		{ name = "nvim_lsp_signature_help" },
+		{
+			name = "nvim_lsp",
+			keyword_length = 3,
+			priority = 0,
+		},
+		{
+			name = "luasnip",
+			option = {
+				use_show_condition = true,
+				show_autosnippets = true,
+			},
+			priority = 1,
+		},
+		{
+			name = "nvim_lsp_signature_help",
+			priority = 2,
+		},
+		{
+			name = "nvim_lua",
+			priority = 3,
+		},
+		{
+			name = "buffer",
+			keyword_length = 3,
+			priority = 4,
+		},
+		{
+			name = "path",
+			priority = 5,
+		},
 	},
 	window = {
 		completion = cmp.config.window.bordered(),
@@ -63,7 +88,7 @@ cmp.setup({
 		["<C-u>"] = cmp.mapping.scroll_docs(-4),
 		["<C-f>"] = cmp.mapping.scroll_docs(4),
 		["<C-e>"] = cmp.mapping.abort(),
-		["<CR>"] = cmp.mapping.confirm({ select = true }),
+		["<CR>"] = cmp.mapping.confirm( --[[ { select = true } ]]),
 		["<C-d>"] = cmp.mapping(function(fallback)
 			if luasnip.jumpable(1) then
 				luasnip.jump(1)
@@ -106,6 +131,16 @@ local cmdline_mappings = {
 	["<C-n>"] = cmp.mapping(cmp.mapping.select_next_item(), { "i", "c" }),
 	["<C-k>"] = cmp.mapping(cmp.mapping.select_prev_item(), { "i", "c" }),
 	["<C-j>"] = cmp.mapping(cmp.mapping.select_next_item(), { "i", "c" }),
+	["<Tab>"] = cmp.mapping(function(fallback)
+		local col = vim.fn.col(".") - 1
+		if cmp.visible() then
+			cmp.select_next_item()
+		elseif col == 0 or vim.fn.getline("."):sub(col, col):match("%s") then
+			fallback()
+		else
+			cmp.complete()
+		end
+	end, { "i", "c" }),
 }
 table.insert({
 	cmp.mapping.preset.cmdline(),
