@@ -230,6 +230,9 @@ require("lazy").setup({
 		"nacro90/numb.nvim",
 		opts = {},
 	},
+	{
+		"sindrets/diffview.nvim",
+	},
 }, {
 	ui = {
 		border = "double",
