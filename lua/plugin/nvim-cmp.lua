@@ -16,6 +16,7 @@ local status_ok2, luasnip = pcall(require, "luasnip")
 if not status_ok2 then
 	return
 end
+luasnip.config.set_config({ history = true, updateevents = "TextChanged,TextChangedI" })
 
 local status_ok3, lspkind = pcall(require, "lspkind")
 if not status_ok3 then
@@ -31,13 +32,13 @@ cmp.setup({
 		end,
 	},
 	preselect = require("cmp").PreselectMode.None,
-	completion = { completeopt = "menu,menuone,noinsert,noselect" },
-	-- experimental = { ghost_text = true },
+	completion = { completeopt = "menu,menuone,noselect" },
+	experimental = { ghost_text = true },
 	sources = {
 		{
 			name = "nvim_lsp",
 			keyword_length = 3,
-			priority = 0,
+			priority = 10,
 		},
 		{
 			name = "luasnip",
@@ -45,20 +46,20 @@ cmp.setup({
 				use_show_condition = true,
 				show_autosnippets = true,
 			},
-			priority = 1,
+			priority = 9,
 		},
 		{
 			name = "nvim_lsp_signature_help",
-			priority = 2,
+			priority = 8,
 		},
 		{
 			name = "nvim_lua",
-			priority = 3,
+			priority = 7,
 		},
 		{
 			name = "buffer",
 			keyword_length = 3,
-			priority = 4,
+			priority = 6,
 		},
 		{
 			name = "path",
