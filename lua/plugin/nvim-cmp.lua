@@ -39,6 +39,7 @@ cmp.setup({
 			name = "nvim_lsp",
 			keyword_length = 3,
 			priority = 10,
+			group_index = 1,
 		},
 		{
 			name = "luasnip",
@@ -47,23 +48,28 @@ cmp.setup({
 				show_autosnippets = true,
 			},
 			priority = 9,
+			group_index = 1,
 		},
 		{
 			name = "nvim_lsp_signature_help",
 			priority = 8,
+			group_index = 1,
 		},
 		{
 			name = "nvim_lua",
-			priority = 7,
+			priority = 10,
+			group_index = 1,
 		},
 		{
 			name = "buffer",
 			keyword_length = 3,
 			priority = 6,
+			group_index = 2,
 		},
 		{
 			name = "path",
 			priority = 5,
+			group_index = 2,
 		},
 	},
 	window = {
