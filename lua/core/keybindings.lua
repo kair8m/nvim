@@ -62,6 +62,14 @@ local mappings = {
 				"<CMD>Gitsigns preview_hunk<CR>",
 				"Preview hunk",
 			},
+			r = {
+				"<CMD>Gitsigns reset_hunk<CR>",
+				"Reset hunk",
+			},
+			s = {
+				"<CMD>Gitsigns select_hunk<CR>",
+				"Select hunk",
+			},
 		},
 	},
 	s = { "<cmd>lua require('treesj').split()<CR>", "Join the object under cursor" },
@@ -104,5 +112,5 @@ vim.keymap.set({ "n", "o", "x" }, "w", "<cmd>lua require('spider').motion('w')<C
 vim.keymap.set({ "n", "o", "x" }, "e", "<cmd>lua require('spider').motion('e')<CR>", { desc = "Spider-w" })
 vim.keymap.set({ "n", "o", "x" }, "b", "<cmd>lua require('spider').motion('b')<CR>", { desc = "Spider-w" })
 vim.keymap.set({ "n", "o", "x" }, "ge", "<cmd>lua require('spider').motion('ge')<CR>", { desc = "Spider-w" })
-vim.keymap.set({"n"}, "]g", "<cmd>Gitsigns next_hunk<CR>", { desc = "Git next hunk" })
-vim.keymap.set({"n"}, "[g", "<cmd>Gitsigns prev_hunk<CR>", { desc = "Git next hunk" })
+vim.keymap.set({ "n" }, "]g", "<cmd>Gitsigns next_hunk<CR>", { desc = "Git next hunk" })
+vim.keymap.set({ "n" }, "[g", "<cmd>Gitsigns prev_hunk<CR>", { desc = "Git next hunk" })
