@@ -1,1 +1,1 @@
-vim.cmd("silent! colorscheme catppuccin")
+vim.cmd("silent! colorscheme catppuccin-frappe")
