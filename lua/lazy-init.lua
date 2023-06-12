@@ -235,6 +235,9 @@ require("lazy").setup({
 		"sindrets/diffview.nvim",
 	},
 }, {
+	install = {
+		colorscheme = { "catppuccin-frappe" },
+	},
 	ui = {
 		border = "double",
 	},
