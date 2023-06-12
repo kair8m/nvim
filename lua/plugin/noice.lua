@@ -1,6 +1,6 @@
 local noice_status, noice = pcall(require, "noice")
 if not noice_status then
-    return
+	return
 end
 noice.setup({
 	lsp = {
@@ -9,6 +9,9 @@ noice.setup({
 			["vim.lsp.util.convert_input_to_markdown_lines"] = true,
 			["vim.lsp.util.stylize_markdown"] = true,
 			["cmp.entry.get_documentation"] = true,
+		},
+		signature = {
+			enabled = false,
 		},
 	},
 	-- you can enable a preset for easier configuration
@@ -19,8 +22,8 @@ noice.setup({
 		inc_rename = false, -- enables an input dialog for inc-rename.nvim
 		lsp_doc_border = false, -- add a border to hover docs and signature help
 	},
-    popupmenu = {
-        enabled = true,
-        backend = "cmp"
-    }
+	popupmenu = {
+		enabled = true,
+		backend = "cmp",
+	},
 })

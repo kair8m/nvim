@@ -53,7 +53,7 @@ local lsp_mappings_whichkey = {
 		a = { code_actions_command, "Code actions" },
 		k = { hover_doc_command, "Show documentation" },
 		s = { show_document_symbols, "Show document symbols" },
-        o = { show_outline, "Show outline"},
+		o = { show_outline, "Show outline" },
 	},
 	d = {
 		name = "LSP Diagnostics",
@@ -107,6 +107,13 @@ local on_attach = function(client, bufnr)
 	local whichkey = require("which-key")
 	whichkey.register(lsp_mappings_whichkey, { prefix = "<leader>" })
 
+	require("lsp_signature").on_attach({
+		bind = true, -- This is mandatory, otherwise border config won't get registered.
+		handler_opts = {
+			border = "rounded",
+		},
+	}, bufnr)
+
 	-- local inlay_hints = require("inlay-hints")
 	-- inlay_hints.on_attach(client, bufnr)
 end
@@ -159,6 +166,20 @@ if ih_status then
 			right_align = true,
 		},
 	})
+end
+
+local signature_config = {
+	log_path = vim.fn.expand("$HOME") .. "/tmp/sig.log",
+	debug = false,
+	hint_enable = true,
+	noice = true,
+	handler_opts = { border = "single" },
+	max_width = 80,
+}
+
+local signature_status, signature = pcall(require, "lsp_signature")
+if signature_status then
+	signature.setup(signature_config)
 end
 
 require("plugin.lsp.languages.html-lsp").setup(lspconfig, capabilities, on_attach)
