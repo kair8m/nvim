@@ -234,6 +234,10 @@ require("lazy").setup({
 	{
 		"sindrets/diffview.nvim",
 	},
+
+	{
+		"tzachar/highlight-undo.nvim",
+	},
 }, {
 	install = {
 		colorscheme = { "catppuccin-frappe" },
