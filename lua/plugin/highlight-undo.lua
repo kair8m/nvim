@@ -1,10 +1,10 @@
 local status, highlight_undo = pcall(require, "highlight-undo")
 if not status then
-    return
+	return
 end
 highlight_undo.setup({
 	hlgroup = "HighlightUndo",
-	duration = 300,
+	duration = 500,
 	keymaps = {
 		{ "n", "u", "undo", {} },
 		{ "n", "<C-r>", "redo", {} },
