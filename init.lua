@@ -14,7 +14,6 @@ vim.opt.smartcase = true
 vim.opt.cursorline = true
 vim.opt.signcolumn = "yes"
 vim.opt.backspace = "indent,eol,start"
-vim.opt.iskeyword:append("-")
 vim.opt.termguicolors = true
 
 vim.opt.scrolloff = 8
@@ -82,5 +81,4 @@ require("plugin.neotest")
 require("plugin.hop")
 require("plugin.illuminate")
 require("plugin.silicon")
-require("plugin.gitconflict")
 require("plugin.highlight-undo")
