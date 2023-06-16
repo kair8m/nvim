@@ -34,6 +34,7 @@ local mappings = {
 	},
 	f = { "<CMD>Telescope live_grep<CR>", "Search in files" },
 	r = { [[<CMD>lua require("telescope").extensions.recent_files.pick({only_cwd=true})<CR>]], "Recent files" },
+	b = { [[<CMD>Telescope buffers<CR>]], "Opened buffers" },
 	g = {
 		name = "Git",
 		l = { "<cmd>lua LAZYGIT_TOGGLE()<CR>", "Toggle lazygit" },
