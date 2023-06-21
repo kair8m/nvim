@@ -199,3 +199,12 @@ require("plugin.lsp.languages.cmake-lsp").setup(lspconfig, capabilities, on_atta
 require("plugin.lsp.languages.bash-lsp").setup(lspconfig, capabilities, on_attach)
 
 require("plugin.lsp.languages.rust-lsp").setup(lspconfig, capabilities, on_attach)
+
+local lsp_lines_status, lsp_lines = pcall(require, "lsp_lines")
+if not lsp_lines_status then
+	return
+end
+lsp_lines.setup()
+vim.diagnostic.config({
+	virtual_text = false,
+})

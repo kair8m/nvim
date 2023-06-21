@@ -242,6 +242,9 @@ require("lazy").setup({
 		"shellRaining/hlchunk.nvim",
 		event = { "UIEnter" },
 	},
+	{
+		"Maan2003/lsp_lines.nvim",
+	},
 }, {
 	install = {
 		colorscheme = { "catppuccin-frappe" },
