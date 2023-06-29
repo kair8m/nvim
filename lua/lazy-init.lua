@@ -237,6 +237,8 @@ require("lazy").setup({
 		"sindrets/diffview.nvim",
 	},
 
+	{ "akinsho/git-conflict.nvim", version = "*" },
+
 	{
 		"tzachar/highlight-undo.nvim",
 	},
