@@ -32,7 +32,7 @@ local mappings = {
 		'<CMD>lua require("telescope.builtin").find_files({find_command = { "fd", "-t=f", "-H" }})<CR>',
 		"Search files",
 	},
-	f = { "<CMD>Telescope live_grep<CR>", "Search in files" },
+	f = { "<CMD>Telescope live_grep_args<CR>", "Search in files" },
 	r = { [[<CMD>lua require("telescope").extensions.recent_files.pick({only_cwd=true})<CR>]], "Recent files" },
 	b = { [[<CMD>Telescope buffers<CR>]], "Opened buffers" },
 	g = {
