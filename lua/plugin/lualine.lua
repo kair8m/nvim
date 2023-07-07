@@ -3,20 +3,20 @@ if not status_ok then
 	return
 end
 
+local frappe = require("catppuccin.palettes").get_palette("frappe")
+
 -- Color table for highlights
 -- stylua: ignore
 local colors = {
-    bg       = "#7C79C3",
-    fg       = "#F1EBF6",
-    yellow   = "#ECBE7B",
-    cyan     = "#008080",
-    darkblue = "#081633",
-    green    = "#4CEC4C",
-    orange   = "#FF8800",
-    violet   = "#a9a1e1",
-    magenta  = "#c678dd",
-    blue     = "#51afef",
-    red      = "#ec5f67",
+    fg      = frappe.white,
+    yellow  = frappe.yellow,
+    cyan    = frappe.cyan,
+    green   = frappe.green,
+    orange  = frappe.orange,
+    violet  = frappe.violet,
+    magenta = frappe.magenta,
+    blue    = frappe.blue,
+    red     = frappe.red,
 }
 
 local conditions = {
@@ -48,10 +48,7 @@ local config = {
 		-- Disable sections and component separators
 		component_separators = "",
 		section_separators = "",
-		theme = {
-			normal = { c = { fg = colors.fg, bg = colors.bg } },
-			inactive = { c = { fg = colors.fg, bg = colors.bg } },
-		},
+		theme = "catppuccin",
 		disabled_filetypes = { "packer", "NvimTree" },
 		disabled_buftypes = { "quickfix", "prompt" },
 	},
