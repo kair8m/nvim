@@ -32,6 +32,7 @@ lspsaga.setup({
 	},
 	ui = {
 		border = "double",
+		kind = require("catppuccin.groups.integrations.lsp_saga").custom_kind(),
 	},
 	outline = {
 		auto_resize = true,
