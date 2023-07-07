@@ -45,7 +45,6 @@ require("lazy").setup({
 	{ "nvim-lua/plenary.nvim" }, -- Collection of useful lua libraries
 
 	{ "nvim-telescope/telescope-fzf-native.nvim", build = "make" },
-
 	{ "nvim-telescope/telescope-live-grep-args.nvim" },
 
 	{
@@ -175,7 +174,7 @@ require("lazy").setup({
 
 	{ "ray-x/starry.nvim" },
 
-	{ "catppuccin/nvim", name = "catppuccin" },
+	{ "catppuccin/nvim", name = "catppuccin", priority = 1000 },
 
 	{ "luukvbaal/statuscol.nvim" },
 
