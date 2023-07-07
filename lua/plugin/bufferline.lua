@@ -4,16 +4,7 @@ if not status_ok then
 end
 
 bufferline.setup({
-	highlights = {
-		buffer_selected = { bold = true },
-		diagnostic_selected = { bold = true },
-		info_selected = { bold = true },
-		info_diagnostic_selected = { bold = true },
-		warning_selected = { bold = true },
-		warning_diagnostic_selected = { bold = true },
-		error_selected = { bold = true },
-		error_diagnostic_selected = { bold = true },
-	},
+	highlights = require("catppuccin.groups.integrations.bufferline").get(),
 	options = {
 		show_close_icon = false,
 		diagnostics = "nvim_lsp",
