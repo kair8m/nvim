@@ -12,7 +12,7 @@ local navic_status, navic = pcall(require, "nvim-navic")
 if not navic_status then
 	return
 end
-local show_references_command = "<cmd>Lspsaga lsp_finder<cr>"
+local show_references_command = "<cmd>Lspsaga finder tyd+ref+imp+def<cr>"
 local peek_definition_command = "<cmd>Lspsaga peek_definition<cr>"
 local show_declaration_command = "<cmd>lua vim.lsp.buf.declaration()<cr>"
 local show_implementation_command = "<cmd>lua vim.lsp.buf.implementation()<cr>"

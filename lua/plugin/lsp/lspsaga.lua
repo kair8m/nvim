@@ -5,25 +5,19 @@ end
 
 lspsaga.setup({
 	definition = {
-		edit = "<CR>",
-		vsplit = "<C-c>v",
-		split = "<C-c>i",
-		tabe = "<C-c>t",
-		quit = "q",
+		keys = {
+			edit = "<CR>",
+		},
 	},
 	finder = {
 		max_height = 0.5,
 		min_width = 30,
 		force_max_height = false,
+		methods = {
+			"textDocument/typeDefinition",
+		},
 		keys = {
-			jump_to = "p",
-			expand_or_jump = "<CR>",
-			vsplit = "s",
-			split = "i",
-			tabe = "t",
-			tabnew = "r",
-			quit = { "q", "<ESC>" },
-			close_in_preview = "<ESC>",
+			edit = "<CR>",
 		},
 	},
 	request_timeout = 5000, -- for really large projects
@@ -41,6 +35,7 @@ lspsaga.setup({
 			quit = "q",
 		},
 	},
+	lightbulb = {
+		sign = false,
+	},
 })
-
-vim.wo.winbar = require("lspsaga.symbolwinbar"):get_winbar()
