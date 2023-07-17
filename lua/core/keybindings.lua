@@ -6,6 +6,7 @@ local cycle_prev = "<CMD>BufferLineCycleNext<CR>"
 local close_other_buffers = "<CMD>BufferLineCloseLeft<CR><CMD>BufferLineCloseRight<CR>"
 local close_current_buffer = "<CMD>BufDel<CR>"
 map("n", "<Space>", "", {})
+map("n", "<F1>", "", {})
 map("n", "Q", "", {})
 map("n", "<ESC>", "<CMD>noh<CR>", { silent = true })
 map("n", "<A-,>", cycle_next, { silent = true })
