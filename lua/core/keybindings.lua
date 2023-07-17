@@ -103,6 +103,10 @@ local mappings = {
 			"Toggle DAP ui",
 		},
 	},
+	n = {
+		name = "Noice",
+		d = { "<CMD>Noice dismiss<CR>", "Dismiss notifications" },
+	},
 }
 
 local opts = {
