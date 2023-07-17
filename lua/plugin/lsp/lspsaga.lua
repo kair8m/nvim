@@ -19,6 +19,7 @@ lspsaga.setup({
 		keys = {
 			edit = "<CR>",
 		},
+		silent = true,
 	},
 	request_timeout = 5000, -- for really large projects
 	rename = {
