@@ -25,7 +25,7 @@ local show_line_diagnostics = "<cmd>Lspsaga show_line_diagnostics<cr>"
 local show_cursor_diagnostics = "<cmd>Lspsaga show_cursor_diagnostics<cr>"
 local jump_to_next_diagnostics_finding = "<cmd>Lspsaga diagnostic_jump_next<cr>"
 local jump_to_prev_diagnostics_finding = "<cmd>Lspsaga diagnostic_jump_prev<cr>"
-local show_workspace_symbols = "<cmd>Telescope lsp_workspace_symbols<cr>"
+local show_workspace_symbols = "<cmd>Telescope lsp_document_symbols<cr>"
 local show_outline = "<cmd>Lspsaga outline<cr>"
 local jump_to_next_error = function()
 	require("lspsaga.diagnostic").goto_next({
