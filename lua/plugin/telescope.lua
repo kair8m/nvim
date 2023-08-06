@@ -15,6 +15,7 @@ local actions = require("telescope.actions")
 
 telescope.setup({
 	defaults = {
+        dynamic_preview_title = true,
 		-- use fd to 'find files' and return absolute paths
 		find_command = { "fd", "-t=f", "-a", "-i" },
 		path_display = { "truncate" },
