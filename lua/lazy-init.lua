@@ -150,7 +150,11 @@ require("lazy").setup({
 
 	{ "peterhoeg/vim-qml" },
 
-	{ "willothy/flatten.nvim" },
+	{
+		"willothy/flatten.nvim",
+		lazy = false,
+		priority = 1001,
+	},
 
 	{ "f-person/git-blame.nvim" },
 
