@@ -252,6 +252,10 @@ require("lazy").setup({
 	{
 		"Maan2003/lsp_lines.nvim",
 	},
+	{
+		"RaafatTurki/hex.nvim",
+		opts = {},
+	},
 }, {
 	install = {
 		colorscheme = { "catppuccin-frappe" },
