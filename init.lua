@@ -69,7 +69,6 @@ require("plugin.peek-nvim")
 
 require("plugin.dap.init")
 
-require("plugin.startup")
 require("plugin.image")
 require("plugin.peepsight")
 require("plugin.noice")
