@@ -2,7 +2,7 @@ local status, silicon = pcall(require, "silicon")
 if not status then
 	return
 end
-silicon.setup({
+local _, _ = pcall(silicon.setup, {
 	background = "#87f",
 	theme = "Dracula",
 	line_number = true,
