@@ -19,7 +19,6 @@ local colors = {
     red     = frappe.red,
     bg      = frappe.base,
 }
-print(vim.inspect(frappe))
 
 local conditions = {
 	buffer_not_empty = function()
