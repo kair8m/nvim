@@ -13,11 +13,13 @@ local colors = {
     cyan    = frappe.cyan,
     green   = frappe.green,
     orange  = frappe.orange,
-    violet  = frappe.violet,
+    violet  = frappe.mauve,
     magenta = frappe.magenta,
     blue    = frappe.blue,
     red     = frappe.red,
+    bg      = frappe.base,
 }
+print(vim.inspect(frappe))
 
 local conditions = {
 	buffer_not_empty = function()
@@ -76,28 +78,43 @@ local config = {
 local function change_mode_color()
 	-- auto change color according to neovims mode
 	local mode_color = {
-		n = colors.fg,
-		i = colors.green,
-		v = colors.blue,
-		[""] = colors.blue,
-		V = colors.blue,
-		c = colors.magenta,
-		no = colors.red,
-		s = colors.orange,
-		S = colors.orange,
-		[""] = colors.orange,
-		ic = colors.yellow,
-		R = colors.violet,
-		Rv = colors.violet,
-		cv = colors.red,
-		ce = colors.red,
-		r = colors.cyan,
-		rm = colors.cyan,
-		["r?"] = colors.cyan,
-		["!"] = colors.red,
-		t = colors.red,
+		n = { fg = colors.bg, bg = colors.blue }, --      Normal
+		no = { fg = colors.bg, bg = colors.blue }, --      Operator-pending
+		nov = { fg = colors.bg, bg = colors.blue }, --      Operator-pending (forced charwise |o_v|)
+		noV = { fg = colors.bg, bg = colors.blue }, --     Operator-pending (forced linewise |o_V|)
+		["noCTRL-V"] = { fg = colors.bg, bg = colors.blue }, -- Operator-pending (forced blockwise |o_CTRL-V|)
+		niI = { fg = colors.bg, bg = colors.blue }, --     Normal using |i_CTRL-O| in |Insert-mode|
+		niR = { fg = colors.bg, bg = colors.blue }, --     Normal using |i_CTRL-O| in |Replace-mode|
+		niV = { fg = colors.bg, bg = colors.blue }, --     Normal using |i_CTRL-O| in |Virtual-Replace-mode|
+		nt = { fg = colors.bg, bg = colors.blue }, --     Normal in |terminal-emulator| (insert goes to Terminal mode)
+		ntT = { fg = colors.bg, bg = colors.blue }, --     Normal using |t_CTRL-_CTRL-O| in |Terminal-mode|
+		v = { fg = colors.bg, bg = colors.yellow }, --     Visual by character
+		vs = { fg = colors.bg, bg = colors.yellow }, --     Visual by character using |v_CTRL-O| in Select mode
+		V = { fg = colors.bg, bg = colors.yellow }, --     Visual by line
+		Vs = { fg = colors.bg, bg = colors.yellow }, --     Visual by line using |v_CTRL-O| in Select mode
+		["CTRL-V"] = { fg = colors.bg, bg = colors.yellow }, --  Visual blockwise
+		["CTRL-Vs"] = { fg = colors.bg, bg = colors.yellow }, -- Visual blockwise using |v_CTRL-O| in Select mode
+		s = { fg = colors.bg, bg = colors.blue }, --     Select by character
+		S = { fg = colors.bg, bg = colors.blue }, --     Select by line
+		["CTRL-S"] = { fg = colors.bg, bg = colors.blue }, --  Select blockwise
+		i = { fg = colors.bg, bg = colors.green }, --     Insert
+		ic = { fg = colors.bg, bg = colors.green }, --     Insert mode completion |compl-generic|
+		ix = { fg = colors.bg, bg = colors.green }, --     Insert mode |i_CTRL-X| completion
+		R = { fg = colors.bg, bg = colors.red }, --     Replace |R|
+		Rc = { fg = colors.bg, bg = colors.red }, --     Replace mode completion |compl-generic|
+		Rx = { fg = colors.bg, bg = colors.red }, --     Replace mode |i_CTRL-X| completion
+		Rv = { fg = colors.bg, bg = colors.red }, --     Virtual Replace |gR|
+		Rvc = { fg = colors.bg, bg = colors.red }, --     Virtual Replace mode completion |compl-generic|
+		Rvx = { fg = colors.bg, bg = colors.red }, --     Virtual Replace mode |i_CTRL-X| completion
+		c = { fg = colors.bg, bg = colors.violet }, --     Command-line editing
+		cv = { fg = colors.bg, bg = colors.violet }, --     Vim Ex mode |gQ|
+		r = { fg = colors.bg, bg = colors.violet }, --     Hit-enter prompt
+		rm = { fg = colors.bg, bg = colors.violet }, --     The -- more -- prompt
+		["r?"] = { fg = colors.bg, bg = colors.violet }, --     A |:confirm| query of some sort
+		["!"] = { fg = colors.bg, bg = colors.violet }, --     Shell or external command is executing
+		t = { fg = colors.bg, bg = colors.violet }, --     Terminal mode: keys go to the job
 	}
-	return { fg = mode_color[vim.fn.mode()] }
+	return mode_color[vim.fn.mode()]
 end
 
 -- Inserts a component in lualine_c at left section
@@ -109,14 +126,6 @@ end
 local function ins_right(component)
 	table.insert(config.sections.lualine_x, component)
 end
-
-ins_left({
-	-- mode component
-	function()
-		return "🪐"
-	end,
-	padding = { right = 1, left = 1 },
-})
 
 ins_left({
 	"mode",
@@ -232,14 +241,6 @@ ins_right({
 		removed = { fg = colors.red },
 	},
 	cond = conditions.hide_in_width,
-})
-
-ins_right({
-	function()
-		return "  "
-	end,
-	color = { fg = colors.blue },
-	padding = { left = 1 },
 })
 
 -- Now don't forget to initialize lualine
