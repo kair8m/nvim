@@ -21,6 +21,9 @@ bufferline.setup({
 			local icon = level:match("error") and "   " or "   "
 			return " " .. icon .. count
 		end,
+		indicator = {
+			style = "underline",
+		},
 		separator_style = "slope",
 	},
 })
