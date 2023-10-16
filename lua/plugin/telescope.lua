@@ -48,6 +48,14 @@ telescope.setup({
 					actions.preview_scrolling_down,
 					type = "action",
 				},
+				["<C-d>"] = {
+					actions.results_scrolling_down,
+					type = "action",
+				},
+				["<C-u>"] = {
+					actions.results_scrolling_up,
+					type = "action",
+				},
 				["<PageDown>"] = {
 					actions.cycle_history_next,
 					type = "action",
