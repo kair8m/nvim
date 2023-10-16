@@ -71,6 +71,7 @@ require("plugin.dap.init")
 
 require("plugin.image")
 require("plugin.peepsight")
+require("plugin.notify")
 require("plugin.noice")
 require("plugin.statuscol")
 require("plugin.treesj")
