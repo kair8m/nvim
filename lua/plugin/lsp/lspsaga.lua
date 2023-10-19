@@ -8,6 +8,7 @@ lspsaga.setup({
 		keys = {
 			edit = "<CR>",
 		},
+		save_pos = true,
 	},
 	finder = {
 		max_height = 0.5,
