@@ -102,7 +102,7 @@ require("lazy").setup({
 
 	{ "ojroques/nvim-bufdel" },
 
-	{ "jose-elias-alvarez/null-ls.nvim" },
+	{ "nvimtools/none-ls.nvim" },
 
 	{ "jayp0521/mason-null-ls.nvim" },
 
