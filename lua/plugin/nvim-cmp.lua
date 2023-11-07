@@ -51,11 +51,6 @@ cmp.setup({
 			group_index = 1,
 		},
 		{
-			name = "nvim_lsp_signature_help",
-			priority = 8,
-			group_index = 1,
-		},
-		{
 			name = "nvim_lua",
 			priority = 10,
 			group_index = 1,
