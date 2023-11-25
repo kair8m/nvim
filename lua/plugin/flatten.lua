@@ -38,7 +38,7 @@ flatten.setup({
 			require("toggleterm").toggle(0)
 		end,
 	},
-    one_per = {
-        kitty = false
-    }
+	one_per = {
+		kitty = false,
+	},
 })

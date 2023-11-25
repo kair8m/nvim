@@ -56,10 +56,10 @@ local lsp_mappings_whichkey = {
 		s = { show_workspace_symbols, "Show workspace symbols" },
 		o = { show_outline, "Show outline" },
 	},
-    t = {
-        name = "Telescope",
-        d = { show_dynamic_workspace_symbols, "Show dynamic workspace symbols" }
-    },
+	t = {
+		name = "Telescope",
+		d = { show_dynamic_workspace_symbols, "Show dynamic workspace symbols" },
+	},
 	d = {
 		name = "LSP Diagnostics",
 		l = { show_line_diagnostics, "Show line diagnostics" },

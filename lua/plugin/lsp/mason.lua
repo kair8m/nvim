@@ -14,9 +14,9 @@ if not mason_null_ls_status then
 end
 
 mason.setup({
-    ui = {
-        border = "rounded"
-    }
+	ui = {
+		border = "rounded",
+	},
 })
 
 mason_lspconfig.setup({
@@ -31,7 +31,7 @@ mason_lspconfig.setup({
 		"tailwindcss",
 		"bashls",
 		"rust_analyzer",
-        "neocmake",
+		"neocmake",
 	},
 })
 
@@ -54,7 +54,7 @@ mason_null_ls.setup({
 		"shfmt",
 		"beautysh",
 		"rustfmt",
-        "cpplint",
-        "codespell"
+		"cpplint",
+		"codespell",
 	},
 })
