@@ -32,6 +32,7 @@ mason_lspconfig.setup({
 		"bashls",
 		"rust_analyzer",
 		"neocmake",
+		"ruby_ls",
 	},
 })
 
@@ -56,5 +57,6 @@ mason_null_ls.setup({
 		"rustfmt",
 		"cpplint",
 		"codespell",
+		"rubyfmt",
 	},
 })

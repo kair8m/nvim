@@ -35,7 +35,10 @@ require("lazy").setup({
 		},
 		version = "*",
 	},
-
+	{
+		"mihyaeru21/nvim-lspconfig-bundler",
+		dependencies = { "neovim/nvim-lspconfig" },
+	},
 	{ "nvim-treesitter/nvim-treesitter" }, -- Syntax highlighting
 	{ "nvim-treesitter/nvim-treesitter-context" },
 	{
