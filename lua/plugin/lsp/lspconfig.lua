@@ -212,7 +212,3 @@ if bundler_status then
     lspconfig_bundler.setup()
     require("plugin.lsp.languages.ruby-lsp").setup(lspconfig, capabilities, on_attach)
 end
-
-vim.diagnostic.config({
-    virtual_text = false,
-})
