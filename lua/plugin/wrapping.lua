@@ -1,6 +1,6 @@
 local status, wrapping = pcall(require, "wrapping")
 if not status then
-	return
+    return
 end
 
 wrapping.setup()
