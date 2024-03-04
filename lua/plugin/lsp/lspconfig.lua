@@ -114,15 +114,6 @@ local on_attach = function(client, bufnr)
     local whichkey = require("which-key")
     whichkey.register(lsp_mappings_whichkey, { prefix = "<leader>" })
 
-    require("lsp_signature").on_attach({
-        bind = true, -- This is mandatory, otherwise border config won't get registered.
-        handler_opts = {
-            border = "rounded",
-        },
-    }, bufnr)
-
-    -- local inlay_hints = require("inlay-hints")
-    -- inlay_hints.on_attach(client, bufnr)
 end
 
 local capabilities = cmp_nvim_lsp.default_capabilities()
@@ -183,11 +174,6 @@ local signature_config = {
     handler_opts = { border = "single" },
     max_width = 80,
 }
-
-local signature_status, signature = pcall(require, "lsp_signature")
-if signature_status then
-    signature.setup(signature_config)
-end
 
 require("plugin.lsp.languages.html-lsp").setup(lspconfig, capabilities, on_attach)
 
