@@ -4,7 +4,7 @@ local map = vim.api.nvim_set_keymap
 
 local cycle_next = "<CMD>BufferLineCyclePrev<CR>"
 local cycle_prev = "<CMD>BufferLineCycleNext<CR>"
-local close_other_buffers = "<CMD>BufferLineCloseLeft<CR><CMD>BufferLineCloseRight<CR>"
+local close_other_buffers = "<CMD>BufferLineCloseOthers<CR>"
 local close_current_buffer = "<CMD>BufDel<CR>"
 map("n", "<Space>", "", {})
 map("n", "<F1>", "", {})
