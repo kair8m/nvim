@@ -47,7 +47,7 @@ require("lazy").setup({
     },
     { "nvim-lua/plenary.nvim" }, -- Collection of useful lua libraries
 
-    { "nvim-telescope/telescope-fzf-native.nvim",    build = "make" },
+    { "nvim-telescope/telescope-fzf-native.nvim", build = "make" },
     { "nvim-telescope/telescope-live-grep-args.nvim" },
 
     {
@@ -64,7 +64,7 @@ require("lazy").setup({
     },
 
     { "gbrlsnchs/telescope-lsp-handlers.nvim", dependencies = { "nvim-telescope/telescope.nvim" } },
-    { "smartpde/telescope-recent-files",       dependencies = { "nvim-telescope/telescope.nvim" } },
+    { "smartpde/telescope-recent-files", dependencies = { "nvim-telescope/telescope.nvim" } },
     { "kkharji/sqlite.lua" },
 
     {
@@ -75,14 +75,14 @@ require("lazy").setup({
     },
 
     { "lewis6991/gitsigns.nvim" },
-    { "nvim-lualine/lualine.nvim",                 dependencies = { "nvim-tree/nvim-web-devicons" } },
+    { "nvim-lualine/lualine.nvim", dependencies = { "nvim-tree/nvim-web-devicons" } },
     { "akinsho/toggleterm.nvim" },
 
     { "windwp/nvim-autopairs" },
 
     { "mfussenegger/nvim-dap" },
     { "folke/neodev.nvim" },
-    { "rcarriga/nvim-dap-ui",                      dependencies = { "mfussenegger/nvim-dap" } },
+    { "rcarriga/nvim-dap-ui", dependencies = { "mfussenegger/nvim-dap" } },
     { "theHamsta/nvim-dap-virtual-text" },
     { "Weissle/persistent-breakpoints.nvim" },
 
@@ -132,7 +132,7 @@ require("lazy").setup({
 
     { "kair8m/git-worktree.nvim" },
 
-    { "toppair/peek.nvim",       build = "deno task --quiet build:fast" },
+    { "toppair/peek.nvim", build = "deno task --quiet build:fast" },
 
     {
         "nvim-telescope/telescope-file-browser.nvim",
@@ -186,7 +186,7 @@ require("lazy").setup({
 
     { "ray-x/starry.nvim" },
 
-    { "catppuccin/nvim",            name = "catppuccin", priority = 1000 },
+    { "catppuccin/nvim", name = "catppuccin", priority = 1000 },
 
     { "luukvbaal/statuscol.nvim" },
 
@@ -205,7 +205,7 @@ require("lazy").setup({
     },
     { "alfaix/neotest-gtest" },
 
-    { "phaazon/hop.nvim",     branch = "v2" },
+    { "phaazon/hop.nvim", branch = "v2" },
 
     { "tpope/vim-fugitive" },
 
