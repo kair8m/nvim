@@ -260,6 +260,11 @@ require("lazy").setup({
         "RaafatTurki/hex.nvim",
         opts = {},
     },
+
+    {
+        "folke/trouble.nvim",
+        dependencies = { "nvim-tree/nvim-web-devicons" },
+    },
 }, {
     install = {
         colorscheme = { "catppuccin-frappe" },

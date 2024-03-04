@@ -21,6 +21,7 @@ local code_actions_command = "<cmd>Lspsaga code_action<cr>"
 local rename_command = "<cmd>Lspsaga rename<cr>"
 local hover_doc_command = "<cmd>Lspsaga hover_doc<cr>"
 
+local show_workspace_diagnostics = "<cmd>Trouble<cr>"
 local show_line_diagnostics = "<cmd>Lspsaga show_line_diagnostics<cr>"
 local show_cursor_diagnostics = "<cmd>Lspsaga show_cursor_diagnostics<cr>"
 local jump_to_next_diagnostics_finding = "<cmd>Lspsaga diagnostic_jump_next<cr>"
@@ -66,6 +67,7 @@ local lsp_mappings_whichkey = {
         c = { show_cursor_diagnostics, "Show cursor diagnostics" },
         n = { jump_to_next_error, "Jump to next error" },
         p = { jump_to_prev_error, "Jump to previous error" },
+        w = { show_workspace_diagnostics, "[w]orkspace diagnostics"}
     },
 }
 
