@@ -36,6 +36,11 @@ cmp.setup({
     experimental = { ghost_text = true },
     sources = {
         {
+            name = "nvim_lsp_signature_help",
+            priority = 10,
+            group_index = 1,
+        },
+        {
             name = "nvim_lsp",
             priority = 10,
             group_index = 1,
