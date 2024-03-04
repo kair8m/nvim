@@ -19,6 +19,22 @@ vim.diagnostic.config({
         header = "",
         prefix = "",
     },
+    virtual_text = {
+        prefix = "",
+        format = function(diagnostic)
+            if diagnostic.severity == vim.diagnostic.severity.ERROR then
+                return string.format("✘ %s", diagnostic.message)
+            elseif diagnostic.severity == vim.diagnostic.severity.WARN then
+                return string.format("▲ %s", diagnostic.message)
+            elseif diagnostic.severity == vim.diagnostic.severity.HINT then
+                return string.format("⚑ %s", diagnostic.message)
+            elseif diagnostic.severity == vim.diagnostic.severity.INFO then
+                return string.format(" %s", diagnostic.message)
+            else
+                return diagnostic.message
+            end
+        end,
+    },
 })
 
 vim.lsp.handlers["textDocument/hover"] = vim.lsp.with(vim.lsp.handlers.hover, { border = "rounded" })
