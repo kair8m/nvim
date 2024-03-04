@@ -37,7 +37,6 @@ cmp.setup({
     sources = {
         {
             name = "nvim_lsp",
-            keyword_length = 3,
             priority = 10,
             group_index = 1,
         },
@@ -56,13 +55,12 @@ cmp.setup({
             group_index = 1,
         },
         {
-            name = "buffer",
-            keyword_length = 3,
+            name = "path",
             priority = 6,
             group_index = 2,
         },
         {
-            name = "path",
+            name = "buffer",
             priority = 5,
             group_index = 2,
         },
