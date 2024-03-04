@@ -13,7 +13,7 @@ nvim_tree.setup({
         update_cwd = false,
     },
     view = {
-        adaptive_size = false,
+        adaptive_size = true,
         number = true,
         relativenumber = true,
     },
