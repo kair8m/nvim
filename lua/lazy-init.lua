@@ -254,9 +254,6 @@ require("lazy").setup({
         "tzachar/highlight-undo.nvim",
     },
     {
-        "Maan2003/lsp_lines.nvim",
-    },
-    {
         "RaafatTurki/hex.nvim",
         opts = {},
     },
