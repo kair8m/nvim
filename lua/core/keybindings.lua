@@ -1,4 +1,5 @@
 vim.g.mapleader = " "
+vim.g.localmapleader = " "
 local map = vim.api.nvim_set_keymap
 
 local cycle_next = "<CMD>BufferLineCyclePrev<CR>"

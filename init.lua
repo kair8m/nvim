@@ -19,6 +19,9 @@ vim.opt.termguicolors = true
 vim.opt.scrolloff = 8
 vim.opt.updatetime = 50
 
+vim.opt.mouse = 'a'
+vim.opt.breakindent = true
+
 vim.g.editorconfig = true
 vim.g.editorconfig_root = true
 vim.g.gitblame_enabled = false
