@@ -21,6 +21,8 @@ vim.opt.updatetime = 50
 
 vim.opt.mouse = 'a'
 vim.opt.breakindent = true
+vim.opt.splitright = true
+vim.opt.splitbelow = true
 
 vim.g.editorconfig = true
 vim.g.editorconfig_root = true
