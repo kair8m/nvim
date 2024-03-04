@@ -244,10 +244,6 @@ require("lazy").setup({
 		"tzachar/highlight-undo.nvim",
 	},
 	{
-		"shellRaining/hlchunk.nvim",
-		event = { "UIEnter" },
-	},
-	{
 		"Maan2003/lsp_lines.nvim",
 	},
 	{
