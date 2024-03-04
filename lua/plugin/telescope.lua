@@ -11,6 +11,17 @@ telescope.load_extension("media_files")
 telescope.load_extension("recent_files")
 telescope.load_extension("live_grep_args")
 
+local telescope_history_db_file = "~/.local/share/nvim/databases/telescope_history.sqlite3"
+
+local history_opts = {}
+
+if vim.fn.filereadable(telescope_history_db_file) then
+	history_opts = {
+		path = telescope_history_db_file,
+		limit = 100,
+	}
+end
+
 local actions = require("telescope.actions")
 
 telescope.setup({
@@ -66,10 +77,7 @@ telescope.setup({
 				},
 			},
 		},
-		history = {
-			path = "~/.local/share/nvim/databases/telescope_history.sqlite3",
-			limit = 100,
-		},
+		history = history_opts,
 	},
 	extensions = {
 		fzf = {
