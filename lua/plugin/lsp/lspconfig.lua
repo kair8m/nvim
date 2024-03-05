@@ -67,7 +67,7 @@ local lsp_mappings_whichkey = {
         c = { show_cursor_diagnostics, "Show cursor diagnostics" },
         n = { jump_to_next_error, "Jump to next error" },
         p = { jump_to_prev_error, "Jump to previous error" },
-        w = { show_workspace_diagnostics, "[w]orkspace diagnostics"}
+        w = { show_workspace_diagnostics, "[w]orkspace diagnostics" },
     },
 }
 
@@ -113,7 +113,6 @@ local on_attach = function(client, bufnr)
 
     local whichkey = require("which-key")
     whichkey.register(lsp_mappings_whichkey, { prefix = "<leader>" })
-
 end
 
 local capabilities = cmp_nvim_lsp.default_capabilities()
@@ -165,15 +164,6 @@ if ih_status then
         },
     })
 end
-
-local signature_config = {
-    log_path = vim.fn.expand("$HOME") .. "/tmp/sig.log",
-    debug = false,
-    hint_enable = true,
-    noice = true,
-    handler_opts = { border = "single" },
-    max_width = 80,
-}
 
 require("plugin.lsp.languages.html-lsp").setup(lspconfig, capabilities, on_attach)
 
