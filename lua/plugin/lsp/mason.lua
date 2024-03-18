@@ -53,7 +53,6 @@ mason_null_ls.setup({
         "quick-lint-js",
         "shellcheck",
         "shfmt",
-        "rustfmt",
         "cpplint",
         "codespell",
         "rubyfmt",
