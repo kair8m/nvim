@@ -1,12 +1,9 @@
 local M = {}
 
 M.setup = function(lspconfig, capabilities, on_attach)
-    lspconfig["ruby_ls"].setup({
-        cmd = { "bundle", "exec", "ruby-lsp" },
+    lspconfig["ruby_lsp"].setup({
         capabilities = capabilities,
-        on_attach = function(client, buffer)
-            on_attach(client, buffer)
-        end,
+        on_attach = on_attach,
     })
 end
 

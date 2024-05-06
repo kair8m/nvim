@@ -32,7 +32,7 @@ mason_lspconfig.setup({
         "bashls",
         "rust_analyzer",
         "neocmake",
-        -- "ruby_ls",
+        "ruby_lsp",
     },
 })
 
