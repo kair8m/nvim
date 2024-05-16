@@ -1,4 +1,9 @@
-require("peepsight").setup({
+local status, peepsight = pcall(require, "peepsight")
+if not status then
+    return
+end
+
+peepsight.setup({
     -- go
     "function_declaration",
     "method_declaration",

@@ -1,5 +1,9 @@
--- Require and call setup function somewhere in your init.lua
-require("image").setup({
+local status, image = pcall(require, "image")
+if not status then
+    return
+end
+
+image.setup({
     render = {
         min_padding = 5,
         show_label = true,
