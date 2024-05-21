@@ -102,7 +102,7 @@ local on_attach = function(client, bufnr)
     --
     bufmap("n", "<leader>h", function()
         print "Toggling inlay hints for current buffer"
-        vim.lsp.inlay_hint.enable(not vim.lsp.inlay_hint.is_enabled())
+        vim.lsp.inlay_hint.enable(not vim.lsp.inlay_hint.is_enabled({}))
     end)
 
     if client.server_capabilities.documentSymbolProvider then
