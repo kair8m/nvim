@@ -76,10 +76,6 @@ local on_attach = function(client, bufnr)
     local bufmap = function(mode, lhs, rhs)
         vim.keymap.set(mode, lhs, rhs, opts)
     end
-    -- Use LSP as the handler for formatexpr.
-    -- See `:help formatexpr` for more information.
-    vim.api.nvim_buf_set_option(0, "formatexpr", "v:lua.vim.lsp.formatexpr()")
-
     -- Displays hover information about the symbol under the cursor
     bufmap("n", "K", hover_doc_command)
     -- Jump to the definition
@@ -102,6 +98,12 @@ local on_attach = function(client, bufnr)
     bufmap("n", "[d", jump_to_prev_diagnostics_finding)
     -- Move to the next diagnostic
     bufmap("n", "]d", jump_to_next_diagnostics_finding)
+    -- Toggle inlay hints
+    --
+    bufmap("n", "<leader>h", function()
+        print "Toggling inlay hints for current buffer"
+        vim.lsp.inlay_hint.enable(not vim.lsp.inlay_hint.is_enabled())
+    end)
 
     if client.server_capabilities.documentSymbolProvider then
         navic.attach(client, bufnr)
@@ -155,15 +157,7 @@ if neodev_status then
     })
 end
 
-local ih_status, ih = pcall(require, "inlay-hints")
-if ih_status then
-    ih.setup({
-        only_current_line = true,
-        eol = {
-            right_align = true,
-        },
-    })
-end
+vim.g.inlay_hints_visible = true
 
 require("plugin.lsp.languages.html-lsp").setup(lspconfig, capabilities, on_attach)
 
