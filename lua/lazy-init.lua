@@ -116,7 +116,6 @@ require("lazy").setup({
     { "folke/which-key.nvim" },
 
     { "simrat39/rust-tools.nvim" },
-    { "simrat39/inlay-hints.nvim" },
 
     { "christoomey/vim-tmux-navigator" },
 
