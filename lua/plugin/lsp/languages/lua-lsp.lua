@@ -15,6 +15,9 @@ M.setup = function(lspconfig, capabilities, on_attach)
                         [vim.fn.expand("$VIMRUNTIME/lua/vim/lsp")] = true,
                     },
                 },
+                hint = {
+                    enable = true,
+                },
             },
         },
     })
