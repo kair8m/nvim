@@ -14,6 +14,7 @@ M.setup = function(lspconfig, capabilities, on_attach)
             "--completion-style=bundled",
             "--cross-file-rename",
             "--header-insertion=iwyu",
+            "--inlay-hints=true",
         },
         capabilities = capabilities,
         init_options = {
@@ -21,6 +22,7 @@ M.setup = function(lspconfig, capabilities, on_attach)
             usePlaceholders = true,
             completeUnimported = true,
             semanticHighlighting = true,
+            inlayHints=true,
         },
         on_attach = on_attach,
     })
