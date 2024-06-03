@@ -237,6 +237,7 @@ require("lazy").setup({
     {
         "haringsrob/nvim_context_vt",
         dependencies = { "nvim-treesitter/nvim-treesitter" },
+        opts = { disable_virtual_lines = true },
     },
     {
         "nacro90/numb.nvim",
