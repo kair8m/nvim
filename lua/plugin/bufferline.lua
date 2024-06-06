@@ -24,6 +24,6 @@ bufferline.setup({
         indicator = {
             style = "underline",
         },
-        separator_style = "slope",
+        separator_style = "thin",
     },
 })
