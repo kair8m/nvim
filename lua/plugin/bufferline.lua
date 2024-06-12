@@ -22,7 +22,7 @@ bufferline.setup({
             return " " .. icon .. count
         end,
         indicator = {
-            style = "underline",
+            style = "icon",
         },
         separator_style = "thin",
     },
