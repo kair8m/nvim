@@ -4,6 +4,8 @@ local map = vim.api.nvim_set_keymap
 
 local cycle_next = "<CMD>BufferLineCyclePrev<CR>"
 local cycle_prev = "<CMD>BufferLineCycleNext<CR>"
+local move_next = "<CMD>BufferLineMoveNext<CR>"
+local move_prev = "<CMD>BufferLineMovePrev<CR>"
 local close_other_buffers = "<CMD>BufferLineCloseOthers<CR>"
 local close_current_buffer = "<CMD>BufDel<CR>"
 map("n", "<Space>", "", {})
@@ -16,6 +18,8 @@ map("n", "<A-t>", close_other_buffers, { silent = true })
 map("n", "<A-c>", close_current_buffer, { silent = true })
 map("n", ",", cycle_next, { silent = true })
 map("n", ".", cycle_prev, { silent = true })
+map("n", "<C-n>", move_prev, { silent = true })
+map("n", "<C-m>", move_next, { silent = true })
 map("n", "<C-t>", close_other_buffers, { silent = true })
 map("n", "<C-c>", close_current_buffer, { silent = true })
 map("v", "J", ":m '>+1<CR>gv=gv", { silent = true })
