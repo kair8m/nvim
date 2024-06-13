@@ -34,6 +34,9 @@ cmp.setup({
     preselect = require("cmp").PreselectMode.None,
     completion = { completeopt = "menu,menuone,noselect" },
     experimental = { ghost_text = true },
+    performance = {
+        max_view_entries = 10,
+    },
     sources = {
         {
             name = "nvim_lsp_signature_help",
