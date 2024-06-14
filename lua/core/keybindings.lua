@@ -116,6 +116,7 @@ local mappings = {
         d = { "<CMD>Noice dismiss<CR>", "Dismiss notifications" },
     },
     L = { "<CMD>Lazy<CR>", "Lazy" },
+    M = { "<CMD>Mason<CR>", "Mason" },
 }
 
 local opts = {
