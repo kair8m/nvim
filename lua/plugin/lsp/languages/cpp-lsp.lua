@@ -1,11 +1,13 @@
 local M = {}
 
+local clangd_path = vim.fn.stdpath("data") .. "/mason/bin/clangd"
+
 M.setup = function(lspconfig, capabilities, on_attach)
     capabilities.offsetEncoding = { "utf-16" }
     lspconfig["clangd"].setup({
         cmd = {
             -- see clangd --help-hidden
-            "clangd",
+            clangd_path,
             "--background-index",
             -- by default, clang-tidy use -checks=clang-diagnostic-*,clang-analyzer-*
             -- to add more checks, create .clang-tidy file in the root directory
@@ -22,7 +24,7 @@ M.setup = function(lspconfig, capabilities, on_attach)
             usePlaceholders = true,
             completeUnimported = true,
             semanticHighlighting = true,
-            inlayHints=true,
+            inlayHints = true,
         },
         on_attach = on_attach,
     })

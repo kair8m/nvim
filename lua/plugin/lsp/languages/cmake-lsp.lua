@@ -1,10 +1,12 @@
 local M = {}
 
+local neocmakelsp_path = vim.fn.stdpath("data") .. "/mason/bin/neocmakelsp"
+
 M.setup = function(lspconfig, capabilities, on_attach)
     local configs = require("lspconfig.configs")
     configs.neocmake = {
         default_config = {
-            cmd = { "neocmakelsp", "--stdio" },
+            cmd = { neocmakelsp_path, "--stdio" },
             filetypes = { "cmake" },
             root_dir = function(fname)
                 return lspconfig.util.find_git_ancestor(fname)
