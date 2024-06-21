@@ -18,11 +18,6 @@ if dap_vtext_status then
     dap_vtext.setup()
 end
 
-local persistent_breakpoints_status, persistent_breakpoints = pcall(require, "persistent-breakpoints")
-if persistent_breakpoints_status then
-    persistent_breakpoints.setup({})
-end
-
 dap.listeners.after.event_initialized["dapui_config"] = function()
     dapui.open()
 end
