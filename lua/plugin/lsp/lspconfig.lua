@@ -69,6 +69,29 @@ local lsp_mappings_whichkey = {
         p = { jump_to_prev_error, "Jump to previous error" },
         w = { show_workspace_diagnostics, "[w]orkspace diagnostics" },
     },
+    D = {
+        name = "Debugging",
+        b = {
+            "<CMD>lua require('dap').toggle_breakpoint()<CR>",
+            "Toggle breakpoint",
+        },
+        c = {
+            "<CMD>lua require('dap').clear_breakpoints()<CR>",
+            "Clear breakpoints",
+        },
+        B = {
+            "<CMD>lua require('dap').set_breakpoint(vim.fn.input('[Condition] > '))<CR>",
+            "Set conditional breakpoint",
+        },
+        lp = {
+            '<CMD>lua require("dap").set_breakpoint(nil, nil, vim.fn.input("Log point message: "))<CR>',
+            "Set log point conditional breakpoint",
+        },
+        o = {
+            "<CMD>lua require('dapui').toggle()<CR>",
+            "Toggle DAP ui",
+        },
+    },
 }
 
 local on_attach = function(client, bufnr)
@@ -101,7 +124,7 @@ local on_attach = function(client, bufnr)
     -- Toggle inlay hints
     --
     bufmap("n", "<leader>h", function()
-        print "Toggling inlay hints for current buffer"
+        print("Toggling inlay hints for current buffer")
         vim.lsp.inlay_hint.enable(not vim.lsp.inlay_hint.is_enabled({}))
     end)
 

@@ -95,22 +95,6 @@ local mappings = {
         m = { "<CMD>Telescope harpoon marks<CR>", "Show marks" },
         e = { '<CMD>lua require("harpoon.ui").toggle_quick_menu()<CR>', "Show menu" },
     },
-    D = {
-        name = "Debugging",
-        b = { "<CMD>PBToggleBreakpoint<CR>", "Toggle breakpoint" },
-        B = {
-            "<CMD>PBSetConditionalBreakpoint<CR>",
-            "Set conditional breakpoint",
-        },
-        lp = {
-            '<CMD>lua require("dap").set_breakpoint(nil, nil, vim.fn.input("Log point message: "))<CR>',
-            "Set log point conditional breakpoint",
-        },
-        o = {
-            "<CMD>lua require('dapui').toggle()<CR>",
-            "Toggle DAP ui",
-        },
-    },
     n = {
         name = "Noice",
         d = { "<CMD>Noice dismiss<CR>", "Dismiss notifications" },
