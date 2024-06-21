@@ -83,7 +83,6 @@ require("lazy").setup({
     { "folke/neodev.nvim" },
     { "rcarriga/nvim-dap-ui", dependencies = { "mfussenegger/nvim-dap" } },
     { "theHamsta/nvim-dap-virtual-text" },
-    { "Weissle/persistent-breakpoints.nvim" },
 
     { "nvim-telescope/telescope-dap.nvim" },
     { "nvim-telescope/telescope-media-files.nvim", dependencies = { "nvim-telescope/telescope.nvim" } },
