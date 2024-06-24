@@ -82,6 +82,10 @@ local mappings = {
                 "Select hunk",
             },
         },
+        b = {
+            "<CMD>GitBlameToggle<CR>",
+            "Enable Git Blame",
+        },
     },
     s = { "<cmd>lua require('treesj').toggle()<CR>", "Join the object under cursor" },
     S = { "<cmd>Silicon<CR>", "Take screenshot" },
