@@ -85,6 +85,33 @@ cmp.setup({
             ellipsis_char = "...",
             mode = "symbol_text",
             preset = "default",
+            show_labelDetails = true,
+            before = function(_, vim_item)
+                if vim_item.menu ~= nil then
+                    if string.len(vim_item.menu) >= MAX_WIDTH then
+                        vim_item.menu = string.sub(vim_item.menu, 1, 40) .. "..."
+                        if vim_item.menu:sub(1, 1) == "{" then
+                            vim_item.menu = vim_item.menu .. "}"
+                        end
+                        if vim_item.menu:sub(1, 1) == "[" then
+                            vim_item.menu = vim_item.menu .. "]"
+                        end
+                        if vim_item.menu:sub(1, 1) == "(" then
+                            vim_item.menu = vim_item.menu .. ")"
+                        end
+                        if vim_item.menu:sub(1, 1) == "<" then
+                            vim_item.menu = vim_item.menu .. ">"
+                        end
+                        if vim_item.menu:sub(1, 1) == "'" then
+                            vim_item.menu = vim_item.menu .. "'"
+                        end
+                        if vim_item.menu:sub(1, 1) == '"' then
+                            vim_item.menu = vim_item.menu .. '"'
+                        end
+                    end
+                end
+                return vim_item
+            end,
         }),
     },
     mapping = cmp.mapping.preset.insert({
