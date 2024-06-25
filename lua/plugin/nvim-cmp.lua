@@ -25,6 +25,8 @@ end
 
 local select_opts = { behavior = cmp.SelectBehavior.Select }
 
+local MAX_WIDTH = 40
+
 cmp.setup({
     snippet = {
         expand = function(args)
@@ -79,7 +81,7 @@ cmp.setup({
     },
     formatting = {
         format = lspkind.cmp_format({
-            maxwidth = 50,
+            maxwidth = MAX_WIDTH,
             ellipsis_char = "...",
             mode = "symbol_text",
             preset = "codicons",
