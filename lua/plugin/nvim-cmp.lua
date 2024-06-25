@@ -84,7 +84,7 @@ cmp.setup({
             maxwidth = MAX_WIDTH,
             ellipsis_char = "...",
             mode = "symbol_text",
-            preset = "codicons",
+            preset = "default",
         }),
     },
     mapping = cmp.mapping.preset.insert({
