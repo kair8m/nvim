@@ -11,7 +11,7 @@ telescope.load_extension("media_files")
 telescope.load_extension("recent_files")
 telescope.load_extension("live_grep_args")
 
-local telescope_history_db_file = "~/.local/share/nvim/databases/telescope_history.sqlite3"
+local telescope_history_db_file = vim.env.HOME .. "/.local/share/nvim/databases/telescope_history.sqlite3"
 
 local history_opts = {}
 
