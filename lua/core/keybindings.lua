@@ -88,7 +88,6 @@ local mappings = {
         },
     },
     s = { "<cmd>lua require('treesj').toggle()<CR>", "Join the object under cursor" },
-    S = { "<cmd>Silicon<CR>", "Take screenshot" },
     [","] = { cycle_next, "Cycle to next buffer" },
     ["."] = { cycle_prev, "Cycle to previous buffer" },
     t = { close_other_buffers, "Close other buffers" },
