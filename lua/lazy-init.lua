@@ -122,11 +122,6 @@ require("lazy").setup({
 
     { "ThePrimeagen/harpoon" },
 
-    {
-        "krivahtoo/silicon.nvim",
-        build = "./install.sh build",
-    },
-
     { "kair8m/git-worktree.nvim" },
 
     { "toppair/peek.nvim", build = "deno task --quiet build:fast" },
