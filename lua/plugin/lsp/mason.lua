@@ -34,6 +34,7 @@ mason_lspconfig.setup({
         "neocmake",
         "ruby_lsp",
         "jdtls",
+        "kotlin_language_server",
     },
 })
 
