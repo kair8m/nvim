@@ -33,6 +33,7 @@ mason_lspconfig.setup({
         "rust_analyzer",
         "neocmake",
         "ruby_lsp",
+        "jdtls",
     },
 })
 
