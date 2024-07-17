@@ -35,6 +35,8 @@ mason_lspconfig.setup({
         "ruby_lsp",
         "jdtls",
         "kotlin_language_server",
+        "docker_compose_language_service",
+        "dockerls",
     },
 })
 
@@ -58,5 +60,6 @@ mason_null_ls.setup({
         "cpplint",
         "codespell",
         "rubyfmt",
+        "hadolint",
     },
 })

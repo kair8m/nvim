@@ -204,6 +204,8 @@ require("plugin.lsp.languages.java-lsp").setup(lspconfig, capabilities, on_attac
 
 require("plugin.lsp.languages.kotlin-lsp").setup(lspconfig, capabilities, on_attach)
 
+require("plugin.lsp.languages.docker-lsp").setup(lspconfig, capabilities, on_attach)
+
 local bundler_status, lspconfig_bundler = pcall(require, "lspconfig-bundler")
 if bundler_status then
     lspconfig_bundler.setup()
