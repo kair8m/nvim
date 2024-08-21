@@ -65,13 +65,21 @@ cmp.setup({
             group_index = 1,
         },
         {
-            name = "path",
-            priority = 6,
+            name = "tmux",
+            priority = 8,
             group_index = 2,
+            option = {
+                all_panes = true,
+            },
         },
         {
             name = "buffer",
-            priority = 5,
+            priority = 7,
+            group_index = 2,
+        },
+        {
+            name = "path",
+            priority = 6,
             group_index = 2,
         },
     },
