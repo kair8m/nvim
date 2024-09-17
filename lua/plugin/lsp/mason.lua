@@ -23,7 +23,6 @@ mason_lspconfig.setup({
     ensure_installed = {
         "clangd",
         "pyright",
-        "tsserver",
         "html",
         "cssls",
         "eslint",
