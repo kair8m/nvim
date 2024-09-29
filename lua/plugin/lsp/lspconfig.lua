@@ -132,10 +132,6 @@ local on_attach = function(client, bufnr)
         navic.attach(client, bufnr)
     end
 
-    if client.name == "tsserver" then
-        bufmap("n", "<leader>rf", "<CMD>TypescriptRenameFile<CR>")
-    end
-
     local whichkey = require("which-key")
     whichkey.register(lsp_mappings_whichkey, { prefix = "<leader>" })
 end
