@@ -248,9 +248,6 @@ require("lazy").setup({
     { "akinsho/git-conflict.nvim", version = "*" },
 
     {
-        "tzachar/highlight-undo.nvim",
-    },
-    {
         "RaafatTurki/hex.nvim",
         opts = {},
     },
