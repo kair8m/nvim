@@ -68,10 +68,7 @@ require("lazy").setup({
     { "kkharji/sqlite.lua" },
 
     {
-        "nvim-telescope/telescope-smart-history.nvim",
-        dependencies = {
-            "kkharji/sqlite.lua",
-        },
+        "nvim-telescope/telescope-frecency.nvim",
     },
 
     { "lewis6991/gitsigns.nvim" },

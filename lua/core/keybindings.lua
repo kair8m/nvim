@@ -43,7 +43,7 @@ local mappings = {
         "Search files",
     },
     f = { "<CMD>Telescope live_grep_args<CR>", "Search in files" },
-    r = { [[<CMD>lua require("telescope").extensions.recent_files.pick({only_cwd=true})<CR>]], "Recent files" },
+    r = { [[<CMD>Telescope frecency workspace=CWD<CR>]], "Recent files" },
     b = { [[<CMD>Telescope buffers<CR>]], "Opened buffers" },
     g = {
         name = "Git",

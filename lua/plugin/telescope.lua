@@ -11,21 +11,6 @@ telescope.load_extension("media_files")
 telescope.load_extension("recent_files")
 telescope.load_extension("live_grep_args")
 
-local telescope_history_db_file = vim.env.HOME .. "/.local/share/nvim/databases/telescope_history.sqlite3"
-
-local history_opts = {}
-
-local _, err = io.open(telescope_history_db_file, "w")
-if err ~= nil then
-    print(string.format("Failed to create {%s}: %s", telescope_history_db_file, err))
-end
-if vim.fn.filereadable(telescope_history_db_file) then
-    history_opts = {
-        path = telescope_history_db_file,
-        limit = 100,
-    }
-end
-
 local actions = require("telescope.actions")
 
 telescope.setup({
@@ -81,7 +66,6 @@ telescope.setup({
                 },
             },
         },
-        history = history_opts,
     },
     extensions = {
         fzf = {
@@ -125,6 +109,6 @@ telescope.setup({
         },
     },
 })
-telescope.load_extension("smart_history")
+telescope.load_extension("frecency")
 telescope.load_extension("file_browser")
 vim.cmd("autocmd User TelescopePreviewerLoaded setlocal number")
