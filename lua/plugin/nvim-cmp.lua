@@ -76,6 +76,11 @@ cmp.setup({
             name = "buffer",
             priority = 7,
             group_index = 2,
+            option = {
+                get_bufnrs = function()
+                    return vim.api.nvim_list_bufs()
+                end,
+            },
         },
         {
             name = "path",
