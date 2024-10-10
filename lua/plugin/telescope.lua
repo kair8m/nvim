@@ -107,6 +107,9 @@ telescope.setup({
         recent_files = {
             only_cwd = true,
         },
+        frecency = {
+            matcher = "fuzzy",
+        },
     },
 })
 telescope.load_extension("frecency")
