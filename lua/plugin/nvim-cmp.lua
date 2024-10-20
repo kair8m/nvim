@@ -1,4 +1,5 @@
 vim.opt.completeopt = { "menu", "menuone", "noselect" }
+vim.o.pumheight = 10
 
 local status_ok, from_vscode = pcall(require, "luasnip.loaders.from_vscode")
 if not status_ok then
@@ -36,9 +37,6 @@ cmp.setup({
     preselect = require("cmp").PreselectMode.None,
     completion = { completeopt = "menu,menuone,noselect" },
     experimental = { ghost_text = true },
-    performance = {
-        max_view_entries = 10,
-    },
     sources = {
         {
             name = "nvim_lsp_signature_help",
