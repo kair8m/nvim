@@ -72,6 +72,14 @@ telescope.setup({
                     actions.cycle_history_prev,
                     type = "action",
                 },
+                ["<C-n>"] = {
+                    actions.cycle_history_next,
+                    type = "action",
+                },
+                ["<C-p>"] = {
+                    actions.cycle_history_prev,
+                    type = "action",
+                },
             },
         },
     },
