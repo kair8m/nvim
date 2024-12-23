@@ -125,4 +125,10 @@ if status then
         live_grep_args_shortcuts.grep_visual_selection,
         { desc = "Search visual selection" }
     )
+    vim.keymap.set(
+        { "n" },
+        "<C-f>",
+        live_grep_args_shortcuts.grep_word_under_cursor,
+        { desc = "Search work under cursor" }
+    )
 end
