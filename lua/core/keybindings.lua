@@ -117,3 +117,12 @@ vim.keymap.set({ "n", "o", "x" }, "b", "<cmd>lua require('spider').motion('b')<C
 vim.keymap.set({ "n", "o", "x" }, "ge", "<cmd>lua require('spider').motion('ge')<CR>", { desc = "Spider-w" })
 vim.keymap.set({ "n" }, "]g", "<cmd>Gitsigns next_hunk<CR>", { desc = "Git next hunk" })
 vim.keymap.set({ "n" }, "[g", "<cmd>Gitsigns prev_hunk<CR>", { desc = "Git next hunk" })
+local status, live_grep_args_shortcuts = pcall(require, "telescope-live-grep-args.shortcuts")
+if status then
+    vim.keymap.set(
+        { "v" },
+        "<C-f>",
+        live_grep_args_shortcuts.grep_visual_selection,
+        { desc = "Search visual selection" }
+    )
+end
