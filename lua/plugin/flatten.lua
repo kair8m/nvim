@@ -7,7 +7,7 @@ flatten.setup({
     window = {
         open = "alternate",
     },
-    callbacks = {
+    hooks = {
         post_open = function(bufnr, winnr, ft, is_blocking)
             if is_blocking then
                 -- Hide the terminal while it's blocking
