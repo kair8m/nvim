@@ -90,7 +90,6 @@ require("lazy").setup({
     { "williamboman/mason.nvim" },
     { "williamboman/mason-lspconfig.nvim" },
     { "jay-babu/mason-nvim-dap.nvim" },
-    { "jose-elias-alvarez/typescript.nvim" },
     { "onsails/lspkind.nvim" },
 
     { "glepnir/lspsaga.nvim" },

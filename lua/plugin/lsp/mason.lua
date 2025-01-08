@@ -36,6 +36,7 @@ mason_lspconfig.setup({
         "kotlin_language_server",
         "docker_compose_language_service",
         "dockerls",
+        "ts_ls",
     },
 })
 

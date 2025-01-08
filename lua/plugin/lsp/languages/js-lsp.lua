@@ -1,11 +1,7 @@
 local M = {}
 
-M.setup = function(_, capabilities, on_attach)
-    local typescript_setup, typescript = pcall(require, "typescript")
-    if not typescript_setup then
-        return
-    end
-    typescript.setup({
+M.setup = function(lspconfig, capabilities, on_attach)
+    lspconfig.ts_ls.setup({
         server = {
             capabilities = capabilities,
             on_attach = on_attach,
