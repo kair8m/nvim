@@ -8,13 +8,10 @@ flatten.setup({
         open = "alternate",
     },
     hooks = {
-        post_open = function(bufnr, winnr, ft, is_blocking)
+        post_open = function(bufnr, _, ft, is_blocking)
             if is_blocking then
                 -- Hide the terminal while it's blocking
                 require("toggleterm").toggle(0)
-            else
-                -- If it's a normal file, just switch to its window
-                vim.api.nvim_set_current_win(winnr)
             end
 
             -- If the file is a git commit, create one-shot autocmd to delete its buffer on write
