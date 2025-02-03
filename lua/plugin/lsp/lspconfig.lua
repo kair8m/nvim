@@ -21,14 +21,9 @@ local code_actions_command = "<cmd>Lspsaga code_action<cr>"
 local rename_command = "<cmd>Lspsaga rename<cr>"
 local hover_doc_command = "<cmd>Lspsaga hover_doc<cr>"
 
-local show_workspace_diagnostics = "<cmd>Trouble<cr>"
 local show_line_diagnostics = "<cmd>Lspsaga show_line_diagnostics<cr>"
-local show_cursor_diagnostics = "<cmd>Lspsaga show_cursor_diagnostics<cr>"
 local jump_to_next_diagnostics_finding = "<cmd>Lspsaga diagnostic_jump_next<cr>"
 local jump_to_prev_diagnostics_finding = "<cmd>Lspsaga diagnostic_jump_prev<cr>"
-local show_workspace_symbols = "<cmd>Telescope lsp_document_symbols<cr>"
-local show_dynamic_workspace_symbols = "<cmd>Telescope lsp_dynamic_workspace_symbols<cr>"
-local show_outline = "<cmd>Lspsaga outline<cr>"
 local jump_to_next_error = function()
     require("lspsaga.diagnostic").goto_next({
         severity = vim.diagnostic.severity.ERROR,
@@ -41,56 +36,115 @@ local jump_to_prev_error = function()
 end
 
 local lsp_mappings_whichkey = {
-    l = {
-        name = "LSP",
-        g = {
-            name = "Go to...",
-            r = { show_references_command, "Show references" },
-            d = { peek_definition_command, "Peek definition" },
-            D = { show_declaration_command, "Show declaration" },
-            i = { show_implementation_command, "Show implementation" },
-            y = { show_type_definition_command, "Show type definition" },
-        },
-        r = { rename_command, "Rename" },
-        a = { code_actions_command, "Code actions" },
-        k = { hover_doc_command, "Show documentation" },
-        s = { show_workspace_symbols, "Show workspace symbols" },
-        o = { show_outline, "Show outline" },
+    { "<leader>D", group = "Debugging" },
+    {
+        "<leader>DB",
+        "<CMD>lua require('dap').set_breakpoint(vim.fn.input('[Condition] > '))<CR>",
+        desc = "Set conditional breakpoint",
     },
-    t = {
-        name = "Telescope",
-        d = { show_dynamic_workspace_symbols, "Show dynamic workspace symbols" },
+    {
+        "<leader>Db",
+        "<CMD>lua require('dap').toggle_breakpoint()<CR>",
+        desc = "Toggle breakpoint",
     },
-    d = {
-        name = "LSP Diagnostics",
-        l = { show_line_diagnostics, "Show line diagnostics" },
-        c = { show_cursor_diagnostics, "Show cursor diagnostics" },
-        n = { jump_to_next_error, "Jump to next error" },
-        p = { jump_to_prev_error, "Jump to previous error" },
-        w = { show_workspace_diagnostics, "[w]orkspace diagnostics" },
+    {
+        "<leader>Dc",
+        "<CMD>lua require('dap').clear_breakpoints()<CR>",
+        desc = "Clear breakpoints",
     },
-    D = {
-        name = "Debugging",
-        b = {
-            "<CMD>lua require('dap').toggle_breakpoint()<CR>",
-            "Toggle breakpoint",
-        },
-        c = {
-            "<CMD>lua require('dap').clear_breakpoints()<CR>",
-            "Clear breakpoints",
-        },
-        B = {
-            "<CMD>lua require('dap').set_breakpoint(vim.fn.input('[Condition] > '))<CR>",
-            "Set conditional breakpoint",
-        },
-        lp = {
-            '<CMD>lua require("dap").set_breakpoint(nil, nil, vim.fn.input("Log point message: "))<CR>',
-            "Set log point conditional breakpoint",
-        },
-        o = {
-            "<CMD>lua require('dapui').toggle()<CR>",
-            "Toggle DAP ui",
-        },
+    {
+        "<leader>Dlp",
+        '<CMD>lua require("dap").set_breakpoint(nil, nil, vim.fn.input("Log point message: "))<CR>',
+        desc = "Set log point conditional breakpoint",
+    },
+    {
+        "<leader>Do",
+        "<CMD>lua require('dapui').toggle()<CR>",
+        desc = "Toggle DAP ui",
+    },
+    { "<leader>d", group = "LSP Diagnostics" },
+    {
+        "<leader>dc",
+        "<cmd>Lspsaga show_cursor_diagnostics<cr>",
+        desc = "Show cursor diagnostics",
+    },
+    {
+        "<leader>dl",
+        "<cmd>Lspsaga show_line_diagnostics<cr>",
+        desc = "Show line diagnostics",
+    },
+    {
+        "<leader>dn",
+        jump_to_next_error,
+        desc = "Jump to next error",
+    },
+    {
+        "<leader>dp",
+        jump_to_prev_error,
+        desc = "Jump to previous error",
+    },
+    {
+        "<leader>dw",
+        "<cmd>Trouble<cr>",
+        desc = "[w]orkspace diagnostics",
+    },
+    { "<leader>l", group = "LSP" },
+    {
+        "<leader>la",
+        "<cmd>Lspsaga code_action<cr>",
+        desc = "Code actions",
+    },
+    { "<leader>lg", group = "Go to..." },
+    {
+        "<leader>lgD",
+        "<cmd>lua vim.lsp.buf.declaration()<cr>",
+        desc = "Show declaration",
+    },
+    {
+        "<leader>lgd",
+        "<cmd>Lspsaga peek_definition<cr>",
+        desc = "Peek definition",
+    },
+    {
+        "<leader>lgi",
+        "<cmd>lua vim.lsp.buf.implementation()<cr>",
+        desc = "Show implementation",
+    },
+    {
+        "<leader>lgr",
+        "<cmd>Lspsaga finder tyd+ref+imp+def<cr>",
+        desc = "Show references",
+    },
+    {
+        "<leader>lgy",
+        "<cmd>Lspsaga peek_type_definition<cr>",
+        desc = "Show type definition",
+    },
+    {
+        "<leader>lk",
+        "<cmd>Lspsaga hover_doc<cr>",
+        desc = "Show documentation",
+    },
+    {
+        "<leader>lo",
+        "<cmd>Lspsaga outline<cr>",
+        desc = "Show outline",
+    },
+    {
+        "<leader>lr",
+        "<cmd>Lspsaga rename<cr>",
+        desc = "Rename",
+    },
+    {
+        "<leader>ls",
+        "<cmd>Telescope lsp_document_symbols<cr>",
+        desc = "Show workspace symbols",
+    },
+    { "<leader>t", group = "Telescope" },
+    {
+        "<leader>td",
+        "<cmd>Telescope lsp_dynamic_workspace_symbols<cr>",
+        desc = "Show dynamic workspace symbols",
     },
 }
 
@@ -133,7 +187,7 @@ local on_attach = function(client, bufnr)
     end
 
     local whichkey = require("which-key")
-    whichkey.register(lsp_mappings_whichkey, { prefix = "<leader>" })
+    whichkey.add(lsp_mappings_whichkey)
 end
 
 local capabilities = cmp_nvim_lsp.default_capabilities()

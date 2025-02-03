@@ -36,81 +36,144 @@ if not whichkey_status then
     return
 end
 local mappings = {
-    e = { "<CMD>NvimTreeToggle<CR>", "File Explorer" },
-    o = { "<CMD>NvimTreeFindFile<CR>", "Open file in explorer" },
-    p = {
+    {
+        "<leader>,",
+        "<CMD>BufferLineCyclePrev<CR>",
+        desc = "Cycle to next buffer",
+    },
+    {
+        "<leader>.",
+        "<CMD>BufferLineCycleNext<CR>",
+        desc = "Cycle to previous buffer",
+    },
+    {
+        "<leader>L",
+        "<CMD>Lazy<CR>",
+        desc = "Lazy",
+    },
+    {
+        "<leader>M",
+        "<CMD>Mason<CR>",
+        desc = "Mason",
+    },
+    {
+        "<leader>b",
+        "<CMD>Telescope buffers<CR>",
+        desc = "Opened buffers",
+    },
+    {
+        "<leader>c",
+        "<CMD>BufDel<CR>",
+        desc = "Close current buffer",
+    },
+    {
+        "<leader>e",
+        "<CMD>NvimTreeToggle<CR>",
+        desc = "File Explorer",
+    },
+    {
+        "<leader>f",
+        "<CMD>Telescope live_grep_args<CR>",
+        desc = "Search in files",
+    },
+    { "<leader>g", group = "Git" },
+    {
+        "<leader>gb",
+        "<CMD>GitBlameToggle<CR>",
+        desc = "Enable Git Blame",
+    },
+    { "<leader>gh", group = "Hunk" },
+    {
+        "<leader>ghP",
+        "<CMD>Gitsigns preview_hunk<CR>",
+        desc = "Preview hunk",
+    },
+    {
+        "<leader>ghn",
+        "<CMD>Gitsigns next_hunk<CR>",
+        desc = "Next hunk",
+    },
+    {
+        "<leader>ghp",
+        "<CMD>Gitsigns prev_hunk<CR>",
+        desc = "Previous hunk",
+    },
+    {
+        "<leader>ghr",
+        "<CMD>Gitsigns reset_hunk<CR>",
+        desc = "Reset hunk",
+    },
+    {
+        "<leader>ghs",
+        "<CMD>Gitsigns select_hunk<CR>",
+        desc = "Select hunk",
+    },
+    {
+        "<leader>gl",
+        "<cmd>lua LAZYGIT_TOGGLE()<CR>",
+        desc = "Toggle lazygit",
+    },
+    { "<leader>gw", group = "Git Worktree" },
+    {
+        "<leader>gwc",
+        '<CMD>lua require("telescope").extensions.git_worktree.create_git_worktree()<CR>',
+        desc = "Create a worktree",
+    },
+    {
+        "<leader>gws",
+        '<CMD>lua require("telescope").extensions.git_worktree.git_worktrees()<CR>',
+        desc = "Switch and delete a worktrees",
+    },
+    { "<leader>h", group = "Harpoon" },
+    {
+        "<leader>ha",
+        '<CMD>lua require("harpoon.mark").add_file()<CR>',
+        desc = "Add mark",
+    },
+    {
+        "<leader>he",
+        '<CMD>lua require("harpoon.ui").toggle_quick_menu()<CR>',
+        desc = "Show menu",
+    },
+    {
+        "<leader>hm",
+        "<CMD>Telescope harpoon marks<CR>",
+        desc = "Show marks",
+    },
+    { "<leader>n", group = "Noice" },
+    {
+        "<leader>nd",
+        "<CMD>Noice dismiss<CR>",
+        desc = "Dismiss notifications",
+    },
+    {
+        "<leader>o",
+        "<CMD>NvimTreeFindFile<CR>",
+        desc = "Open file in explorer",
+    },
+    {
+        "<leader>p",
         '<CMD>lua require("telescope.builtin").find_files({find_command = { "fd", "-t=f", "-H" }})<CR>',
-        "Search files",
+        desc = "Search files",
     },
-    f = { "<CMD>Telescope live_grep_args<CR>", "Search in files" },
-    r = { [[<CMD>Telescope frecency workspace=CWD<CR>]], "Recent files" },
-    b = { [[<CMD>Telescope buffers<CR>]], "Opened buffers" },
-    g = {
-        name = "Git",
-        l = { "<cmd>lua LAZYGIT_TOGGLE()<CR>", "Toggle lazygit" },
-        w = {
-            name = "Git Worktree",
-            c = {
-                '<CMD>lua require("telescope").extensions.git_worktree.create_git_worktree()<CR>',
-                "Create a worktree",
-            },
-            s = {
-                '<CMD>lua require("telescope").extensions.git_worktree.git_worktrees()<CR>',
-                "Switch and delete a worktrees",
-            },
-        },
-        h = {
-            name = "Hunk",
-            n = {
-                "<CMD>Gitsigns next_hunk<CR>",
-                "Next hunk",
-            },
-            p = {
-                "<CMD>Gitsigns prev_hunk<CR>",
-                "Previous hunk",
-            },
-            P = {
-                "<CMD>Gitsigns preview_hunk<CR>",
-                "Preview hunk",
-            },
-            r = {
-                "<CMD>Gitsigns reset_hunk<CR>",
-                "Reset hunk",
-            },
-            s = {
-                "<CMD>Gitsigns select_hunk<CR>",
-                "Select hunk",
-            },
-        },
-        b = {
-            "<CMD>GitBlameToggle<CR>",
-            "Enable Git Blame",
-        },
+    {
+        "<leader>r",
+        "<CMD>Telescope frecency workspace=CWD<CR>",
+        desc = "Recent files",
     },
-    s = { "<cmd>lua require('treesj').toggle()<CR>", "Join the object under cursor" },
-    [","] = { cycle_next, "Cycle to next buffer" },
-    ["."] = { cycle_prev, "Cycle to previous buffer" },
-    t = { close_other_buffers, "Close other buffers" },
-    c = { close_current_buffer, "Close current buffer" },
-    h = {
-        name = "Harpoon",
-        a = { '<CMD>lua require("harpoon.mark").add_file()<CR>', "Add mark" },
-        m = { "<CMD>Telescope harpoon marks<CR>", "Show marks" },
-        e = { '<CMD>lua require("harpoon.ui").toggle_quick_menu()<CR>', "Show menu" },
+    {
+        "<leader>s",
+        "<cmd>lua require('treesj').toggle()<CR>",
+        desc = "Join the object under cursor",
     },
-    n = {
-        name = "Noice",
-        d = { "<CMD>Noice dismiss<CR>", "Dismiss notifications" },
+    {
+        "<leader>t",
+        "<CMD>BufferLineCloseOthers<CR>",
+        desc = "Close other buffers",
     },
-    L = { "<CMD>Lazy<CR>", "Lazy" },
-    M = { "<CMD>Mason<CR>", "Mason" },
 }
 
-local opts = {
-    prefix = "<leader>",
-}
-
-whichkey.register(mappings, opts)
+whichkey.add(mappings)
 vim.keymap.set({ "n", "o", "x" }, "w", "<cmd>lua require('spider').motion('w')<CR>", { desc = "Spider-w" })
 vim.keymap.set({ "n", "o", "x" }, "e", "<cmd>lua require('spider').motion('e')<CR>", { desc = "Spider-w" })
 vim.keymap.set({ "n", "o", "x" }, "b", "<cmd>lua require('spider').motion('b')<CR>", { desc = "Spider-w" })

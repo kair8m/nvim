@@ -21,6 +21,8 @@ null_ls.setup({
 })
 
 local whichkey = require("which-key")
-whichkey.register({
-    l = { f = { "<cmd>lua vim.lsp.buf.format()<CR>", "Format file using lsp" } },
-}, { prefix = "<leader>" })
+whichkey.add({
+    "<leader>lf",
+    "<cmd>lua vim.lsp.buf.format()<CR>",
+    desc = "Format file using lsp",
+})
