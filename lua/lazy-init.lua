@@ -52,7 +52,7 @@ require("lazy").setup({
 
     {
         "nvim-telescope/telescope.nvim",
-        version = "0.1.4",
+        version = "0.1.8",
         -- or                            , branch = '0.1.x',
         dependencies = { { "nvim-lua/plenary.nvim" } },
     },
@@ -126,18 +126,6 @@ require("lazy").setup({
 
     { "toppair/peek.nvim", build = "deno task --quiet build:fast" },
 
-    {
-        "nvim-telescope/telescope-file-browser.nvim",
-        dependencies = { "nvim-telescope/telescope.nvim", "nvim-lua/plenary.nvim" },
-    },
-
-    {
-        "samodostal/image.nvim",
-        dependencies = {
-            "nvim-lua/plenary.nvim",
-        },
-    },
-
     { "peterhoeg/vim-qml" },
 
     {
@@ -151,8 +139,6 @@ require("lazy").setup({
     { "chrisgrieser/nvim-spider" },
 
     { "Wansmer/treesj" },
-
-    { "koenverburg/peepsight.nvim" },
 
     {
         "folke/noice.nvim",

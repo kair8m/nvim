@@ -108,10 +108,6 @@ telescope.setup({
             code_action = {
                 telescope = require("telescope.themes").get_dropdown({}),
             },
-            file_browser = {
-                theme = "ivy",
-                hijack_netrw = true,
-            },
         },
         media_files = {
             -- filetypes whitelist
@@ -129,5 +125,4 @@ telescope.setup({
     },
 })
 telescope.load_extension("frecency")
-telescope.load_extension("file_browser")
 vim.cmd("autocmd User TelescopePreviewerLoaded setlocal number")
