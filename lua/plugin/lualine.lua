@@ -50,7 +50,7 @@ local config = {
         component_separators = "",
         section_separators = "",
         theme = "catppuccin",
-        disabled_filetypes = { "packer", "NvimTree" },
+        disabled_filetypes = { "packer", "neo-tree" },
         disabled_buftypes = { "quickfix", "prompt" },
     },
     sections = {

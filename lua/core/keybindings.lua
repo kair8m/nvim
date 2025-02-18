@@ -68,7 +68,7 @@ local mappings = {
     },
     {
         "<leader>e",
-        "<CMD>NvimTreeToggle<CR>",
+        "<CMD>Neotree toggle<CR>",
         desc = "File Explorer",
     },
     {
@@ -148,7 +148,7 @@ local mappings = {
     },
     {
         "<leader>o",
-        "<CMD>NvimTreeFindFile<CR>",
+        "<CMD>Neotree reveal<CR>",
         desc = "Open file in explorer",
     },
     {
