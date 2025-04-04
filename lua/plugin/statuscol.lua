@@ -10,7 +10,8 @@ statuscol.setup({
         -- Diagnostics
         {
             sign = {
-                name = { "Diagnostic.*" },
+                name = { "diagnostic.signs" },
+                namespace = { "diagnostic.signs" },
                 maxwidth = 1,
             },
         },
