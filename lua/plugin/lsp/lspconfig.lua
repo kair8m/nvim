@@ -149,7 +149,7 @@ local lsp_mappings_whichkey = {
 }
 
 local on_attach = function(client, bufnr)
-    local opts = { noremap = true, silent = true, buffer = bufnr }
+    local opts = { noremap = true, silent = true }
     local bufmap = function(mode, lhs, rhs)
         vim.keymap.set(mode, lhs, rhs, opts)
     end
