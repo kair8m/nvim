@@ -40,7 +40,7 @@ require("lazy").setup({
     },
     { "nvim-lua/plenary.nvim" }, -- Collection of useful lua libraries
 
-    { "nvim-telescope/telescope-fzf-native.nvim",    build = "make" },
+    { "nvim-telescope/telescope-fzf-native.nvim", build = "make" },
     { "nvim-telescope/telescope-live-grep-args.nvim" },
 
     {
@@ -57,7 +57,7 @@ require("lazy").setup({
     },
 
     { "gbrlsnchs/telescope-lsp-handlers.nvim", dependencies = { "nvim-telescope/telescope.nvim" } },
-    { "smartpde/telescope-recent-files",       dependencies = { "nvim-telescope/telescope.nvim" } },
+    { "smartpde/telescope-recent-files", dependencies = { "nvim-telescope/telescope.nvim" } },
     { "kkharji/sqlite.lua" },
 
     {
@@ -120,10 +120,10 @@ require("lazy").setup({
             "TmuxNavigatorProcessList",
         },
         keys = {
-            { "<c-h>",  "<cmd><C-U>TmuxNavigateLeft<cr>" },
-            { "<c-j>",  "<cmd><C-U>TmuxNavigateDown<cr>" },
-            { "<c-k>",  "<cmd><C-U>TmuxNavigateUp<cr>" },
-            { "<c-l>",  "<cmd><C-U>TmuxNavigateRight<cr>" },
+            { "<c-h>", "<cmd><C-U>TmuxNavigateLeft<cr>" },
+            { "<c-j>", "<cmd><C-U>TmuxNavigateDown<cr>" },
+            { "<c-k>", "<cmd><C-U>TmuxNavigateUp<cr>" },
+            { "<c-l>", "<cmd><C-U>TmuxNavigateRight<cr>" },
             { "<c-\\>", "<cmd><C-U>TmuxNavigatePrevious<cr>" },
         },
     },
@@ -134,7 +134,7 @@ require("lazy").setup({
 
     { "kair8m/git-worktree.nvim" },
 
-    { "toppair/peek.nvim",       build = "deno task --quiet build:fast" },
+    { "toppair/peek.nvim", build = "deno task --quiet build:fast" },
 
     { "peterhoeg/vim-qml" },
 
@@ -185,7 +185,7 @@ require("lazy").setup({
 
     { "ray-x/starry.nvim" },
 
-    { "catppuccin/nvim",            name = "catppuccin", priority = 1000 },
+    { "catppuccin/nvim", name = "catppuccin", priority = 1000 },
 
     { "luukvbaal/statuscol.nvim" },
 
@@ -204,7 +204,7 @@ require("lazy").setup({
     },
     { "alfaix/neotest-gtest" },
 
-    { "phaazon/hop.nvim",     branch = "v2" },
+    { "phaazon/hop.nvim", branch = "v2" },
 
     { "tpope/vim-fugitive" },
 
@@ -254,10 +254,23 @@ require("lazy").setup({
         "RaafatTurki/hex.nvim",
         opts = {},
     },
-
     {
         "folke/trouble.nvim",
         dependencies = { "nvim-tree/nvim-web-devicons" },
+    },
+    {
+        "zbirenbaum/copilot.lua",
+        cmd = "Copilot",
+        event = "InsertEnter",
+        config = function()
+            require("copilot").setup({})
+        end,
+    },
+    {
+        "zbirenbaum/copilot-cmp",
+        config = function()
+            require("copilot_cmp").setup({})
+        end,
     },
 }, {
     install = {
