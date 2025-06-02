@@ -138,7 +138,7 @@ local lsp_mappings_whichkey = {
     { "<leader>t", group = "Telescope" },
     {
         "<leader>td",
-        "<cmd>Telescope lsp_workspace_symbols<cr>",
+        "<cmd>Telescope lsp_dynamic_workspace_symbols<cr>",
         desc = "Show dynamic workspace symbols",
     },
 }
