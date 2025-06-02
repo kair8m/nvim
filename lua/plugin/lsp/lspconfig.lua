@@ -1,8 +1,3 @@
-local lspconfig_status, lspconfig = pcall(require, "lspconfig")
-if not lspconfig_status then
-    return
-end
-
 local nvim_cmp_lsp_status, cmp_nvim_lsp = pcall(require, "cmp_nvim_lsp")
 if not nvim_cmp_lsp_status then
     return
@@ -232,32 +227,32 @@ end
 
 vim.g.inlay_hints_visible = true
 
-require("plugin.lsp.languages.html-lsp").setup(lspconfig, capabilities, on_attach)
+require("plugin.lsp.languages.html-lsp").setup(capabilities, on_attach)
 
-require("plugin.lsp.languages.js-lsp").setup(lspconfig, capabilities, on_attach)
+require("plugin.lsp.languages.js-lsp").setup(capabilities, on_attach)
 
-require("plugin.lsp.languages.css-lsp").setup(lspconfig, capabilities, on_attach)
+require("plugin.lsp.languages.css-lsp").setup(capabilities, on_attach)
 
-require("plugin.lsp.languages.lua-lsp").setup(lspconfig, capabilities, on_attach)
+require("plugin.lsp.languages.lua-lsp").setup(capabilities, on_attach)
 
-require("plugin.lsp.languages.python-lsp").setup(lspconfig, capabilities, on_attach)
+require("plugin.lsp.languages.python-lsp").setup(capabilities, on_attach)
 
-require("plugin.lsp.languages.cpp-lsp").setup(lspconfig, capabilities, on_attach)
+require("plugin.lsp.languages.cpp-lsp").setup(capabilities, on_attach)
 
-require("plugin.lsp.languages.cmake-lsp").setup(lspconfig, capabilities, on_attach)
+require("plugin.lsp.languages.cmake-lsp").setup(capabilities, on_attach)
 
-require("plugin.lsp.languages.bash-lsp").setup(lspconfig, capabilities, on_attach)
+require("plugin.lsp.languages.bash-lsp").setup(capabilities, on_attach)
 
-require("plugin.lsp.languages.rust-lsp").setup(lspconfig, capabilities, on_attach)
+require("plugin.lsp.languages.rust-lsp").setup(capabilities, on_attach)
 
-require("plugin.lsp.languages.java-lsp").setup(lspconfig, capabilities, on_attach)
+require("plugin.lsp.languages.java-lsp").setup(capabilities, on_attach)
 
-require("plugin.lsp.languages.kotlin-lsp").setup(lspconfig, capabilities, on_attach)
+require("plugin.lsp.languages.kotlin-lsp").setup(capabilities, on_attach)
 
-require("plugin.lsp.languages.docker-lsp").setup(lspconfig, capabilities, on_attach)
+require("plugin.lsp.languages.docker-lsp").setup(capabilities, on_attach)
 
 local bundler_status, lspconfig_bundler = pcall(require, "lspconfig-bundler")
 if bundler_status then
     lspconfig_bundler.setup()
-    require("plugin.lsp.languages.ruby-lsp").setup(lspconfig, capabilities, on_attach)
+    require("plugin.lsp.languages.ruby-lsp").setup(capabilities, on_attach)
 end

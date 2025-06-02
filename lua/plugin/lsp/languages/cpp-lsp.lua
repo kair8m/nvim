@@ -2,9 +2,9 @@ local M = {}
 
 local clangd_path = vim.fn.stdpath("data") .. "/mason/bin/clangd"
 
-M.setup = function(lspconfig, capabilities, on_attach)
+M.setup = function(capabilities, on_attach)
     capabilities.offsetEncoding = { "utf-16" }
-    lspconfig["clangd"].setup({
+    vim.lsp.config.clangd = {
         cmd = {
             -- see clangd --help-hidden
             clangd_path,
@@ -18,6 +18,7 @@ M.setup = function(lspconfig, capabilities, on_attach)
             "--header-insertion=iwyu",
             "--inlay-hints=true",
         },
+        filetypes = { "c", "cpp", "objc", "objcpp", "cuda", "proto" },
         capabilities = capabilities,
         init_options = {
             clangdFileStatus = true, -- Provides information about activity on clangd’s per-file worker thread
@@ -27,7 +28,8 @@ M.setup = function(lspconfig, capabilities, on_attach)
             inlayHints = true,
         },
         on_attach = on_attach,
-    })
+    }
+    vim.lsp.enable("clangd")
 end
 
 return M

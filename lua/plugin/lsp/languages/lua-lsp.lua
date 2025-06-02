@@ -1,7 +1,10 @@
 local M = {}
 
-M.setup = function(lspconfig, capabilities, on_attach)
-    lspconfig["lua_ls"].setup({
+M.setup = function(capabilities, on_attach)
+    vim.lsp.config.lua_ls = {
+        cmd = { "lua-language-server" },
+        filetypes = { "lua" },
+        root_markers = { ".luarc.json", ".git", vim.uv.cwd() },
         capabilities = capabilities,
         on_attach = on_attach,
         settings = {
@@ -20,7 +23,8 @@ M.setup = function(lspconfig, capabilities, on_attach)
                 },
             },
         },
-    })
+    }
+    vim.lsp.enable("lua_ls")
 end
 
 return M
