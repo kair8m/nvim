@@ -13,4 +13,7 @@ neotree.setup({
             end,
         },
     },
+    source_selector = {
+        winbar = true,
+    },
 })
