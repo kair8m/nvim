@@ -40,10 +40,18 @@ vim.keymap.set("n", "<leader>he", "<CMD>lua require('harpoon.ui').toggle_quick_m
 vim.keymap.set("n", "<leader>hm", "<CMD>Telescope harpoon marks<CR>", { desc = "Show marks" })
 vim.keymap.set("n", "<leader>nd", "<CMD>Noice dismiss<CR>", { desc = "Dismiss notifications" })
 vim.keymap.set("n", "<leader>o", "<CMD>Neotree reveal<CR>", { desc = "Open file in explorer" })
-vim.keymap.set("n", "<leader>p", "<CMD>lua require('telescope.builtin').find_files({find_command = { 'fd', '-t=f', '-H' }})<CR>", { desc = "Search files" })
+vim.keymap.set(
+    "n",
+    "<leader>p",
+    "<CMD>lua require('telescope.builtin').find_files({find_command = { 'fd', '-t=f', '-H' }})<CR>",
+    { desc = "Search files" }
+)
 vim.keymap.set("n", "<leader>r", "<CMD>Telescope frecency workspace=CWD<CR>", { desc = "Recent files" })
 vim.keymap.set("n", "<leader>s", "<CMD>lua require('treesj').toggle()<CR>", { desc = "Join the object under cursor" })
 vim.keymap.set("n", "<leader>t", "<CMD>BufferLineCloseOthers<CR>", { desc = "Close other buffers" })
+vim.keymap.set("n", "<leader>lf", function()
+    vim.lsp.buf.format({ async = false })
+end, { desc = "Format file with LSP" })
 
 vim.keymap.set("n", "<leader>ghP", "<CMD>Gitsigns preview_hunk<CR>", { desc = "Preview hunk" })
 vim.keymap.set("n", "<leader>ghn", "<CMD>Gitsigns next_hunk<CR>", { desc = "Next hunk" })
@@ -51,8 +59,18 @@ vim.keymap.set("n", "<leader>ghp", "<CMD>Gitsigns prev_hunk<CR>", { desc = "Prev
 vim.keymap.set("n", "<leader>ghr", "<CMD>Gitsigns reset_hunk<CR>", { desc = "Reset hunk" })
 vim.keymap.set("n", "<leader>ghs", "<CMD>Gitsigns select_hunk<CR>", { desc = "Select hunk" })
 
-vim.keymap.set("n", "<leader>gwc", "<CMD>lua require('telescope').extensions.git_worktree.create_git_worktree()<CR>", { desc = "Create worktree" })
-vim.keymap.set("n", "<leader>gws", "<CMD>lua require('telescope').extensions.git_worktree.git_worktrees()<CR>", { desc = "Switch worktrees" })
+vim.keymap.set(
+    "n",
+    "<leader>gwc",
+    "<CMD>lua require('telescope').extensions.git_worktree.create_git_worktree()<CR>",
+    { desc = "Create worktree" }
+)
+vim.keymap.set(
+    "n",
+    "<leader>gws",
+    "<CMD>lua require('telescope').extensions.git_worktree.git_worktrees()<CR>",
+    { desc = "Switch worktrees" }
+)
 
 vim.keymap.set({ "n", "o", "x" }, "w", "<CMD>lua require('spider').motion('w')<CR>", { desc = "Spider-w" })
 vim.keymap.set({ "n", "o", "x" }, "e", "<CMD>lua require('spider').motion('e')<CR>", { desc = "Spider-e" })
