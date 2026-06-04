@@ -3,13 +3,24 @@ return {
     config = function()
         local builtin = require("statuscol.builtin")
         require("statuscol").setup({
-            relfuncname = "statuscol.builtin",
+            setopt = true,
             segments = {
-                { text = { builtin.lnumfunc }, click = "v:lua.ScLa" },
                 {
-                    text = { " ", builtin.foldfunc, " " },
-                    condition = { builtin.not_empty, builtin.foldlevel },
-                    click = "v:lua.ScFa",
+                    sign = {
+                        namespace = { "gitsigns.*" },
+                        name = { "gitsigns.*" },
+                    },
+                },
+                {
+                    sign = {
+                        namespace = { ".*" },
+                        name = { ".*" },
+                        auto = true,
+                    },
+                },
+                {
+                    text = { builtin.lnumfunc },
+                    click = "v:lua.ScLa",
                 },
             },
         })

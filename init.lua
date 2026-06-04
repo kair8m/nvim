@@ -25,16 +25,9 @@ vim.opt.splitbelow = true
 vim.opt.list = true
 vim.opt.listchars = { tab = "» ", trail = "·", nbsp = "␣" }
 
-vim.api.nvim_create_autocmd("TextYankPost", {
-    desc = "Highlight when yanking (copying) text",
-    group = vim.api.nvim_create_augroup("highlight-yank", { clear = true }),
-    callback = function()
-        vim.highlight.on_yank()
-    end,
-})
-
 vim.g.editorconfig = true
-vim.g.editorconfig_root = true
+vim.cmd("filetype indent on")
+
 vim.cmd([[xnoremap p P]])
 vim.cmd([[
 if !has('gui_running') && &term =~ '^\%(screen\|tmux\)'
@@ -42,11 +35,21 @@ if !has('gui_running') && &term =~ '^\%(screen\|tmux\)'
   let &t_8b = "\027[48;2;%lu;%lu;%lum"
 endif
 ]])
+vim.api.nvim_create_autocmd("TextYankPost", {
+    group = vim.api.nvim_create_augroup("highlight_yank", {}),
+    desc = "Highlight yanked text",
+    pattern = "*",
+    callback = function()
+        vim.highlight.on_yank({ higroup = "IncSearch", timeout = 150 })
+    end,
+})
+
 vim.o.autoread = true
 vim.api.nvim_create_autocmd({ "BufEnter", "CursorHold", "CursorHoldI", "FocusGained" }, {
     command = "if mode() != 'c' | checktime | endif",
     pattern = { "*" },
 })
+vim.diagnostic.config({ virtual_text = true })
 
 require("core.keybindings")
 require("lazy-init")

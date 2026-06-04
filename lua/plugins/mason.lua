@@ -113,14 +113,14 @@ vim.lsp.config.rust_analyzer = {
     },
 }
 
-vim.lsp.enable({ "lua_ls", "htmlls", "ts_ls", "cssls", "tailwindcssls", "basedpyright", "clangd", "neocmake", "bashls", "jdtls", "kotlin_language_server", "dockerls", "docker_compose_language_service", "rust_analyzer" })
+vim.lsp.enable({ "lua_ls", "htmlls", "ts_ls", "cssls", "tailwindcssls", "basedpyright", "clangd", "neocmake", "bashls",
+    "jdtls", "kotlin_language_server", "dockerls", "docker_compose_language_service", "rust_analyzer" })
 
 vim.api.nvim_create_autocmd('LspAttach', {
     callback = function(args)
         local client = vim.lsp.get_client_by_id(args.data.client_id)
         if client then
             local opts = { noremap = true, silent = true, buffer = args.buf }
-            vim.keymap.set('n', 'K', '<cmd>Lspsaga hover_doc<cr>', opts)
             vim.keymap.set('n', 'gd', '<cmd>Lspsaga peek_definition<cr>', opts)
             vim.keymap.set('n', 'gD', '<cmd>lua vim.lsp.buf.declaration()<cr>', opts)
             vim.keymap.set('n', 'gi', '<cmd>lua vim.lsp.buf.implementation()<cr>', opts)
@@ -128,6 +128,7 @@ vim.api.nvim_create_autocmd('LspAttach', {
             vim.keymap.set('n', 'gr', '<cmd>Lspsaga finder tyd+ref+imp+def<cr>', opts)
             vim.keymap.set('n', 'rn', '<cmd>Lspsaga rename<cr>', opts)
             vim.keymap.set('n', '<C-a>', '<cmd>Lspsaga code_action<cr>', opts)
+            vim.keymap.set('n', '<leader>la', '<cmd>Lspsaga code_action<cr>', opts)
             vim.keymap.set('n', 'gl', '<cmd>Lspsaga show_line_diagnostics<cr>', opts)
             vim.keymap.set('n', '[d', '<cmd>Lspsaga diagnostic_jump_prev<cr>', opts)
             vim.keymap.set('n', ']d', '<cmd>Lspsaga diagnostic_jump_next<cr>', opts)
@@ -142,6 +143,6 @@ return {
     },
     dependencies = {
         { "williamboman/mason.nvim", opts = {} },
-        { "neovim/nvim-lspconfig", lazy = false },
+        { "neovim/nvim-lspconfig",   lazy = false },
     },
 }
