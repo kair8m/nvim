@@ -78,6 +78,13 @@ vim.keymap.set({ "n", "o", "x" }, "b", "<CMD>lua require('spider').motion('b')<C
 vim.keymap.set({ "n", "o", "x" }, "ge", "<CMD>lua require('spider').motion('ge')<CR>", { desc = "Spider-ge" })
 vim.keymap.set("n", "]g", "<CMD>Gitsigns next_hunk<CR>", { desc = "Git next hunk" })
 vim.keymap.set("n", "[g", "<CMD>Gitsigns prev_hunk<CR>", { desc = "Git prev hunk" })
+local opts = { buffer = 0, silent = true }
+
+-- Remap navigation keys to pass cleanly to the terminal
+vim.keymap.set("t", "<C-h>", "<Cmd>wincmd h<CR>", opts)
+vim.keymap.set("t", "<C-j>", "<Cmd>wincmd j<CR>", opts)
+vim.keymap.set("t", "<C-k>", "<Cmd>wincmd k<CR>", opts)
+vim.keymap.set("t", "<C-l>", "<Cmd>wincmd l<CR>", opts)
 
 local status, live_grep_args_shortcuts = pcall(require, "telescope-live-grep-args.shortcuts")
 if status then
