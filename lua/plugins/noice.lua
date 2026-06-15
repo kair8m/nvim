@@ -27,5 +27,6 @@ return {
                 backend = "cmp",
             },
         })
+        vim.keymap.set("n", "<leader>nd", "<CMD>Noice dismiss<CR>", { desc = "Dismiss notifications" })
     end,
 }

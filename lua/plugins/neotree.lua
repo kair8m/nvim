@@ -48,5 +48,7 @@ return {
                 },
             },
         })
+        vim.keymap.set("n", "<leader>o", "<CMD>Neotree reveal<CR>", { desc = "Open file in explorer" })
+        vim.keymap.set("n", "<leader>e", "<CMD>Neotree toggle<CR>", { desc = "File Explorer" })
     end,
 }

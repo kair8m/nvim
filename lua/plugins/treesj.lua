@@ -7,5 +7,8 @@ return {
             node_with_only_children = true,
             digets_repeat = true,
         })
+        vim.keymap.set("n", "<leader>s", function()
+            require("treesj").toggle()
+        end, { desc = "Join the object under cursor" })
     end,
 }

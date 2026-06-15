@@ -1,6 +1,9 @@
 return {
     "nvim-telescope/telescope.nvim",
-    dependencies = { "nvim-lua/plenary.nvim" },
+    dependencies = {
+        "nvim-lua/plenary.nvim",
+        "nvim-telescope/telescope-live-grep-args.nvim",
+    },
     config = function()
         local status_ok, telescope = pcall(require, "telescope")
         if not status_ok then
@@ -9,7 +12,6 @@ return {
 
         telescope.load_extension("fzf")
         telescope.load_extension("frecency")
-        telescope.load_extension("live_grep_args")
         telescope.load_extension("dap")
         telescope.load_extension("harpoon")
 
@@ -86,6 +88,42 @@ return {
                 },
             },
         })
+        telescope.load_extension("live_grep_args")
+        local status, live_grep_args_shortcuts = pcall(require, "telescope-live-grep-args.shortcuts")
+        if status then
+            vim.keymap.set(
+                "v",
+                "<C-f>",
+                live_grep_args_shortcuts.grep_visual_selection,
+                { desc = "Search visual selection" }
+            )
+            vim.keymap.set(
+                "n",
+                "<C-f>",
+                live_grep_args_shortcuts.grep_word_under_cursor,
+                { desc = "Search word under cursor" }
+            )
+        end
+        local builtin_status, telescope_builtin = pcall(require, "telescope.builtin")
+        if builtin_status then
+            vim.keymap.set("n", "<leader>p", function()
+                telescope_builtin.find_files({ find_command = { "fd", "-t=f", "-H" } })
+            end, { desc = "Search files" })
+            vim.keymap.set("n", "<leader>b", function()
+                telescope_builtin.buffers()
+            end, { desc = "Opened buffers" })
+        end
+        vim.keymap.set({ "n", "v" }, "<leader>f", function()
+            telescope.extensions.live_grep_args.live_grep_args()
+        end, { desc = "Search in files" })
+        vim.keymap.set({ "n", "v" }, "<leader>m", function()
+            telescope.extensions.harpoon.marks()
+        end, { desc = "Show marks" })
+        vim.keymap.set("n", "<leader>r", function()
+            telescope.extensions.frecency.frecency({
+                workspace = "CMD",
+            })
+        end, { desc = "Recent files" })
 
         vim.cmd("autocmd User TelescopePreviewerLoaded setlocal number")
     end,

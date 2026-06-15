@@ -39,5 +39,18 @@ return {
                 },
             },
         })
+        vim.keymap.set("n", "<A-,>", "<CMD>BufferLineCyclePrev<CR>", { silent = true })
+        vim.keymap.set("n", "<A-.>", "<CMD>BufferLineCycleNext<CR>", { silent = true })
+        vim.keymap.set("n", "<A-t>", "<CMD>BufferLineCloseOthers<CR>", { silent = true })
+        vim.keymap.set("n", ",", "<CMD>BufferLineCyclePrev<CR>", { silent = true })
+        vim.keymap.set("n", ".", "<CMD>BufferLineCycleNext<CR>", { silent = true })
+        vim.keymap.set("n", "L", "<CMD>BufferLineCycleNext<CR>", { silent = true })
+        vim.keymap.set("n", "H", "<CMD>BufferLineCyclePrev<CR>", { silent = true })
+        vim.keymap.set("n", "<C-n>", "<CMD>BufferLineMoveNext<CR>", { silent = true })
+        vim.keymap.set("n", "<C-m>", "<CMD>BufferLineMovePrev<CR>", { silent = true })
+        vim.keymap.set("n", "<C-t>", "<CMD>BufferLineCloseOthers<CR>", { silent = true })
+        vim.keymap.set("n", "<leader>,", "<CMD>BufferLineCyclePrev<CR>", { desc = "Cycle to next buffer" })
+        vim.keymap.set("n", "<leader>.", "<CMD>BufferLineCycleNext<CR>", { desc = "Cycle to previous buffer" })
+        vim.keymap.set("n", "<leader>t", "<CMD>BufferLineCloseOthers<CR>", { desc = "Close other buffers" })
     end,
 }

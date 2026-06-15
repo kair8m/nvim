@@ -1,6 +1,9 @@
 return {
     "nvimtools/none-ls.nvim",
-    dependencies = { "nvim-lua/plenary.nvim" },
+    dependencies = {
+        "nvim-lua/plenary.nvim",
+        "folke/which-key.nvim",
+    },
     config = function()
         local null_ls = require("null-ls")
 
@@ -25,7 +28,9 @@ return {
                         local tw = vim.bo[params.bufnr].textwidth
                         local style = string.format(
                             "{IndentWidth: %d, UseTab: %s, TabWidth: %d, ColumnLimit: %d}",
-                            sw, et and "Never" or "Always", ts,
+                            sw,
+                            et and "Never" or "Always",
+                            ts,
                             tw > 0 and tw or 80
                         )
                         return { "--style=" .. style }
@@ -39,7 +44,13 @@ return {
         })
 
         require("which-key").register({
-            { "<leader>lf", function() vim.lsp.buf.format() end, desc = "Format file using lsp" },
+            {
+                "<leader>lf",
+                function()
+                    vim.lsp.buf.format()
+                end,
+                desc = "Format file using lsp",
+            },
         })
     end,
 }
