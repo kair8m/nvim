@@ -312,6 +312,10 @@ return {
             experimental = { ghost_text = true },
             sources = {
                 {
+                    name = "lazydev",
+                    group_index = 0, -- set group index to 0 to skip loading LuaLS completions
+                },
+                {
                     name = "nvim_lsp_signature_help",
                     priority = 10,
                     group_index = 1,
