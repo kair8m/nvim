@@ -121,7 +121,7 @@ return {
         end, { desc = "Show marks" })
         vim.keymap.set("n", "<leader>r", function()
             telescope.extensions.frecency.frecency({
-                workspace = "CMD",
+                workspace = "CWD",
             })
         end, { desc = "Recent files" })
 
