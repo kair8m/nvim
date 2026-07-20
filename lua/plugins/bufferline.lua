@@ -12,7 +12,7 @@ return {
                 close_command = "bdelete! %d",
                 right_mouse_command = "bdelete! %d",
                 diagnostics = "nvim_lsp",
-                always_show_bufferline = false,
+                always_show_bufferline = true,
                 diagnostics_indicator = function(_, _, diag)
                     local icons = { error = "Error ", warn = "Warn " }
                     local error_count = diag.error or 0
