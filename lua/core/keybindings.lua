@@ -76,11 +76,3 @@ vim.keymap.set("n", "<leader>he", "<CMD>lua require('harpoon.ui').toggle_quick_m
 vim.keymap.set("n", "<leader>lf", function()
     vim.lsp.buf.format({ async = false })
 end, { desc = "Format file with LSP" })
-
-local opts = { buffer = 0, silent = true }
-
--- Remap navigation keys to pass cleanly to the terminal
-vim.keymap.set("t", "<C-h>", "<Cmd>wincmd h<CR>", opts)
-vim.keymap.set("t", "<C-j>", "<Cmd>wincmd j<CR>", opts)
-vim.keymap.set("t", "<C-k>", "<Cmd>wincmd k<CR>", opts)
-vim.keymap.set("t", "<C-l>", "<Cmd>wincmd l<CR>", opts)
